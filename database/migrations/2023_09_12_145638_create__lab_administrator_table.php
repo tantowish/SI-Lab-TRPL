@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('labAdministrator', function (Blueprint $table) {
             $table->id("labAdmin_id");
-            $table->string("name");
-            $table->string("username");
-            $table->string("password");
+            $table->string("name", 100);
+            $table->string("username", 50);
+            $table->string("password", 50);
         });
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_id');
             $table->foreign('schedule_id')->references('schedule_id')->on('lectureSchedule');
 
-            $table->enum('role', ['hadir', 'tidak hadir']);
+            $table->enum('status', ['hadir', 'tidak hadir']);
 
         });
     }

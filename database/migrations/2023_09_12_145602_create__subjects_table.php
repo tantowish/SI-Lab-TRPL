@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id("subject_id");
-            $table->string('subject_name');
+            $table->string('subject_name', 50);
 
             $table->unsignedBigInteger('lecturer');
             $table->foreign('lecturer')->references('user_id')->on('users');

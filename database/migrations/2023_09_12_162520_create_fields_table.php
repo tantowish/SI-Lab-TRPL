@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('fields', function (Blueprint $table) {
             $table->id("field_id");
-            $table->string("field_name");
+            $table->string("field_name", 50);
             $table->text("description");
         });
     }

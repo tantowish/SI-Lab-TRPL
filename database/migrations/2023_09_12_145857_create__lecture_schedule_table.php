@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lectureSchedule', function (Blueprint $table) {
+        Schema::create('Lecture_Schedule', function (Blueprint $table) {
             $table->id("schedule_id");
 
             $table->unsignedBigInteger('laboratorium_id');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime('end_time');
 
             $table->unsignedBigInteger('labAdmin_id');
-            $table->foreign('labAdmin_id')->references('labAdmin_id')->on('labAdministrator');
+            $table->foreign('labAdmin_id')->references('labAdmin_id')->on('Lab_Administrator');
 
             $table->unsignedBigInteger('subject_id');
             $table->foreign('subject_id')->references('subject_id')->on('subjects');

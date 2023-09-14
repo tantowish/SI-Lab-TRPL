@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendance', function (Blueprint $table) {
+        Schema::create('Attendance', function (Blueprint $table) {
             $table->id("attendance_id");
 
             $table->unsignedBigInteger('assistant_id');
-            $table->foreign('assistant_id')->references('assistant_id')->on('assistantLecturer');
+            $table->foreign('assistant_id')->references('assistant_id')->on('assistant_Lecturer');
 
             $table->unsignedBigInteger('schedule_id');
-            $table->foreign('schedule_id')->references('schedule_id')->on('lectureSchedule');
+            $table->foreign('schedule_id')->references('schedule_id')->on('lecture_Schedule');
 
             $table->enum('status', ['hadir', 'tidak hadir']);
 

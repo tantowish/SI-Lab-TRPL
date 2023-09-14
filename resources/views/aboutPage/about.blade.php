@@ -80,7 +80,7 @@
 
     <!-- Section About Start-->
     <div class="max-w-6xl mx-auto">
-        <div class="bg-slate-500 mx-8 p-8 -mt-20 sm:p-16 lg:px-32 lg:py-16 rounded-t-3xl">
+        <div class="bg-slate-500 mx-8 p-8 -mt-12 sm:p-16 lg:px-32 lg:py-16">
             <div class="text-white flex">
                 <div class="w-8/12">
                     <h1 class="text-xl font-semibold sm:text-2xl lg:mb-4">Apa itu Silaboe?</h1>
@@ -148,9 +148,9 @@
         </div>
     </div>
     <div class="w-full lg:w-1/2">
-        <div class="mt-8 text-center p-8 max-w-xl mx-auto lg:p-16">
+        <div class="mt-8 text-center p-8 max-w-xl mx-auto lg:p-14">
             <h1 class="text-xl mb-2 font-bold md:text-3xl md:mb-4 lg:text-4xl">We Have 8 Laboratorium</h1>
-            <p class="text-sm text-justify md:text-base lg:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas autem qui illum doloremque pariatur, alias nulla, nesciunt laborum quaerat, praesentium rerum dolore deserunt neque animi quos vitae unde eius veniam aperiam rem. Ipsa sint dolorem dicta veniam. Quasi, reiciendis perspiciatis.</p>
+            <p class="text-sm text-justify md:text-base lg:text-xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas autem qui illum doloremque pariatur, alias nulla, nesciunt laborum quaerat, praesentium rerum dolore deserunt neque animi quos vitae unde eius veniam aperiam rem. Ipsa sint dolorem dicta veniam. Quasi, reiciendis perspiciatis.</p>
         </div>
     </div>
     </div>

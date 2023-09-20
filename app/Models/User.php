@@ -7,10 +7,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Subject;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+
+    public function subject()
+    {
+        return $this->hasMany(Subject::class, 'subject_id');
+    }
+    public function projectHistory()
+    {
+        return $this->hasMany(ProjectHistory::class, 'history_id');
+    }
 
     /**
      * The attributes that are mass assignable.

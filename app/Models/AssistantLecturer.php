@@ -18,5 +18,4 @@ class AssistantLecturer extends Model
     {
         return $this->hasMany(Attendance::class, 'attendance_id');
     }
-
 }

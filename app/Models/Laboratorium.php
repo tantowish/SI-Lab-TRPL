@@ -18,4 +18,8 @@ class Laboratorium extends Model
         return $this->hasMany(SoftwareLab::class, 'software_lab_id');
     }
 
+    public function reserve(){
+        return $this->hasMany(Reserve::class, "reserve_id");
+    }
+
 }

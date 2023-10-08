@@ -13,4 +13,11 @@ class labAdministrator extends Model
     {
         return $this->hasMany(lectureSchedule::class,'schedule_id');
     }
+    public function announcement()
+    {
+        return $this->hasMany(Announcement::class, 'announcement_id');
+    }
+    public function labReserve(){
+        return $this->hasMany(LabReserve::class, "lab_reserve_id");
+    }
 }

@@ -15,4 +15,4 @@ class LabReserve extends Model
     public function labAdministrator(){
         return $this->belongsTo(labAdministrator::class, "lab_admin_id");
     }
-}
+}   

@@ -11,6 +11,6 @@ class Software extends Model
 
     public function softwareLab()
     {
-        return $this->hasMany(SoftwareLab::class, "software_lab_id");
+        return $this->hasMany(SoftwareLab::class, "software_id");
     }
 }

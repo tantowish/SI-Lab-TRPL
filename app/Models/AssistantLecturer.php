@@ -16,6 +16,6 @@ class AssistantLecturer extends Model
 
     public function attendence()
     {
-        return $this->hasMany(Attendance::class, 'attendance_id');
+        return $this->hasMany(Attendance::class, 'assistant_id');
     }
 }

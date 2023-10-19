@@ -10,9 +10,9 @@ class Reserve extends Model
     use HasFactory;
 
     public function laboratorium(){
-        return $this->belongsTo(Laboratorim::class, "laboratorium_id");
+        return $this->belongsTo(Laboratorium::class, "laboratorium_id");
     }
     public function labReserve(){
-        return $this->hasMany(LabReserve::class, "lab_reserve_id");
+        return $this->hasMany(LabReserve::class, "reserve_id");
     }
 }

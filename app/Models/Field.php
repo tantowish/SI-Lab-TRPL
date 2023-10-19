@@ -10,7 +10,7 @@ class Field extends Model
     use HasFactory;
     public function projectField()
     {
-        return $this->hasMany(ProjectField::class, 'project_field_id');
+        return $this->hasMany(ProjectField::class, 'field_id');
     }
 
 }

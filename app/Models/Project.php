@@ -11,12 +11,12 @@ class Project extends Model
 
     public function projectHistory()
     {
-        return $this->hasMany(ProjectHistory::class, 'history_id');
+        return $this->hasMany(ProjectHistory::class, 'project_id');
     }
 
     public function projectField()
     {
-        return $this->hasMany(ProjectField::class, 'project_field_id');
+        return $this->hasMany(ProjectField::class, 'project_id');
     }
 
     

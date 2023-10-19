@@ -11,15 +11,15 @@ class Laboratorium extends Model
 
     public function lectureSchedule()
     {
-        return $this->hasMany(LectureSchedule::class, 'schedule_id');
+        return $this->hasMany(LectureSchedule::class, 'laboratorium_id');
     }
     public function softwareLab()
     {
-        return $this->hasMany(SoftwareLab::class, 'software_lab_id');
+        return $this->hasMany(SoftwareLab::class, 'laboratorium_id');
     }
 
     public function reserve(){
-        return $this->hasMany(Reserve::class, "reserve_id");
+        return $this->hasMany(Reserve::class, "laboratorium_id");
     }
 
 }

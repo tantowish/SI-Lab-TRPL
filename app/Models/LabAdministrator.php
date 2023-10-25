@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class labAdministrator extends Model
+
+class labAdministrator extends Authenticatable
 {
     use HasFactory;
+
+    protected $fillable = [
+        "name","email","password","username"
+    ];
 
     public function lectureSchedule()
     {

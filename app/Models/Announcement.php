@@ -10,6 +10,6 @@ class Announcement extends Model
     use HasFactory;
     public function LabAdministrator()
     {
-        return $this->belongsTo(labAdministrator::class, 'lab_admin_id');
+        return $this->belongsTo(labAdministrator::class, 'lab_admin_id', 'lab_admin_id');
     }
 }

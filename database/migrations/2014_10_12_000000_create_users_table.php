@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id('user_id');
             $table->string("name", 50);
             $table->string("username", 50);
-            $table->string("password", 50);
+            $table->string("password");
             $table->enum('role', ['dosen', 'mahasiswa']);
             $table->string("email", 50);
+            $table->string("photo");
+            $table->timestamps();
         });
     }
 

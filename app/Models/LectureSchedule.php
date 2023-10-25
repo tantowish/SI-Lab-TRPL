@@ -11,16 +11,16 @@ class lectureSchedule extends Model
 
     public function laboratorium()
     {
-        return $this->belongsTo(Laboratorium::class, 'laboratorium_id');
+        return $this->belongsTo(Laboratorium::class, 'laboratorium_id', 'laboratorium_id');
     }
 
     public function labAdministrator()
     {
-        return $this->belongsTo(labAdministrator::class, 'lab_admin_id');
+        return $this->belongsTo(labAdministrator::class, 'lab_admin_id', 'lab_admin_id');
     }
     public function subject()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->belongsTo(Subject::class, 'subject_id', 'subject_id');
     }
 
     public function attendence()

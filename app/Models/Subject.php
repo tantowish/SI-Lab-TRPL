@@ -10,7 +10,7 @@ class Subject extends Model
     use HasFactory;
     public function lecturer()
     {
-        return $this->belongsTo(Subject::class, 'lecturer');
+        return $this->belongsTo(Subject::class, 'lecturer', 'user_id');
     }
 
     public function lectureSchedule()

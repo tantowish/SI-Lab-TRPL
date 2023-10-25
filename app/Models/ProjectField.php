@@ -10,10 +10,10 @@ class ProjectField extends Model
     use HasFactory;
     public function project()
     {
-        return $this->belongsTo(Project::class, 'project_id');
+        return $this->belongsTo(Project::class, 'project_id', 'project_id');
     }
     public function field()
     {
-        return $this->belongsTo(Field::class, 'field_id');
+        return $this->belongsTo(Field::class, 'field_id', 'field_id');
     }
 }

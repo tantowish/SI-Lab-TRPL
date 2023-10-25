@@ -10,10 +10,10 @@ class Attendance extends Model
     use HasFactory;
     public function schedule()
     {
-        return $this->belongsTo(lectureSchedule::class, 'schedule_id');
+        return $this->belongsTo(lectureSchedule::class, 'schedule_id', 'schedule_id');
     }
     public function assistantLecturer()
     {
-        return $this->belongsTo(AssistantLecturer::class, 'assistant_id');
+        return $this->belongsTo(AssistantLecturer::class, 'assistant_id', 'assistant_id');
     }
 }

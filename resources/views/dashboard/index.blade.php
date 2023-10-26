@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-<div class="flex flex-wrap gap-8">            
+<div class="flex flex-wrap gap-8 mx-auto p-8 lg:px-16">            
     <div class="w-full lg:w-1/6">
         <div class="relative overflow-x-auto border-2">   
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -72,8 +72,9 @@
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                       <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
                           <h3 class="font-medium mb-1">{{ $announcement->title }}</h3>
-                          <p class="text-gray-600 mb-2">By {{ $announcement->labAdministrator->name }}</p>
+                          <p class="text-gray-500 mb-2">By {{ $announcement->labAdministrator->name }}</p>
                           <p class="text-justify">{{ $announcement->description }}</p>
+                          <p class="mt-4 text-gray-500">{{ $announcement->created_at }}</p>
                       </th>
                     </tr>
                     @endforeach
@@ -85,11 +86,10 @@
                     </tr>
                     @endif
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
-                            <a href="">Lihat Semua</a>
+                        <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
+                            <a href="{{ route('pengumuman.index') }}">Selengkapnya >></a>
                         </th>
                     </tr>
-
                 </tbody>
             </table>
 

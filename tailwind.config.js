@@ -9,7 +9,9 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'main': '#64C5D3'
+      'main': '#64C5D3',
+      'redpallete':'#E46F5B' ,
+      'orangepallete':'#E46F5B'
     },
   },
   plugins: [

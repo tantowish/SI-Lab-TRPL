@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AuthenticationController;
 
 /*
@@ -22,7 +23,20 @@ Route::get('/about', function () {
 
 Route::get('/login', [AuthenticationController::class,'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthenticationController::class,'auth']);
-Route::post('/logout', [AuthenticationController::class,'logout'])->middleware('userAuth')->name('logout');
 
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware('userAuth')->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
 
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
+    // Pengumuman
+    Route::get('/dashboard/pengumuman/show', [AnnouncementController::class,'show'])->name('pengumuman');
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/dashboard/pengumuman/create', [AnnouncementController::class,'create'])->name('pengumuman.create');
+        Route::post('/dashboard/pengumuman/create', [AnnouncementController::class,'store'])->name('pengumuman.store');
+    });
+
+    Route::get('/dashboard/pengumuman', [AnnouncementController::class,'index'])->middleware('admin')->name('pengumuman.index');
+
+});

@@ -10,7 +10,7 @@
 <body>
     @include('dashboard.components.dashboard')
 
-    <div class="p-4 mt-16 sm:ml-64">
+    <div class="mt-16 sm:ml-64 bg-[#F5F5F5] h-screen">
         @yield('content')
     </div>
 </body>

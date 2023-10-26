@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class userAuth
+class AuthAdministrator
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,11 @@ class userAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session('data')){
+        if(session("data")['table']=='lab_administrators'){
             return $next($request);
         }
-        return redirect(route('login'));
+        else{
+            return redirect()->route('dashboard');
+        }
     }
 }

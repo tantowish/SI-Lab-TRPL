@@ -27,7 +27,7 @@ class AuthenticationController extends Controller
             "email"=>$request['email'],
             "password"=>$request['password']
         ];
-        if (Auth::attempt( $credentials )) {
+        if (Auth::attempt($credentials)) {
             session(['data' => Auth::user()]);
             return redirect()->intended('dashboard');         
         } 

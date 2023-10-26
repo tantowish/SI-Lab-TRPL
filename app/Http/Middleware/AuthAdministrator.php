@@ -15,7 +15,7 @@ class AuthAdministrator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session("data")['table']=='lab_administrators'){
+        if(session('data')->getTable()=='lab_administrators'){
             return $next($request);
         }
         else{

@@ -11,6 +11,9 @@ class labAdministrator extends Authenticatable
 {
     use HasFactory;
 
+    protected $primaryKey = 'lab_admin_id';
+
+
     protected $fillable = [
         "name","email","password","username"
     ];

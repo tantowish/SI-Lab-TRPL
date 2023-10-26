@@ -13,5 +13,6 @@
         </div>
         @endforeach
     </div>
+    {{ $announcements->links() }}
 </div>
 @endsection

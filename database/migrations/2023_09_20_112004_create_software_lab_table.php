@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('software_lab', function (Blueprint $table) {
             $table->id("software_lab_id");
 
-            $table->unsignedBigInteger('laboratorium_id');
+            $table->string('laboratorium_id', 50);
             $table->foreign('laboratorium_id')->references('laboratorium_id')->on('laboratorium');
 
             $table->unsignedBigInteger('software_id');

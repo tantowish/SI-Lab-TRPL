@@ -17,7 +17,8 @@ class SoftwareFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-        ];
+            "software_name"=> $this->faker->text(mt_rand(5,10)),
+            "description"=>$this->faker->sentence(mt_rand(5,10)),
+        ];  
     }
 }

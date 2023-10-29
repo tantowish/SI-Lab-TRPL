@@ -17,7 +17,8 @@ class SoftwareLabFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "software_id"=>$this->faker->numberBetween(1,20),
+            "laboratorium_id"=> "HU10".$this->faker->numberBetween(1,5),
         ];
     }
 }

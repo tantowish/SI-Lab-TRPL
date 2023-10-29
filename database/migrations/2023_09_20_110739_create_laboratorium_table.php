@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('laboratorium', function (Blueprint $table) {
-            $table->id("laboratorium_id");
+            $table->string("laboratorium_id", 50)->primary();
             $table->string("laboratorium_name", 50);
             $table->integer("capacity");
+            $table->integer("watt_power");
+            $table->integer("length");
+            $table->integer("wide");
         });
     }
 

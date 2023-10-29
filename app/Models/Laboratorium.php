@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Laboratorium extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'laboratorium_id';
+    protected $table = 'laboratorium';
+    public $timestamps = false;
+
+
 
     public function lectureSchedule()
     {
@@ -18,8 +23,8 @@ class Laboratorium extends Model
         return $this->hasMany(SoftwareLab::class, 'laboratorium_id');
     }
 
-    public function reserve(){
-        return $this->hasMany(Reserve::class, "laboratorium_id");
+    public function inventory(){
+        return $this->hasMany(Inventory::class, "laboratorium_id");
     }
 
 }

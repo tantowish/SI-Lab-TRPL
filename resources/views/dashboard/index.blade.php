@@ -78,6 +78,11 @@
                       </th>
                     </tr>
                     @endforeach
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
+                            <a href="{{ route('pengumuman') }}">Selengkapnya >></a>
+                        </th>
+                    </tr>
                     @else
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
@@ -85,11 +90,6 @@
                         </th>
                     </tr>
                     @endif
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
-                            <a href="{{ route('pengumuman') }}">Selengkapnya >></a>
-                        </th>
-                    </tr>
                 </tbody>
             </table>
 

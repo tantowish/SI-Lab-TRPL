@@ -14,13 +14,31 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $users = [
-            "name"=> "Tantowi Shah Hanif",
-            "username"=>"tantowishahhanif",
-            "email"=> "tantowishahhanif@mail.ugm.ac.id",
-            "password"=> bcrypt("123"),
-            "role"=> "mahasiswa",
+            [
+                "name"=> "Tantowi Shah Hanif",
+                "username"=>"tantowishahhanif",
+                "email"=> "tantowishahhanif@mail.ugm.ac.id",
+                "password"=> bcrypt("123"),
+                "role"=> "mahasiswa",
+            ],
+            [
+                "name"=> "Fabih Nugraha",
+                "username"=>"fabihnugraha",
+                "email"=> "fabihnugraha@mail.ugm.ac.id",
+                "password"=> bcrypt("123"),
+                "role"=> "dosen",
+            ],
+            [
+                "name"=> "Said Syafiq",
+                "username"=>"said2004",
+                "email"=> "said2004@mail.ugm.ac.id",
+                "password"=> bcrypt("123"),
+                "role"=> "dosen",
+            ],
         ];
 
-        User::create($users);
+        foreach( $users as $key => $value ) {
+            User::create($value);
+        }
     }
 }

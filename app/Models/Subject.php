@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'subject_id';
+    public $timestamps = false;
+
+
+
     public function lecturer()
     {
         return $this->belongsTo(Subject::class, 'lecturer', 'user_id');

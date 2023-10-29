@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectField extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'project_field_id';
+
     public function project()
     {
         return $this->belongsTo(Project::class, 'project_id', 'project_id');

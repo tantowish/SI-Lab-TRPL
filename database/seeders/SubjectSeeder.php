@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Subject;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SubjectSeeder extends Seeder
 {
@@ -12,6 +13,23 @@ class SubjectSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $subjects = [
+            [
+                "subject_name"=> "Praktikum Pemrograman Web",
+                "lecturer"=> 2,
+            ],
+            [
+                "subject_name"=> "Praktikum Pemrograman Komputer",
+                "lecturer"=> 2,
+            ],
+            [
+                "subject_name"=> "Praktikum Pemrograman Perangkat Bergerak",
+                "lecturer"=> 3,
+            ],
+        ];
+
+        foreach( $subjects as $key => $value ) {
+            Subject::create($value);
+        }
     }
 }

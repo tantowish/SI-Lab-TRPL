@@ -14,12 +14,23 @@ class LabAdministratorSeeder extends Seeder
     public function run(): void
     {
         $users = [
+            [
             "name"=> "Surya Alaudin",
             "username"=>"suryaalaudin",
             "email"=> "suryaalaudin@mail.ugm.ac.id",
-            "password"=> bcrypt("password"),
+            "password"=> bcrypt("admin"),
+            ],
+            [
+            "name"=> "Vicky Prasetyo",
+            "username"=>"suryaalaudin",
+            "email"=> "suryaalaudin@mail.ugm.ac.id",
+            "password"=> bcrypt("admin"),
+            ],
         ];
 
-        labAdministrator::create($users);
+        foreach( $users as $key => $value ) {
+            labAdministrator::create($value);
+        }
+
     }
 }

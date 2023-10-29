@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Announcement;
+use App\Models\Inventory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class AnnouncementSeeder extends Seeder
+class InventorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Announcement::factory()->count(10)->create();
+        Inventory::factory()->count(150)->create();
     }
 }

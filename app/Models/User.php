@@ -12,6 +12,8 @@ use App\Models\Subject;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $primaryKey = 'user_id';
+
 
 
     public function subject()

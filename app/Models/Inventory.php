@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reserve extends Model
+class Inventory extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'reserve_id';
+    protected $primaryKey = 'inventory_id';
+    public $timestamps = false;
 
 
-    public function laboratorium(){
+    public function laboratorim(){
         return $this->belongsTo(Laboratorium::class, "laboratorium_id");
-    }
-    public function labReserve(){
-        return $this->hasMany(LabReserve::class, "reserve_id");
     }
 }

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectHistory extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'history_id';
+
 
     public function project()
     {

@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reserves', function (Blueprint $table) {
-            $table->id("reserve_id");
-            
+        Schema::create('inventories', function (Blueprint $table) {
+            $table->id("inventory_id");
+
             $table->string('laboratorium_id', 50);
             $table->foreign('laboratorium_id')->references('laboratorium_id')->on('laboratorium');
 
-            $table->string("file",100);
+            $table->string("item_name",100);
+            $table->string("no_item",100);
+            $table->enum("condition", ["good","bad"]);
+            $table->string("information",100);
+
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reserves');
+        Schema::dropIfExists('inventories');
     }
 };

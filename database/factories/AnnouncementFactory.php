@@ -17,7 +17,9 @@ class AnnouncementFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "lab_admin_id"=>$this->faker->numberBetween(1,2),
+            "description"=>$this->faker->paragraph(mt_rand(1,2)),
+            "title"=>$this->faker->sentence(mt_rand(2,5)),
         ];
     }
 }

@@ -21,5 +21,11 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserSeeder::class);
         $this->call(LabAdministratorSeeder::class);
+        $this->call(LaboratoriumSeeder::class);
+        $this->call(SubjectSeeder::class);
+        $this->call(InventorySeeder::class);
+        $this->call(SoftwareSeeder::class);
+        $this->call(SoftwareLabSeeder::class);
+        $this->call(AnnouncementSeeder::class);
     }
 }

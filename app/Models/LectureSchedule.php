@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class lectureSchedule extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'schedule_id';
+
 
     public function laboratorium()
     {

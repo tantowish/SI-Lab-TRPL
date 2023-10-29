@@ -7,14 +7,14 @@
 ::-webkit-scrollbar {
     height:5px;
     width:5px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: gray; 
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}

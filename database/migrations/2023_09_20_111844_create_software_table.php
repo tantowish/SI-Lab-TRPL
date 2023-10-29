@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id("software_id");
             $table->string("software_name", 50);
             $table->text("description");
+            $table->string("photo",100)->nullable();
         });
     }
 

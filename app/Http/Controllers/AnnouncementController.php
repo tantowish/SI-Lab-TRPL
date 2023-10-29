@@ -9,20 +9,20 @@ use App\Models\labAdministrator;
 class AnnouncementController extends Controller
 {
     public function show(){
-        $announcements = Announcement::orderBy('created_at', 'desc')->paginate(5);
-        return view("dashboard.announcement.show", [
-            "announcements"=> $announcements,
-            "header"=>"Pengumuman"
-        ]);
+    $announcements = Announcement::latest()->paginate(5);
+        $header = "Pengumuman";
+        // return view("dashboard.announcement.show", [
+        //     "announcements"=> $announcements,
+        //     "header"=>"Pengumuman"
+        // ]);
+        return view("dashboard.announcement.show",compact("announcements","header"));
     }
 
     public function index(){
         $labAdminId = session('data')['lab_admin_id'];
         $labAdministrator = labAdministrator::with('announcement')->find($labAdminId);
         
-        $announcements = $labAdministrator->announcement()
-            ->orderBy('created_at', 'desc') // Order by created_at in descending order
-            ->paginate(5); // Apply pagination after ordering
+        $announcements = $labAdministrator->announcement()->latest()->paginate(5); 
         
         return view("dashboard.announcement.index", [
             "header" => "Pengumuman", 

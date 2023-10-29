@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('lecture_schedules', function (Blueprint $table) {
             $table->id("schedule_id");
 
-            $table->unsignedBigInteger('laboratorium_id');
+            $table->string('laboratorium_id', 50);
             $table->foreign('laboratorium_id')->references('laboratorium_id')->on('laboratorium');
+
 
             $table->dateTime('start_time');
             $table->dateTime('end_time');

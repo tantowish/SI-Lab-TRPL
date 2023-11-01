@@ -13,9 +13,9 @@ class Subject extends Model
 
 
 
-    public function lecturer()
+    public function user()
     {
-        return $this->belongsTo(Subject::class, 'lecturer', 'user_id');
+        return $this->belongsTo(User::class, 'lecturer', 'user_id');
     }
 
     public function lectureSchedule()

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard/pengumuman/create', [AnnouncementController::class,'create'])->name('pengumuman.create');
         Route::post('/dashboard/pengumuman/create', [AnnouncementController::class,'store'])->name('pengumuman.store');
+        // Route::resource('dashboard/schedule', ScheduleController::class);
     });
+
+    Route::get('/dashboard/schedule', [ScheduleController::class,'index'])->name('schedule.index');
+    Route::get('/dashboard/schedule/{id}', [ScheduleController::class,'show'])->name('schedule.show');
 
     Route::get('/dashboard/pengumuman', [AnnouncementController::class,'index'])->middleware('admin')->name('pengumuman.index');
 

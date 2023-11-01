@@ -30,29 +30,34 @@
                 <thead class="text-xs text-gray-700 uppercase bg-main dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Jadwal 14 Agustus 2023
+                            {{ date('d F Y') }}
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($schedules->count()>0)
+                    @foreach ($schedules as $schedule)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                            <h3>Laboratorium Multimedia</h3>
-                            <p>07.15 - 11.55 WIB  |  Praktikum Pemrograman Web  |  Agus Riyadi</p>
+                            <h3>{{ $schedule->laboratorium->laboratorium_name }}</h3>
+                            <p>{{  date('H:i', strtotime($schedule->start_time)) . " - " . date('H:i', strtotime($schedule->end_time)) }}  |  {{ $schedule->subject->subject_name }} |  {{ $schedule->subject->user->name }}
+                            </p>
                         </th>
                     </tr>
+                    @endforeach
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                            <h3>Laboratorium Multimedia</h3>
-                            <p>07.15 - 11.55 WIB  |  Praktikum Pemrograman Web  |  Agus Riyadi</p>
+                        <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
+                            <a href="{{ route('schedule.index') }}">Selengkapnya >></a>
                         </th>
                     </tr>
+                    @else
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                            <h3>Laboratorium Multimedia</h3>
-                            <p>07.15 - 11.55 WIB  |  Praktikum Pemrograman Web  |  Agus Riyadi</p>
+                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
+                            <h3 class="font-medium mb-1 text-gray-500">Belum ada pengumuman</h3>
                         </th>
                     </tr>
+                    @endif
+                    
                 </tbody>
             </table>
         </div>

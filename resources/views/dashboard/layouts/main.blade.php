@@ -10,8 +10,11 @@
 <body>
     @include('dashboard.components.dashboard')
 
-    <div class="mt-16 sm:ml-64 bg-[#F5F5F5] h-screen overflow-y-auto">
-        @yield('content')
+    <div class="h-screen bg-[#F5F5F5] overflow-y-auto">
+        <div class="mt-16 sm:ml-64 ">
+            @yield('content')
+        </div>
     </div>
+
 </body>
 </html>

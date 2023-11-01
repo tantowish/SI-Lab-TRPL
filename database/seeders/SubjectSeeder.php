@@ -26,6 +26,10 @@ class SubjectSeeder extends Seeder
                 "subject_name"=> "Praktikum Pemrograman Perangkat Bergerak",
                 "lecturer"=> 3,
             ],
+            [
+                "subject_name"=> "Praktikum Desain Perangkat Lunak",
+                "lecturer"=> 5,
+            ],
         ];
 
         foreach( $subjects as $key => $value ) {

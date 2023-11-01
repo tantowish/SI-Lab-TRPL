@@ -9,6 +9,8 @@ class lectureSchedule extends Model
 {
     use HasFactory;
     protected $primaryKey = 'schedule_id';
+    public $timestamps = false;
+
 
 
     public function laboratorium()

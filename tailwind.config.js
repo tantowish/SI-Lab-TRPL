@@ -11,7 +11,8 @@ export default {
     colors: {
       'main': '#64C5D3',
       'redpallete':'#E46F5B' ,
-      'orangepallete':'#E46F5B'
+      'orangepallete':'#E46F5B',
+      'borderpallete':'$DEE4ED'
     },
   },
   plugins: [

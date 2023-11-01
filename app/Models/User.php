@@ -18,7 +18,7 @@ class User extends Authenticatable
 
     public function subject()
     {
-        return $this->hasMany(Subject::class, 'lecturer');
+        return $this->hasMany(Subject::class, 'lecturer', 'user_id');
     }
     public function projectHistory()
     {

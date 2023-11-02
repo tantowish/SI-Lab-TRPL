@@ -4,7 +4,7 @@
 @include('dashboard.components.header')
 <div class="p-8 md:px-16">
     <div class="relative overflow-x-auto rounded-sm mb-8">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border-separate">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3 border-l border-t">
@@ -75,9 +75,18 @@
         </table>
     </div>
 
-    <a class="my-4 w-fit border bg-redpallete text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.index') }}">
-        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Kembali
-    </a>
+    <div class="flex flex-wrap gap-4">
+        <a class="w-fit border bg-redpallete text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.index') }}">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Kembali
+        </a>
+
+        @if (session('data')->getTable()=='lab_administrators')
+        <a class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.edit', $schedule->schedule_id) }}">
+            Edit
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+        </a>
+        @endif
+    </div>
 </div>
 @endsection

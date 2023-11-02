@@ -37,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/pengumuman/create', [AnnouncementController::class,'create'])->name('pengumuman.create');
         Route::post('/dashboard/pengumuman/create', [AnnouncementController::class,'store'])->name('pengumuman.store');
         // Route::resource('dashboard/schedule', ScheduleController::class);
+        Route::get('/dashboard/schedule/{id}/edit', [ScheduleController::class,'edit'])->name('schedule.edit');
+        Route::put('/dashboard/schedule/', [ScheduleController::class,'update'])->name('schedule.update');
+        Route::get('/dashboard/schedule/create', [ScheduleController::class,'create'])->name('schedule.create');
+        Route::post('/dashboard/schedule/', [ScheduleController::class,'store'])->name('schedule.store');
     });
 
     Route::get('/dashboard/schedule', [ScheduleController::class,'index'])->name('schedule.index');

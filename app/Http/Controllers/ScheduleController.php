@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Subject;
+use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use App\Models\lectureSchedule;
 
@@ -32,7 +34,13 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::all();
+        $laboratorium = Laboratorium::all();
+        return view('dashboard.schedule.create',[
+            'header'=>"Tambah Jadwal",
+            'subjects'=> $subjects,
+            'laboratorium'=> $laboratorium
+        ]);
     }
 
     /**
@@ -58,15 +66,23 @@ class ScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LectureSchedule $lectureSchedule)
+    public function edit($id)
     {
-        //
+        $schedule = LectureSchedule::findOrFail($id);
+        $subjects = Subject::all();
+        $laboratorium = Laboratorium::all();
+        return view('dashboard.schedule.edit', [
+            "schedule"=> $schedule,
+            "header"=>"Edit Jadwal",
+            'subjects'=> $subjects,
+            'laboratorium'=> $laboratorium
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LectureSchedule $lectureSchedule)
+    public function update(Request $request, $id)
     {
         //
     }

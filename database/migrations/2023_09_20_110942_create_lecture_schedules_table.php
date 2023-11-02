@@ -24,8 +24,10 @@ return new class extends Migration
             $table->unsignedBigInteger('lab_admin_id');
             $table->foreign('lab_admin_id')->references('lab_admin_id')->on('lab_administrators');
 
-            $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('subject_id')->nullable();
             $table->foreign('subject_id')->references('subject_id')->on('subjects');
+
+            $table->text("information");
         });
     }
 

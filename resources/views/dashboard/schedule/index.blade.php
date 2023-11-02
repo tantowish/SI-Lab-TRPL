@@ -108,7 +108,7 @@
                     </td>
                     <td class="px-6 py-4 border-l border-r">
                         <a href="{{ route('schedule.show', $schedule->schedule_id) }}">
-                            <button type="button" href="" class="bg-blue-200 px-1.5">
+                            <button type="button" href="" class="bg-blue-200 px-1.5 rounded">
                                 <svg class="text-white" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>                            
                             </button>
                         </a>
@@ -119,10 +119,19 @@
         </table>
     </div>
 
-    <a class="mt-8 w-fit border bg-redpallete text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('dashboard') }}">
-        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Kembali
-    </a>
+
+    <div class="flex flex-wrap justify-between my-8">
+        <a class=" w-fit border bg-redpallete text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('dashboard') }}">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Kembali
+        </a>
+        @if (session('data')->getTable()=='lab_administrators')
+        <a class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.create') }}">
+            Tambah
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </a>
+        @endif
+    </div>
     
    </div>
 @endsection

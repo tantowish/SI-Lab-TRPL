@@ -18,3 +18,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555555; 
 }
+
+.active{
+  @apply bg-[#F5F5F5]
+}

@@ -15,17 +15,22 @@ class ScheduleController extends Controller
      */
     public function index()
     {
+        // $now = Carbon::now();
+        // $threeDaysAgo = $now->copy()->subDays(3);
+        // $threeDaysFromNow = $now->copy()->addDays(3);
+
+        // $schedules = LectureSchedule::whereBetween('start_time',$now)
+        //     ->get();
+
         $now = Carbon::now();
-        $threeDaysAgo = $now->copy()->subDays(3);
-        $threeDaysFromNow = $now->copy()->addDays(3);
+        $startDate = $now->toDateString(); // Extract the date part of $now
 
-        $schedules = LectureSchedule::whereBetween('start_time', [$threeDaysAgo->toDateString(), $threeDaysFromNow->toDateString()])
-            ->get();
-
+        $schedules = LectureSchedule::whereDate('start_time', $startDate)->get();
 
         return view("dashboard.schedule.index", [
             "schedules"=> $schedules,
             "header"=>"jadwal, ". Carbon::now()->isoFormat('D MMMM Y'),
+            'date'=>$now
         ]);
     }
 
@@ -94,4 +99,18 @@ class ScheduleController extends Controller
     {
         //
     }
+
+    public function dateShow($date){
+        $now = Carbon::parse($date); // Parse the string into a Carbon date object
+        $startDate = $now->toDateString(); // Extract the date part of $now
+    
+        $schedules = LectureSchedule::whereDate('start_time', $startDate)->get();
+    
+        return view("dashboard.schedule.index", [
+            "schedules" => $schedules,
+            "header" => "jadwal, " . $now->isoFormat('D MMMM Y'),
+            'date' => $now
+        ]);
+    }
+    
 }

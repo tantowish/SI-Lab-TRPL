@@ -42,9 +42,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/schedule/create', [ScheduleController::class,'create'])->name('schedule.create');
         Route::post('/dashboard/schedule/', [ScheduleController::class,'store'])->name('schedule.store');
     });
-
+    
     Route::get('/dashboard/schedule', [ScheduleController::class,'index'])->name('schedule.index');
-    Route::get('/dashboard/schedule/{id}', [ScheduleController::class,'show'])->name('schedule.show');
+    Route::get('/dashboard/schedule/{date}', [ScheduleController::class,'dateShow'])->name('schedule.date.show');
+    Route::get('/dashboard/schedule/{id}/detail', [ScheduleController::class,'show'])->name('schedule.show');
 
     Route::get('/dashboard/pengumuman', [AnnouncementController::class,'index'])->middleware('admin')->name('pengumuman.index');
 

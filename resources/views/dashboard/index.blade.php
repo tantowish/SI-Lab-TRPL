@@ -45,18 +45,18 @@
                         </th>
                     </tr>
                     @endforeach
+                    @else
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
+                            <h3 class="font-medium mb-1 text-gray-500">Tidak ada jadwal hari ini</h3>
+                        </th>
+                    </tr>
+                    @endif
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
                             <a href="{{ route('schedule.index') }}">Selengkapnya >></a>
                         </th>
                     </tr>
-                    @else
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-normal text-gray-900 dark:text-white">
-                            <h3 class="font-medium mb-1 text-gray-500">Belum ada pengumuman</h3>
-                        </th>
-                    </tr>
-                    @endif
                     
                 </tbody>
             </table>

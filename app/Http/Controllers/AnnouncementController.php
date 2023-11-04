@@ -17,6 +17,7 @@ class AnnouncementController extends Controller
         // ]);
         return view("dashboard.announcement.show",compact("announcements","header"));
     }
+    
 
     public function index(){
         $labAdminId = session('data')['lab_admin_id'];
@@ -26,7 +27,8 @@ class AnnouncementController extends Controller
         
         return view("dashboard.announcement.index", [
             "header" => "Pengumuman", 
-            "announcements" => $announcements
+            "announcements" => $announcements,
+            "no"=>1
         ]);
     }
     public function create(){

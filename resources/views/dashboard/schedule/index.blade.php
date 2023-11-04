@@ -2,80 +2,89 @@
 
 @section('content')
 @include('dashboard.components.header')
+
+@php
+    $tgl1 = \Carbon\Carbon::parse($date)->subDays(3)->format('Y-m-d');
+    $tgl2 = \Carbon\Carbon::parse($date)->subDays(2)->format('Y-m-d');
+    $tgl3 = \Carbon\Carbon::parse($date)->subDays(1)->format('Y-m-d');
+    $tgl4 = \Carbon\Carbon::parse($date)->subDays(0)->format('Y-m-d');
+    $tgl5 = \Carbon\Carbon::parse($date)->addDays(1)->format('Y-m-d');
+    $tgl6 = \Carbon\Carbon::parse($date)->addDays(2)->format('Y-m-d');
+    $tgl7 = \Carbon\Carbon::parse($date)->addDays(3)->format('Y-m-d');
+@endphp
 <div id="calendar" class="bg-gray-100 pt-8 px-8 md:px-0">
     <!-- { /*variation dark set*/ } -->
      <div  class='flex bg-white justify-start md:justify-center rounded-sm overflow-x-scroll mx-auto py-2 md:py-4 px-2 md:mx-16 mb-10'>
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-2 md:mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
+        <a href="{{ route('schedule.date.show', $tgl1) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-2 md:mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
             <div class='flex items-center px-4 py-4'>
                 <div class='text-center'>
-                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::now()->subDays(3)->isoFormat('dddd') }} </p>
-                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime('-3 days')) }} </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::parse($date)->subDays(3)->isoFormat('dddd') }} </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime($date . ' -3 days')) }} </p>
                 </div>
             </div>
-        </div>
-       
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
-                <div class='flex items-center px-4 py-4'>
-                    <div class='text-center'>
-                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::now()->subDays(2)->isoFormat('dddd') }} </p>
-                        <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime('-2 days')) }} </p>
-                    </div>
+        </a>
+        <a  href="{{ route('schedule.date.show', $tgl2) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
+            <div class='flex items-center px-4 py-4'>
+                <div class='text-center'>
+                <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::parse($date)->subDays(2)->isoFormat('dddd') }} </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime($date . ' -2 days')) }} </p>
                 </div>
             </div>
+        </a>
+        <a  href="{{ route('schedule.date.show', $tgl3) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
+            <div class='flex items-center px-4 py-4'>
+                <div class='text-center'>
+                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all font-normal group-hover:font-semibold	duration-300'> {{ \Carbon\Carbon::parse($date)->subDays(1)->isoFormat('dddd') }}  </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'>{{ date('d', strtotime($date . ' -1 days')) }}</p>
+                </div>
+            </div>
+        </a>
         
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
-                <div class='flex items-center px-4 py-4'>
-                    <div class='text-center'>
-                        <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all font-normal group-hover:font-semibold	duration-300'> {{ \Carbon\Carbon::now()->subDays(1)->isoFormat('dddd') }}  </p>
-                        <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'>{{ date('d', strtotime('-1 days')) }}</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class='flex group bg-main shadow-lg dark-shadow rounded-full mx-4 cursor-pointer justify-center relative w-12 md:w-16'>
+        <div class='flex group bg-main shadow-lg dark-shadow rounded-full mx-4 cursor-pointer justify-center relative w-12 md:w-16'>
             <span class="flex h-2 w-2 absolute bottom-1.5 ">
                 <span class="animate-ping absolute group-hover:opacity-75 opacity-0 inline-flex h-full w-full rounded-full bg-white "></span>
                 <span class="relative inline-flex rounded-full w-3 bg-teal-100"></span>
             </span>
-                <div class='flex items-center px-4 my-2 py-4'>
-                    <div class='text-center'>
-                        <p class='text-gray-100 text-xs md:text-sm font-semibold'> {{ \Carbon\Carbon::now()->isoFormat('dddd') }} </p>
-                        <p class='text-gray-100  mt-3 font-bold'> {{ date('d', strtotime('0 days')) }} </p>
-                    </div>
-                </div>
-            </div>
-        
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300 cursor-pointer justify-centerw-12 md:w-16'>
-                <div class='flex items-center px-4 py-4'>
-                    <div class='text-center'>
-                        <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::now()->addDays(1)->isoFormat('dddd') }}
-                        </p>
-                        <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime('+1 days')) }} </p>
-                    </div>
-                </div>
-            </div>
-        
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
-                <div class='flex items-center px-4 py-4'>
-                    <div class='text-center'>
-                        <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::now()->addDays(2)->isoFormat('dddd') }} </p>
-                        <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime('+2 days')) }} </p>
-                    </div>
-                </div>
-            </div>
-            
-        <div class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-centerw-12 md:w-16'>
-                <div class='flex items-center px-4 py-4'>
-                    <div class='text-center'>
-                        <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::now()->addDays(3)->isoFormat('dddd') }} </p>
-                        <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime('+3 days')) }} </p>
-                    </div>
+            <div class='flex items-center px-4 my-2 py-4'>
+                <div class='text-center'>
+                    <p class='text-gray-100 text-xs md:text-sm font-semibold'> {{ $date->isoFormat('dddd') }} </p>
+                    <p class='text-gray-100  mt-3 font-bold'> {{ date('d', strtotime($date . ' 0 days')) }} </p>
                 </div>
             </div>
         </div>
-   </div>
+        
+        <a  href="{{ route('schedule.date.show', $tgl5) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300 cursor-pointer justify-center w-12 md:w-16'>
+            <div class='flex items-center px-4 py-4'>
+                <div class='text-center'>
+                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::parse($date)->addDays(1)->isoFormat('dddd') }}
+                    </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime($date . ' 1 days')) }} </p>
+                </div>
+            </div>
+        </a>
+        
+        <a  href="{{ route('schedule.date.show', $tgl6) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
+            <div class='flex items-center px-4 py-4'>
+                <div class='text-center'>
+                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::parse($date)->addDays(2)->isoFormat('dddd') }} </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime($date . ' 2 days')) }} </p>
+                </div>
+            </div>
+        </a>
+            
+        <a  href="{{ route('schedule.date.show', $tgl7) }}" class='flex group hover:bg-main hover:shadow-lg hover-dark-shadow rounded-full mx-4 transition-all	duration-300	 cursor-pointer justify-center w-12 md:w-16'>
+            <div class='flex items-center px-4 py-4'>
+                <div class='text-center'>
+                    <p class='text-gray-900 group-hover:text-gray-100 text-xs md:text-sm transition-all  group-hover:font-semibold duration-300'> {{ \Carbon\Carbon::parse($date)->addDays(3)->isoFormat('dddd') }} </p>
+                    <p class='text-gray-900 group-hover:text-gray-100 mt-3 text-sm md:text-base group-hover:font-bold transition-all	duration-300'> {{ date('d', strtotime($date . ' 3 days')) }} </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 
-   <div class="px-8 pb-8 md:px-16">
+<div class="px-8 pb-8 md:px-16">
+    @if ($schedules->count()>0)
     <div class="relative overflow-x-auto rounded-sm">
         <table class="w-full text-xs md:text-sm text-left text-gray-500 dark:text-gray-400 border">
             <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
@@ -118,6 +127,11 @@
             </tbody>
         </table>
     </div>
+    @else
+    <div class="mb-4 p-4 bg-[#E5F1F3] border-l-8 border-main">
+        <p>Tidak ada jadwal hari ini</p>
+    </div>
+    @endif
 
 
     <div class="flex flex-wrap justify-between my-8">
@@ -132,6 +146,6 @@
         </a>
         @endif
     </div>
-    
-   </div>
+
+</div>
 @endsection

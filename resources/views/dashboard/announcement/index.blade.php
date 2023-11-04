@@ -11,26 +11,55 @@
         @endif
 
 
+
    
-        @if ($announcements->count()>0)
+        @if ($announcements->count() > 0)
         <a href="{{ route('pengumuman.create') }}" class="bg-main mb-4 flex flex-wrap items-center w-fit border-2 px-3 py-1.5">
             <p class="font-semibold mr-1">Tambah</p>
             <svg class="text-black w-5 h-5" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </a>
-        <div class="bg-white border-2 mb-4">
-            @foreach ($announcements as $key => $announcement)
-            <div class="w-full p-4 @if($key % 2 == 0) bg-main @endif">
-                <h3 class="font-medium mb-1">{{ $announcement->title }}</h3>
-                <p class="mb-2 {{ $key % 2 == 0 ? 'text-gray-600' : 'text-gray-500' }}">By {{ $announcement->labAdministrator->name }}</p>
-                <p class="text-justify">{{ $announcement->description }}</p>
-                <p class="mt-4 {{ $key % 2 == 0 ? 'text-gray-600' : 'text-gray-500' }}">{{ $announcement->created_at }}</p>
-            </div>
-            @endforeach
-        </div>  
 
-
+        <div class="relative overflow-x-auto mb-5">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-main dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            No
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Judul
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Deskripsi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($announcements as $announcement)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $no++ }}
+                        </th>
+                        <td class="px-6 py-4 border-r"> <!-- Add border to the right -->
+                            {{ $announcement->title }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $announcement->description }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
         
+
+
+
+
+        @if ($announcements->count()>5)
         @include('dashboard.components.paginate')
+        @endif
+        
 
         @else
         <div class="mb-4 p-4 bg-[#E5F1F3] border-l-8 border-main">

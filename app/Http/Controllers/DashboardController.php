@@ -14,8 +14,7 @@ class DashboardController extends Controller
         return view("dashboard.index", [
             "announcements"=> $announcements,
             "header"=>"Pengumuman",
-            "schedules"=> $matchingSchedules,
-            
+            "schedules"=> $matchingSchedules,      
         ]);
     }
 }

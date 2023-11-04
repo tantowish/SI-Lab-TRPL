@@ -4,7 +4,7 @@
 @section('content')
     @include('dashboard.components.header')
     <div class="p-8 lg:px-16">
-        <form action="{{ route('pengumuman.store') }}" method="POST">
+        <form action="{{ route('announcement.store') }}" method="POST">
             @csrf
             <div class="mb-6">
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul</label>
@@ -16,7 +16,7 @@
             </div>
             <div class="flex flex-wrap gap-4">
                 <button type="submit" class="w-full bg-redpallete text-white px-3 py-1.5 sm:w-fit">Submit</button>
-                <a class="w-full bg-main text-white px-3 py-1.5 text-center sm:w-fit" href="{{ route('pengumuman.index') }}">
+                <a class="w-full bg-main text-white px-3 py-1.5 text-center sm:w-fit" href="{{ route('announcement.index') }}">
                     Cancel
                 </a>
             </div>

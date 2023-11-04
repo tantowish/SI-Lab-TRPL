@@ -92,14 +92,6 @@ class ScheduleController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(LectureSchedule $lectureSchedule)
-    {
-        //
-    }
-
     public function dateShow($date){
         $now = Carbon::parse($date); // Parse the string into a Carbon date object
         $startDate = $now->toDateString(); // Extract the date part of $now

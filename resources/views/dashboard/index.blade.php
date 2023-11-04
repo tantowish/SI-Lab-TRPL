@@ -54,7 +54,7 @@
                     @endif
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
-                            <a href="{{ route('schedule.index') }}">Selengkapnya >></a>
+                            <a href="{{ route('announcement.index') }}">Selengkapnya >></a>
                         </th>
                     </tr>
                     
@@ -85,7 +85,7 @@
                     @endforeach
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="text-orangepallete px-6 py-4 text-xs font-normal text- dark:text-white">
-                            <a href="{{ route('pengumuman') }}">Selengkapnya >></a>
+                            <a href="{{ route('announcement') }}">Selengkapnya >></a>
                         </th>
                     </tr>
                     @else

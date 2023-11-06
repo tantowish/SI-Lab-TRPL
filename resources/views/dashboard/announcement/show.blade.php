@@ -23,7 +23,7 @@
     @include('dashboard.components.paginate')
 
     @else
-    <div class="mb-4 p-4 bg-[#E5F1F3] border-l-8 border-main">
+    <div class="mb-4 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">
         <p>Tidak ada pengumuman proyek yang dibuat</p>
     </div>
     @endif

@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
     // Reservasi
     Route::get('/dashboard/reserve/history', [ReserveController::class,'history'])->name('reserve.history');
     Route::get('/dashboard/reserve/create', [ReserveController::class,'create'])->name('reserve.create');
+    Route::get('/dashboard/reserve/create/{date}', [ReserveController::class,'createDate'])->name('reserve.create.date');
     Route::post('/dashboard/reserve/history', [ReserveController::class,'store'])->name('reserve.store');
 
 

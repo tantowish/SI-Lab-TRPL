@@ -30,7 +30,7 @@ class ScheduleController extends Controller
         return view("dashboard.schedule.index", [
             "schedules"=> $schedules,
             "header"=>"jadwal, ". Carbon::now()->isoFormat('D MMMM Y'),
-            'date'=>$now
+            'date'=>$now,
         ]);
     }
 
@@ -64,7 +64,8 @@ class ScheduleController extends Controller
         $lectureSchedule = LectureSchedule::findOrFail($id);
         return view('dashboard.schedule.show', [
             'header'=>$lectureSchedule->laboratorium->laboratorium_name,
-            'schedule'=> $lectureSchedule
+            'schedule'=> $lectureSchedule,
+            'route'=>'schedule.date.show'
         ]);
     }
 
@@ -80,7 +81,8 @@ class ScheduleController extends Controller
             "schedule"=> $schedule,
             "header"=>"Edit Jadwal",
             'subjects'=> $subjects,
-            'laboratorium'=> $laboratorium
+            'laboratorium'=> $laboratorium,
+            'id'=> $id
         ]);
     }
 

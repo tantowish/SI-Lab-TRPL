@@ -44,6 +44,6 @@ class AnnouncementController extends Controller
         ]);
         $validated["lab_admin_id"] = session('data')['lab_admin_id'];
         Announcement::create($validated);
-        return redirect()->route('pengumuman.index')->with('success', 'Berhasil menambahkan pengumuman');
+        return redirect()->route('announcement.index')->with('success', 'Berhasil menambahkan pengumuman');
     }
 }

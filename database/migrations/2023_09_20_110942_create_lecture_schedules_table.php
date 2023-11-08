@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('subject_id')->nullable();
             $table->foreign('subject_id')->references('subject_id')->on('subjects');
-
+            
             $table->text("information")->nullable();
         });
     }

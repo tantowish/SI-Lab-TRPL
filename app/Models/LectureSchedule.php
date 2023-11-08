@@ -12,6 +12,15 @@ class lectureSchedule extends Model
     public $timestamps = false;
     protected $dates = ['start_time', 'end_time'];
 
+    protected $fillable = [
+        'laboratorium_id',
+        'start_time',
+        'end_time',
+        'subject_id',
+        'lab_admin_id',
+        'information'
+    ];
+
 
 
 

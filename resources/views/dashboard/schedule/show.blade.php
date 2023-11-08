@@ -3,6 +3,11 @@
 @section('content')
 @include('dashboard.components.header')
 <div class="p-8 md:px-16">
+    @if (session('success'))
+    <div class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <span class="font-medium">Success! </span>{{ session('success') }}
+    </div>
+    @endif
     <div class="relative overflow-x-auto rounded-sm mb-8">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
@@ -36,7 +41,11 @@
                         {{ date('H:i', strtotime($schedule->end_time)) }}
                     </td>
                     <td class="px-6 py-4 border-l">
+                        @if ($schedule->subject)
                         {{ $schedule->subject->subject_name }}
+                        @else
+                        Lainnya
+                        @endif
                     </td>
                     <td class="px-6 py-4 border-l border-r">
                         {{ $schedule->labAdministrator->name }}
@@ -61,9 +70,9 @@
                     </td>
                     @endif
 
-                    @if ($schedule->keterangan)
+                    @if ($schedule->information)
                     <td class="px-6 py-4 border-l border-r">
-                        {{ $schedule->keterangan }}
+                        {{ $schedule->information }}
                     </td>
                     @else
                     <td class="px-6 py-4 border-l border-r">

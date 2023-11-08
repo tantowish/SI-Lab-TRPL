@@ -42,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
         // Schedule Laboran
         Route::get('/dashboard/schedule/{id}/edit', [ScheduleController::class,'edit'])->name('schedule.edit');
-        Route::put('/dashboard/schedule/', [ScheduleController::class,'update'])->name('schedule.update');
-        Route::get('/dashboard/schedule/create', [ScheduleController::class,'create'])->name('schedule.create');
+        Route::put('/dashboard/schedule/{id}', [ScheduleController::class,'update'])->name('schedule.update');
+        Route::get('/dashboard/schedule/{date}/create', [ScheduleController::class,'create'])->name('schedule.create');
         Route::post('/dashboard/schedule/', [ScheduleController::class,'store'])->name('schedule.store');
 
         //Reservasi Laboran

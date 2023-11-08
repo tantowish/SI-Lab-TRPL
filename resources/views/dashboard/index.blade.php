@@ -40,7 +40,7 @@
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-normal text-gray-900 whitespace-nowrap dark:text-white">
                             <h3>{{ $schedule->laboratorium->laboratorium_name }}</h3>
-                            <p>{{  date('H:i', strtotime($schedule->start_time)) . " - " . date('H:i', strtotime($schedule->end_time)) }}  |  {{ $schedule->subject->subject_name }} |  {{ $schedule->subject->user->name }}
+                            <p>{{  date('H:i', strtotime($schedule->start_time)) . " - " . date('H:i', strtotime($schedule->end_time)) }}  | @if ($schedule->subject){{ $schedule->subject->subject_name }} |  {{ $schedule->subject->user->name }} @else {{ $schedule->information }} @endif  
                             </p>
                         </th>
                     </tr>

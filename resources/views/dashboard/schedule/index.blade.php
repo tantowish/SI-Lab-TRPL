@@ -4,7 +4,7 @@
 @include('dashboard.components.header')
 
 @if (session('data')->getTable()=='lab_administrators')
-    <div class="px-8 pt-8 lg:px-16">
+    <div class="px-8 pt-8 md:px-16">
         <div class="mb-6 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">
             <p>Pilih tanggal untuk menampilkan jadwal</p>
         </div>
@@ -21,6 +21,11 @@
             <!-- Add a Submit button -->
             <button id="submitDate"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></button>
         </div>
+        @if (session('success'))
+        <div class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+            <span class="font-medium">Success! </span>{{ session('success') }}
+        </div>
+        @endif
     </div>
 @else
 @php
@@ -162,7 +167,7 @@ $tgl7 = \Carbon\Carbon::parse($date)->addDays(3)->format('d-m-Y');
             Kembali
         </a>
         @if (session('data')->getTable()=='lab_administrators')
-        <a class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.create') }}">
+        <a class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.create', date('d-m-Y', strtotime($date))) }}">
             Tambah
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </a>
@@ -183,5 +188,13 @@ $tgl7 = \Carbon\Carbon::parse($date)->addDays(3)->format('d-m-Y');
             window.location.href = newURL;
         }
     });
+
+        // Use JavaScript to hide the success message after 3 seconds
+        setTimeout(function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            successMessage.style.display = 'none';
+        }
+    }, 3000); // 3000 milliseconds = 3 seconds
 </script>
 @endsection

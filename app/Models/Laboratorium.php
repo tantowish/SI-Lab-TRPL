@@ -9,6 +9,7 @@ class Laboratorium extends Model
 {
     use HasFactory;
     protected $primaryKey = 'laboratorium_id';
+    protected $keyType = 'string'; 
     protected $table = 'laboratorium';
     public $timestamps = false;
 

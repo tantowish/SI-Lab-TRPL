@@ -17,7 +17,7 @@
         </div>
 
         <!-- Add a Submit button -->
-        <button id="submitDate"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></button>
+        <button id="checkDate"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></button>
     </div>
 
     <div class="mb-5">
@@ -93,8 +93,10 @@
                 </select>
             </div>
         </div>
-
         @endif
+    </div>
+    <div id="checkTime" class="hidden mb-4 p-4 text-sm bg-[#EFC1B9] border-l-8 border-redpallete">
+        <p>Maaf waktu pemakaian dan laboratorium yang dipilih telah digunakan.</p>
     </div>
     
 
@@ -103,7 +105,7 @@
 
 <script>
     const datepicker = document.getElementById("datepicker");
-    const submitButton = document.getElementById("submitDate");
+    const submitButton = document.getElementById("checkDate");
 
     
     submitButton.addEventListener("click", function () {
@@ -113,6 +115,65 @@
             window.location.href = newURL;
         }
     });
+
+    const startTimeInput = document.getElementById('start_time');
+    const endTimeInput = document.getElementById('end_time');
+    const labSelect = document.getElementById('lab');
+
+    const schedules = {!! json_encode($schedules) !!};
+    const isoDate = "{{ date('Y-m-d', strtotime($date))." " }}";
+
+
+    labSelect.addEventListener('input', validateTimeOrder);
+    startTimeInput.addEventListener('input', validateTimeOrder);
+    endTimeInput.addEventListener('change', validateTimeOrder);
+
+    function validateTimeOrder() {
+        const startTimeValue = startTimeInput.value;
+        const endTimeValue = endTimeInput.value;
+        // console.log(labSelect.value);
+
+        if (startTimeValue && endTimeValue) {
+            const inputStartTime = new Date(isoDate.replace(' ', 'T') + startTimeValue);
+            const inputEndTime = new Date(isoDate.replace(' ', 'T') + endTimeValue);
+
+            if (inputStartTime > inputEndTime) {
+                alert('Jam Mulai harus lebih awal dari Jam Selesai');
+                startTimeInput.value = '';
+                endTimeInput.value = '';
+            } else {
+                for (let i = 0; i < schedules.length; i++) {
+                    if(schedules[i].laboratorium_id === labSelect.value){
+                        const scheduleStart = new Date(schedules[i].start_time);
+                        const scheduleEnd = new Date(schedules[i].end_time);
+                        
+                        console.log(inputStartTime+scheduleStart+inputEndTime+scheduleEnd)
+                        console.log(inputStartTime >= scheduleStart && inputEndTime <= scheduleEnd);
+                        checkTimeMessage = document.getElementById('checkTime')
+                        console.log("end:"+inputEndTime <= scheduleEnd)
+
+                        if ((inputStartTime >= scheduleStart && inputStartTime <= scheduleEnd) ||
+                            (inputEndTime >= scheduleStart && inputEndTime <= scheduleEnd) ||
+                            (inputStartTime <= scheduleStart && inputEndTime >= scheduleEnd)) {
+                            console.log('Inside if block');
+                            checkTimeMessage.classList.remove('hidden');
+                            checkTimeMessage.classList.add('block');
+
+                            // alert('Waktu input berada di dalam jadwal yang ada. Pilih waktu yang berbeda.');
+                            startTimeInput.value = '';
+                            endTimeInput.value = '';
+                            break;
+                        }
+                        else{
+                            checkTimeMessage.classList.remove('block');
+                            checkTimeMessage.classList.add('hidden');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 </script>
     
     

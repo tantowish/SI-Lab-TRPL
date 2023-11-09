@@ -98,7 +98,7 @@
                         console.log(scheduleStart)
                         const scheduleEnd = new Date(schedules[i].end_time);
                         
-                        if (inputStartTime >= scheduleStart && inputStartTime <= scheduleEnd) {
+                        if (inputStartTime >= scheduleStart && inputEndTime <= scheduleEnd) {
                             alert('Waktu input berada di dalam jadwal yang ada. Pilih waktu yang berbeda.');
                             startTimeInput.value = '';
                             endTimeInput.value = '';

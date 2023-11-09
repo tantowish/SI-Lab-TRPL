@@ -4,7 +4,7 @@
 @include('dashboard.components.header')
 <div class="p-8 md:px-16">
     @if (session('success'))
-    <div class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+    <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
         <span class="font-medium">Success! </span>{{ session('success') }}
     </div>
     @endif
@@ -98,4 +98,6 @@
         @endif
     </div>
 </div>
+
+<script src="{{ asset('assets/js/notif.js') }}"></script>
 @endsection

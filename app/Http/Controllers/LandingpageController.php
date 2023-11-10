@@ -10,4 +10,8 @@ class LandingpageController extends Controller
     {
         return view('page.index');
     }
+    public function about()
+    {
+        return view('page.about');
+    }
 }

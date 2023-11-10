@@ -5,7 +5,7 @@
         </a>
         <div class="flex md:order-2">
             <a href="loginpage.html" type="button"
-                class="text-white bg-[#64c5d3] hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+                class="text-white bg-[#64c5d3] hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-5 py-2 text-center mr-3 md:mr-0">
                 LOG IN
             </a>
 
@@ -32,7 +32,7 @@
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="AboutUspage.html"
+                    <a href="AboutUs"
                         class=" text-lg block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-500 md:p-0 dark:text-black md:dark:hover:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-gray-500 md:dark:hover:bg-transparent">About
                         Us</a>
                 </li>

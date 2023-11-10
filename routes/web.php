@@ -65,3 +65,4 @@ Route::get('/about', function () {
 });
 
 Route::get('/', [LandingpageController::class, 'index']);
+Route::get('/aboutus', [LandingpageController::class, 'about']);

@@ -1,0 +1,4 @@
+.fact__icon.rotate-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}

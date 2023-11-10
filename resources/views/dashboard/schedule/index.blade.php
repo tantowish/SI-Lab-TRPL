@@ -22,7 +22,7 @@
             <button id="submitDate"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></button>
         </div>
         @if (session('success'))
-        <div class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
             <span class="font-medium">Success! </span>{{ session('success') }}
         </div>
         @endif
@@ -188,13 +188,6 @@ $tgl7 = \Carbon\Carbon::parse($date)->addDays(3)->format('d-m-Y');
             window.location.href = newURL;
         }
     });
-
-        // Use JavaScript to hide the success message after 3 seconds
-        setTimeout(function() {
-        var successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            successMessage.style.display = 'none';
-        }
-    }, 3000); // 3000 milliseconds = 3 seconds
 </script>
+<script src="{{ asset('assets/js/notif.js') }}"></script>
 @endsection

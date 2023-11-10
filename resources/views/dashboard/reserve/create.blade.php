@@ -102,7 +102,6 @@
 
 
 </div>
-
 <script>
     const datepicker = document.getElementById("datepicker");
     const submitButton = document.getElementById("checkDate");
@@ -115,7 +114,9 @@
             window.location.href = newURL;
         }
     });
-
+</script>
+@if($date)
+<script>
     const startTimeInput = document.getElementById('start_time');
     const endTimeInput = document.getElementById('end_time');
     const labSelect = document.getElementById('lab');
@@ -175,6 +176,7 @@
     }
 
 </script>
+@endif
     
     
 @endsection

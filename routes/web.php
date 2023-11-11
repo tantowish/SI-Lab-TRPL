@@ -58,7 +58,8 @@ Route::middleware(['auth'])->group(function () {
 
         //Reservasi Laboran
         Route::get('/dashboard/reserve', [ReserveController::class, 'index'])->name('reserve.index');
-        Route::get('/dashboard/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+        Route::get('/dashboard/reserve/{id}/detail', [ReserveController::class, 'show'])->name('reserve.show');
+        Route::get('/dashboard/reserve/doc/{reserve}', [ReserveController::class, 'doc'])->name('reserve.doc');
     });
 
     // Schedule
@@ -72,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
     // Reservasi
     Route::get('/dashboard/reserve/history', [ReserveController::class, 'history'])->name('reserve.history');
     Route::get('/dashboard/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
-    Route::get('/dashboard/reserve/create/{date}', [ReserveController::class, 'createDate'])->name('reserve.create.date');
+    Route::get('/dashboard/reserve/create/{reserve}', [ReserveController::class, 'createDate'])->name('reserve.create.date');
     Route::post('/dashboard/reserve/history', [ReserveController::class, 'store'])->name('reserve.store');
 });
 
@@ -81,4 +82,4 @@ Route::get('/about', function () {
 });
 
 Route::get('/', [LandingpageController::class, 'index']);
-Route::get('/aboutus', [LandingpageController::class, 'about']);
+Route::get('/about', [LandingpageController::class, 'about']);

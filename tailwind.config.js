@@ -12,7 +12,10 @@ export default {
       'main': '#64C5D3',
       'redpallete':'#E46F5B' ,
       'orangepallete':'#E46F5B',
-      'borderpallete':'$DEE4ED'
+      'borderpallete':'#DEE4ED',
+      'prev':'#FFB13B',
+      'yellowpallete':'#EFD892'
+
     },
   },
   plugins: [

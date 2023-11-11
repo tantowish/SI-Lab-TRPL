@@ -17,10 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('reserve_id');
             $table->foreign('reserve_id')->references('reserve_id')->on('reserves');
 
-            $table->unsignedBigInteger('lab_admin_id');
+
+            $table->unsignedBigInteger('lab_admin_id')->nullable();
             $table->foreign('lab_admin_id')->references('lab_admin_id')->on('lab_administrators');
 
-            $table->boolean("isApproved")->default(false);
+            $table->enum('status', ['accepted','reject','waiting'])->default('waiting');
+            $table->timestamps();
+
 
         });
     }

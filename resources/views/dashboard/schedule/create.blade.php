@@ -50,7 +50,7 @@
             <textarea id="information" name="information" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-main focus:border-main dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main dark:focus:border-main" placeholder="Keterangan terkait jadwal"></textarea>
         </div>
         <div class="flex flex-wrap gap-4">
-            <button type="submit" class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('schedule.store') }}">
+            <button type="submit" class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2">
                 Submit
             </button>
     

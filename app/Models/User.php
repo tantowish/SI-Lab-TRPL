@@ -22,7 +22,11 @@ class User extends Authenticatable
     }
     public function projectHistory()
     {
-        return $this->hasMany(ProjectHistory::class, 'history_id');
+        return $this->hasMany(ProjectHistory::class, 'user_id');
+    }
+    public function reserve()
+    {
+        return $this->hasMany(Reserve::class, 'user_id');
     }
 
     /**

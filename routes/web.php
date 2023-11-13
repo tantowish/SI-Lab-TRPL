@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function () {
 
         //Reservasi Laboran
         Route::get('/dashboard/reserve', [ReserveController::class, 'index'])->name('reserve.index');
+        Route::get('/dashboard/reserve/reject/{reserve}', [ReserveController::class, 'reject'])->name('reserve.reject');
+        Route::get('/dashboard/reserve/accept/{reserve}', [ReserveController::class, 'accept'])->name('reserve.accept');
         Route::get('/dashboard/reserve/{id}/detail', [ReserveController::class, 'show'])->name('reserve.show');
         Route::get('/dashboard/reserve/doc/{reserve}', [ReserveController::class, 'doc'])->name('reserve.doc');
     });

@@ -89,11 +89,11 @@ class ReserveController extends Controller
 
     public function show($id){
         $reserve = Reserve::findOrFail($id);
-        $date = Carbon::parse($reserve->start_time)->isoFormat('dddd, D MMMM Y');
+        $datetime = Carbon::parse($reserve->start_time)->isoFormat('dddd, D MMMM Y');
         return view('dashboard.reserve.show',[
             'reserve'=>$reserve,
             'header'=>'Persetujuan Peminjaman Ruangan '.$reserve->laboratorium->laboratorium_name,
-            'date'=>$date
+            'datetime'=>$datetime
         ]);
     }
 
@@ -101,5 +101,51 @@ class ReserveController extends Controller
         return response()->file(public_path('storage/'.$reserve->file),['content-type'=>'application/pdf']);
     }
 
+    public function reject($reserve){
+        $reserve = Reserve::findOrFail($reserve);
+        $labReserve = $reserve->labReserve->first();
+        $labReserve->status = 'reject';
+        $labReserve->save();
+        return redirect()->route('reserve.index')->with('success','Reservasi berhasil di Reject');
+    }
+    public function accept($reserveId){
+        $reserve = Reserve::findOrFail($reserveId);
+        $carbonDate = Carbon::parse($reserve->start_time);
+        $formattedDate = $carbonDate->format('Y-m-d');
+        
+        // Get schedules for the specified date
+        $schedules = LectureSchedule::whereDate('start_time', $formattedDate)->get();
     
+        // Check if any schedule conflicts with the reservation time
+        $conflict = false;
+    
+        foreach ($schedules as $schedule) {
+            if ($schedule->laboratorium_id == $reserve->laboratorium_id) {
+                $scheduleStartTime = Carbon::parse($schedule->start_time);
+                $scheduleEndTime = Carbon::parse($schedule->end_time);
+        
+                // Check for overlap
+                if (
+                    $carbonDate->between($scheduleStartTime, $scheduleEndTime) ||
+                    $reserve->end_time->between($scheduleStartTime, $scheduleEndTime) ||
+                    $carbonDate->lte($scheduleStartTime) && $reserve->end_time->gte($scheduleEndTime)
+                ) {
+                    $conflict = true;
+                    break; // No need to check further, conflict found
+                }
+            }
+        }
+    
+        if ($conflict) {
+            // Handle conflict, e.g., show an error message
+            return redirect()->route('reserve.show', $reserve->reserve_id)->with('error', 'Jadwal sudah terpakai');
+        }
+    
+        // If no conflict, update the labReserve status
+        $labReserve = $reserve->labReserve->first();
+        $labReserve->status = 'accepted';
+        $labReserve->save();
+    
+        return redirect()->route('reserve.index')->with('success', 'Reservasi berhasil di Accept');
+    }
 }

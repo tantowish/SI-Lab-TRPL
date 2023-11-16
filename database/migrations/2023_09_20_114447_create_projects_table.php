@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id("project_id");
             $table->string("project_name", 50);
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->text('description');
             $table->text('document_link');
+            $table->enum('status', ['published','archive','waiting', 'rejected'])->default('waiting');
+            $table->timestamps();
         });
     }
 

@@ -74,7 +74,7 @@
 
 
     labSelect.addEventListener('input', validateTimeOrder);
-    startTimeInput.addEventListener('input', validateTimeOrder);
+    startTimeInput.addEventListener('change', validateTimeOrder);
     endTimeInput.addEventListener('change', validateTimeOrder);
 
     function validateTimeOrder() {
@@ -88,7 +88,7 @@
             const inputEndTime = new Date(isoDate.replace(' ', 'T') + endTimeValue);
 
             if (inputStartTime > inputEndTime) {
-                alert('Jam Mulai harus   lebih awal dari Jam Selesai');
+                alert('Jam Mulai harus lebih awal dari Jam Selesai');
                 startTimeInput.value = '';
                 endTimeInput.value = '';
             } else {

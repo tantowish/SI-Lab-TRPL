@@ -9,6 +9,14 @@ class Project extends Model
 {
     use HasFactory;
     protected $primaryKey = 'project_id';
+    protected $fillable = [
+        'project_name',
+        'start_date',
+        'end_date',
+        'description',
+        'document_link',
+        'status'
+    ];
 
 
     public function projectHistory()

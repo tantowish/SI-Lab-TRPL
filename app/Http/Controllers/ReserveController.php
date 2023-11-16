@@ -14,7 +14,9 @@ class ReserveController extends Controller
 
     // User Doma
     public function history(){
-        $reserves = Reserve::where('user_id', session('data')['user_id'])->paginate(5);
+        $reserves = Reserve::where('user_id', session('data')['user_id'])
+        ->orderBy('created_at', 'desc') // Order by created_at in ascending order
+        ->paginate(5);
         return view("dashboard.reserve.index",[
             'header'=>'Riwayat Peminjaman',
             'reserves'=> $reserves
@@ -80,7 +82,7 @@ class ReserveController extends Controller
 
     // User Laboran
     public function index(){
-        $reserves = Reserve::paginate(5);
+        $reserves = Reserve::orderBy('created_at', 'desc')->paginate(5);
         return view('dashboard.reserve.index',[
             'header'=>'Persetujuan Peminjaman Ruangan',
             'reserves'=> $reserves
@@ -104,7 +106,11 @@ class ReserveController extends Controller
     public function reject($reserve){
         $reserve = Reserve::findOrFail($reserve);
         $labReserve = $reserve->labReserve->first();
-        $labReserve->status = 'reject';
+        if($labReserve->status = 'accepted'){
+            return redirect()->route('reserve.show', $reserve->reserve_id)->with('error', 'Sudah di accept tidak bisa di reject');
+        }
+        $labReserve->status = 'rejected';
+        $labReserve->lab_admin_id = session('data')['lab_admin_id'];
         $labReserve->save();
         return redirect()->route('reserve.index')->with('success','Reservasi berhasil di Reject');
     }
@@ -144,7 +150,16 @@ class ReserveController extends Controller
         // If no conflict, update the labReserve status
         $labReserve = $reserve->labReserve->first();
         $labReserve->status = 'accepted';
+        $labReserve->lab_admin_id = session('data')['lab_admin_id'];
         $labReserve->save();
+
+        lectureSchedule::create([
+            'laboratorium_id'=>$reserve->laboratorium_id,
+            'start_time'=>$reserve->start_time,
+            'end_time'=>$reserve->end_time,
+            'lab_admin_id' => $labReserve->lab_admin_id,
+            'information'=>"Reservasi"
+        ]);
     
         return redirect()->route('reserve.index')->with('success', 'Reservasi berhasil di Accept');
     }

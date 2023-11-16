@@ -127,16 +127,20 @@
                     </svg>
                 </button>
                 <ul id="dropdown-proyek" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="#" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan</a>
-                        </li>
+                        
                         @if(session('data')->getTable()=='lab_administrators')
+                        <li>
+                            <a href="{{ route('project.index') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan</a>
+                        </li>
                         <li>
                             <a href="{{ route('announcement.index') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengumuman</a>
                         </li> 
                         @else
                         <li>
-                            <a href="#" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Riwayat Proyek</a>
+                            <a href="{{ route('project.create') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('project.index') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Riwayat Proyek</a>
                         </li>
                         @endif
                         

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('lab_admin_id')->nullable();
             $table->foreign('lab_admin_id')->references('lab_admin_id')->on('lab_administrators');
 
-            $table->enum('status', ['accepted','reject','waiting'])->default('waiting');
+            $table->enum('status', ['accepted','rejected','waiting'])->default('waiting');
             $table->timestamps();
 
 

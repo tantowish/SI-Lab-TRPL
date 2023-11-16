@@ -9,6 +9,11 @@ class ProjectField extends Model
 {
     use HasFactory;
     protected $primaryKey = 'project_field_id';
+    protected $fillable = [
+        'project_id',
+        'field_id'
+    ];
+    public $timestamps = false;
 
     public function project()
     {

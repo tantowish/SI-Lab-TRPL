@@ -3,13 +3,32 @@
 @section('content')
 @include('dashboard.components.header')
     <div class="p-8 lg:px-16">
+        @if (session('success'))
+        <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+            <span class="font-medium">Success! </span>{{ session('success') }}
+        </div>
+        @endif
         @if (session('data')->getTable()=='lab_administrators')       
         <div class="flex flex-wrap gap-2">
-            
+            @if ($project->status=='published')        
+            <a href="{{ route('project.archive', $project->project_id) }}" class="flex flex-wrap items-center text-white px-2 py-1 rounded bg-green-400">
+                <svg class="mr-1" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>Archive</span>
+            </a>
+            @else
+            <a href="{{ route('project.publish', $project->project_id) }}" class="flex flex-wrap items-center text-white px-2 py-1 rounded bg-green-400">
+                <svg class="mr-1" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>Publish</span>
+            </a>
+            <a href="{{ route('project.reject', $project->project_id) }}" class="flex flex-wrap items-center text-white px-2 py-1 rounded bg-redpallete">
+                <svg class="mr-1" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <span>Reject</span>
+            </a>
+            @endif
         </div>
         @endif
         <div class="flex flex-col gap-1 mb-6">
-            <h4 class="font-semibold">Proyek {{ $project->project_name }}</h4>
+            <h2 class="font-semibold text-xl">Proyek {{ $project->project_name }}</h2>
             <p>{{ $project->projectHistory[0]->user->name }}</p>
             {{ \Carbon\Carbon::parse($project->start_date)->isoFormat('MMMM Y') }} - {{ $project->end_date ? \Carbon\Carbon::parse($project->end_date)->isoFormat(' MMMM Y') : 'Sekarang' }}
         </div>  

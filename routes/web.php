@@ -68,7 +68,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/project/{id}/edit',[ProjectController::class,'edit'])->name('project.edit');
         Route::put('/dashboard/project/{id}',[ProjectController::class,'update'])->name('project.update');
         Route::delete('/dashboard/project/{id}',[ProjectController::class,'destroy'])->name('project.destroy');
-
+        Route::get('/dashboard/project/{id}/publish',[ProjectController::class,'publish'])->name('project.publish');
+        Route::get('/dashboard/project/{id}/reject',[ProjectController::class,'reject'])->name('project.reject');
+        Route::get('/dashboard/project/{id}/archive',[ProjectController::class,'archive'])->name('project.archive');
     });
 
     // Schedule

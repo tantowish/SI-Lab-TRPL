@@ -5,8 +5,9 @@
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <div class="p-8 lg:px-16">
-        <form action="{{ route('project.store') }}" method="POST">
+        <form action="{{ route('project.update', $project->project_id) }}" method="POST">
             @csrf
+            @method('put')
             <div class="mb-6">
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul Proyek</label>
                 <input type="text" id="title" name="title" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $project->project_name }}" placeholder="Judul" required>

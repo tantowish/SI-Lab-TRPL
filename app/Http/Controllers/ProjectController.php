@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Field;
 use App\Models\Project;
 use App\Models\ProjectField;
@@ -14,14 +13,14 @@ class ProjectController extends Controller
     // User doma
     public function index(){
         if(session('data')->getTable()=='lab_administrators'){
-            $projects = Project::orderBy('created_at', 'asc')->paginate(10);
+            $projects = Project::orderBy('created_at', 'desc')->paginate(10);
         }
         else{
             $projectHistories = ProjectHistory::where('user_id', session('data')['user_id'])->get();
             $projectIds = $projectHistories->pluck('project_id');
 
             $projects = Project::whereIn('project_id', $projectIds)
-                ->orderBy('created_at', 'asc')
+                ->orderBy('created_at', 'desc')
                 ->paginate(10);
         }
         return view("dashboard.project.index",[
@@ -90,5 +89,64 @@ class ProjectController extends Controller
             'project'=> $project,
             'fields'=> $fields
         ]);
+    }
+
+    public function update(Request $request, $id){
+        $validated = $request->validate([
+            'title'=>"required",
+            'start_date'=>'required|date_format:d-m-Y',
+            'end_date'=>'date_format:d-m-Y|nullable|after:start_date',
+            'document'=>'required',
+            'description'=>'required',
+            'pilih'=>'required'
+        ]);
+        $store = [
+            'project_name' => $validated['title'],
+            'start_date' => date('Y-m-d', strtotime($validated['start_date'])),
+            'end_date' => $validated['end_date'] ? date('Y-m-d', strtotime($validated['end_date'])) : null,
+            'description' => $validated['description'],
+            'document_link' => $validated['document'],
+        ];
+        // Delete existing ProjectField records for the project
+        $project = Project::findOrFail($id);
+        ProjectField::where('project_id', $project->project_id)->delete();
+
+        // Create new ProjectField records based on the updated selections
+        foreach ($validated['pilih'] as $id) {
+            ProjectField::create([
+                'field_id' => $id,
+                'project_id' => $project->project_id,
+            ]);
+        }
+        $project->update($store);
+        return redirect()->route('project.index')->with('success','Berhasil mengedit proyek');
+    }
+
+    public function destroy($id){
+        $project = Project::findOrFail($id);
+        $project->delete();
+        return redirect()->route('project.index')->with('success','Berhasil menghapus proyek');
+    }
+
+    public function publish($id){
+        $project = Project::findOrFail($id);
+        $project->status = 'published';
+        $project->save();
+        return redirect()->route('project.show', $id)->with('success','Berhasil mempublikasi proyek');
+    }
+
+    public function reject($id){
+        $project = Project::findOrFail($id);
+        $project->status = 'rejected';
+        $project->save();
+        return redirect()->route('project.show', $id)->with('success','Berhasil reject proyek');
+
+    }
+    
+    public function archive($id){
+        $project = Project::findOrFail($id);
+        $project->status = 'archive';
+        $project->save();
+        return redirect()->route('project.show', $id)->with('success','Berhasil mengarsipkan proyek');
     }
 }

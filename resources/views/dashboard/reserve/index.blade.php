@@ -77,12 +77,18 @@
         @include('dashboard.components.paginate')
         @endif
         @else
+        @if (session('data')->getTable()=='lab_administrators')       
+        <div class="mb-4 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">
+            <p>Belum ada yang melakukan reservasi</p>
+        </div>
+        @else
         <div class="mb-4 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">
             <p>Anda belum melakukan reservasi</p>
         </div>
         <a class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" href="{{ route('reserve.create')}}">
             Reservasi
         </a>
+        @endif
         @endif
     </div>
     <script src="{{ asset('assets/js/notif.js') }}"></script>

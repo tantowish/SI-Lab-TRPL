@@ -139,7 +139,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->status = 'rejected';
         $project->save();
-        return redirect()->route('project.show', $id)->with('success','Berhasil reject proyek');
+        return redirect()->route('project.show', $id)->with('reject','Berhasil reject proyek');
 
     }
     
@@ -147,6 +147,6 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->status = 'archive';
         $project->save();
-        return redirect()->route('project.show', $id)->with('success','Berhasil mengarsipkan proyek');
+        return redirect()->route('project.show', $id)->with('archive','Berhasil mengarsipkan proyek');
     }
 }

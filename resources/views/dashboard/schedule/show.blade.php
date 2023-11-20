@@ -25,7 +25,7 @@
                         Penanggung Jawab
                     </th>
                     <th scope="col" class="px-6 py-3 border-l border-r border-t">
-                        Asisten Dosen
+                        Dosen
                     </th>
                     <th scope="col" class="px-6 py-3 border-l border-r border-t">
                         Keterangan
@@ -50,19 +50,9 @@
                     <td class="px-6 py-4 border-l border-r">
                         {{ $schedule->labAdministrator->name }}
                     </td>
-                    @if ($schedule->attendence->count()>0)
+                    @if ($schedule->subject)
                     <td class="px-6 py-4 border-l border-r">
-                        @foreach ($schedule->attendence as $attendance)
-                        @if ($attendance->assistantLecturer)
-                            @if ($attendance->assistantLecturer->user)
-                                {{ $attendance->assistantLecturer->user->name }} {{-- Assuming 'name' is a property of the User model --}}
-                            @else
-                                {{-- Handle the case when there is no User for this AssistantLecturer --}}
-                            @endif
-                        @else
-                            {{-- Handle the case when there is no AssistantLecturer for this attendance record --}}
-                        @endif
-                        @endforeach
+                        {{ $schedule->subject->user->name }}
                     </td>
                     @else
                     <td class="px-6 py-4 border-l border-r">

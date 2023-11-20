@@ -72,7 +72,7 @@
                             @elseif($project->status == 'rejected')
                             <p class="p-2 bg-redpallete text-white rounded w-fit">Rejected</p>
                             @else
-                            <p class="p-2 bg-yellowpallete text-white rounded w-fit">Archive</p>
+                            <p class="p-2 bg-yellowpallete text-white rounded w-fit">Archived</p>
                             @endif
                         </td>
                     </tr>

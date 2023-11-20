@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id("lab_admin_id");
             $table->string("name", 100);
             $table->string("email", 100);
-            $table->string("username", 50);
+            $table->string("username", 100);
             $table->string("password");
             $table->string("photo")->nullable();
             $table->timestamps();

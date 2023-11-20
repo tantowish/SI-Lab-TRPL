@@ -4,8 +4,18 @@
 @include('dashboard.components.header')
     <div class="p-8 lg:px-16">
         @if (session('success'))
-        <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200" role="alert">
             <span class="font-medium">Success! </span>{{ session('success') }}
+        </div>
+        @endif
+        @if (session('reject'))
+        <div id="success-message" class="p-4 mb-6 text-sm text-redpallete rounded-lg bg-red-200" role="alert">
+            <span class="font-medium">Success! </span>{{ session('reject') }}
+        </div>
+        @endif
+        @if (session('archive'))
+        <div id="success-message" class="p-4 mb-6 text-sm text-yellow-600 rounded-lg bg-yellow-100" role="alert">
+            <span class="font-medium">Success! </span>{{ session('archive') }}
         </div>
         @endif
         @if (session('data')->getTable()=='lab_administrators')       
@@ -56,4 +66,5 @@
             Kembali
         </a>
     </div>
+    <script src="{{ asset('assets/js/notif.js') }}"></script>
 @endsection

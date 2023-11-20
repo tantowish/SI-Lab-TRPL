@@ -8,6 +8,7 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,26 +25,25 @@ use App\Http\Controllers\ProjectController;
 // Auth
 Route::get('/login', [AuthenticationController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthenticationController::class, 'auth']);
-Route::get('/login', [AuthenticationController::class, 'login'])->middleware('guest')->name('login');
-Route::post('/login', [AuthenticationController::class, 'auth']);
 
 Route::middleware(['auth'])->group(function () {
     // Auth
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // User
+    Route::get('/profile', [UserController::class, 'index'])->name('profile.index');
+    Route::get('/profile/{id}/edit', [UserController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/{id}/', [UserController::class, 'update'])->name('profile.update');
+    
 
     // Announcement
     Route::get('/dashboard/announcement', [AnnouncementController::class, 'index'])->middleware('admin')->name('announcement.index');
     Route::get('/dashboard/announcement/show', [AnnouncementController::class, 'show'])->name('announcement');
-    Route::get('/dashboard/announcement', [AnnouncementController::class, 'index'])->middleware('admin')->name('announcement.index');
-    Route::get('/dashboard/announcement/show', [AnnouncementController::class, 'show'])->name('announcement');
 
     Route::middleware(['admin'])->group(function () {
+
         // Announcement Laboran
-        Route::get('/dashboard/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
-        Route::post('/dashboard/announcement/create', [AnnouncementController::class, 'store'])->name('announcement.store');
         Route::get('/dashboard/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
         Route::post('/dashboard/announcement/create', [AnnouncementController::class, 'store'])->name('announcement.store');
 
@@ -51,11 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/schedule/{id}/edit', [ScheduleController::class, 'edit'])->name('schedule.edit');
         Route::put('/dashboard/schedule/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
         Route::get('/dashboard/schedule/{date}/create', [ScheduleController::class, 'create'])->name('schedule.create');
-        Route::post('/dashboard/schedule/', [ScheduleController::class, 'store'])->name('schedule.store');
-        Route::get('/dashboard/schedule/{id}/edit', [ScheduleController::class, 'edit'])->name('schedule.edit');
-        Route::put('/dashboard/schedule/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
-        Route::get('/dashboard/schedule/{date}/create', [ScheduleController::class, 'create'])->name('schedule.create');
-        Route::post('/dashboard/schedule/', [ScheduleController::class, 'store'])->name('schedule.store');
+        Route::post('/dashboard/schedule/', [ScheduleController::class, 'store'])->name('schedule.store');;
 
         //Reservasi Laboran
         Route::get('/dashboard/reserve', [ReserveController::class, 'index'])->name('reserve.index');

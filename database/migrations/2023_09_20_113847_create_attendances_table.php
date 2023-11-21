@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('schedule_id')->references('schedule_id')->on('lecture_schedules');
 
             $table->enum('status', ['hadir', 'tidak hadir']);
+            $table->timestamps();
         });
     }
 

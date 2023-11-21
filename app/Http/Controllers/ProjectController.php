@@ -50,6 +50,7 @@ class ProjectController extends Controller
             'project_name' => $validated['title'],
             'start_date' => date('Y-m-d', strtotime($validated['start_date'])),
             'end_date' => $validated['end_date'] ? date('Y-m-d', strtotime($validated['end_date'])) : null,
+            'applicant'=>session('data')['user_id'],
             'description' => $validated['description'],
             'document_link' => $validated['document'],
         ];

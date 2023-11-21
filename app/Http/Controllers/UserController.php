@@ -47,14 +47,17 @@ class UserController extends Controller
             $validatedData['photo'] = $request->file('photo')->store('img/user');
         }
 
-        if (session('data')->getTable()=='lab_administrators'){
-            $user = labAdministrator::where('lab_admin_id', $id)->update($validatedData);
-            return redirect()->route('profile.index')->with('success', 'Berhasil mengupdate profile');
+        if (session('data')->getTable() == 'lab_administrators') {
+            labAdministrator::where('lab_admin_id', $id)->update($validatedData);
+            $user = labAdministrator::findOrFail($id); // Retrieve the updated record
+        } else {
+            User::where('user_id', $id)->update($validatedData);
+            $user = User::findOrFail($id); // Retrieve the updated record
         }
-        else{
-            $user = User::where('user_id', $id)->update($validatedData);
-            return redirect()->route('profile.index')->with('success', 'Berhasil mengupdate profile');
-        }
+
+        session(['data' => $user]); // Update the session data with the new user information
+
+        return redirect()->route('profile.index')->with('success', 'Berhasil mengupdate profile');
 
     }
 }

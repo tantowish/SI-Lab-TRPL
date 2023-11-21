@@ -20,13 +20,8 @@ class AuthenticationController extends Controller
             "password" => "required"
         ]);
 
-
         $request['email'] = $request['ugm_id'] . "@mail.ugm.ac.id";
-        // if (Auth::guard('web')->attempt(['email' => $request['email'], 'password' => 
-        // $request['password']])) {
-        //     $request->session()->regenerate();
-        //     return redirect()->intended(route('dashboard'));
-        // }
+
         $credentials = [
             "email" => $request['email'],
             "password" => $request['password']
@@ -40,7 +35,6 @@ class AuthenticationController extends Controller
             session(['data' => Auth::guard('admin')->user()]);
             return redirect()->intended('dashboard');
         }
-
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',

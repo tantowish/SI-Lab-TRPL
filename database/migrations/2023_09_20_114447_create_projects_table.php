@@ -18,6 +18,10 @@ return new class extends Migration
             $table->date('end_date')->nullable();
             $table->text('description');
             $table->text('document_link');
+
+            $table->unsignedBigInteger('applicant');
+            $table->foreign('applicant')->references('user_id')->on('users');
+
             $table->enum('status', ['published','archive','waiting', 'rejected'])->default('waiting');
             $table->timestamps();
         });

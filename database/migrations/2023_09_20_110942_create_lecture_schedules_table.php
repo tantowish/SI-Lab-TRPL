@@ -28,6 +28,7 @@ return new class extends Migration
             $table->foreign('subject_id')->references('subject_id')->on('subjects');
             
             $table->text("information")->nullable();
+            $table->timestamps();
         });
     }
 

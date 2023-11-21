@@ -15,7 +15,8 @@ class Project extends Model
         'end_date',
         'description',
         'document_link',
-        'status'
+        'status',
+        'applicant'
     ];
 
 
@@ -27,6 +28,10 @@ class Project extends Model
     public function projectField()
     {
         return $this->hasMany(ProjectField::class, 'project_id');
+    }
+    public function userApplicant()
+    {
+        return $this->belongsTo(User::class, 'applicant', 'user_id');
     }
 
     

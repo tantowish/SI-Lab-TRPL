@@ -28,6 +28,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reserve::class, 'user_id');
     }
+    public function project()
+    {
+        return $this->hasMany(Project::class, 'user_id', 'applicant');
+    }
 
     /**
      * The attributes that are mass assignable.

@@ -34,6 +34,10 @@ class FieldSeeder extends Seeder
                 "field_name"=>'UI/UX',
                 'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             ],
+            [
+                "field_name"=>'IOT',
+                'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            ],
         ];
 
         foreach( $fields as $key => $value ) {

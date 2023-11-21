@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("no_item",100);
             $table->enum("condition", ["good","bad"]);
             $table->string("information",100);
+            $table->timestamps();
 
         });
     }

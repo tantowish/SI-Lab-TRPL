@@ -9,7 +9,6 @@ class lectureSchedule extends Model
 {
     use HasFactory;
     protected $primaryKey = 'schedule_id';
-    public $timestamps = false;
     protected $dates = ['start_time', 'end_time'];
 
     protected $fillable = [

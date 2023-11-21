@@ -9,8 +9,13 @@ class Inventory extends Model
 {
     use HasFactory;
     protected $primaryKey = 'inventory_id';
-    public $timestamps = false;
-
+    protected $fillable = [
+        'laboratorium_id',
+        'item_name',
+        'no_item',
+        'condition',
+        'information',
+    ];
 
     public function laboratorim(){
         return $this->belongsTo(Laboratorium::class, "laboratorium_id");

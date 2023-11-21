@@ -39,8 +39,10 @@
         @endif
         <div class="flex flex-col gap-1 mb-6">
             <h2 class="font-semibold text-xl">Proyek {{ $project->project_name }}</h2>
-            <p>{{ $project->projectHistory[0]->user->name }}</p>
-            {{ \Carbon\Carbon::parse($project->start_date)->isoFormat('MMMM Y') }} - {{ $project->end_date ? \Carbon\Carbon::parse($project->end_date)->isoFormat(' MMMM Y') : 'Sekarang' }}
+            <p>{{ $project->userApplicant->name }}</p>
+            <p>{{ \Carbon\Carbon::parse($project->start_date)->isoFormat('MMMM Y') }} - {{ $project->end_date ? \Carbon\Carbon::parse($project->end_date)->isoFormat(' MMMM Y') : 'Sekarang' }}</p>
+            <p>Bidang: {{ implode(', ', $project->projectField->pluck('field.field_name')->toArray()) }}</p>
+
         </div>  
         <div class="bg-white py-2 mb-8">
             <div class="flex flex-wrap items-center gap-4 mb-6">

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer("watt_power");
             $table->integer("length");
             $table->integer("wide");
+            $table->string('photo');
         });
     }
 

@@ -8,7 +8,7 @@
         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
         Kembali
     </a>
-    @if ($announcements->count()>0)
+    @if ($announcements->total()>0)
     <div class="bg-white border-2 mb-4">
         @foreach ($announcements as $key => $announcement)
         <div class="w-full p-4 @if($key % 2 == 0) bg-main @endif">
@@ -20,7 +20,18 @@
         @endforeach
     </div>
  
-    @include('dashboard.components.paginate')
+    @if ($announcements->total()>5)
+        <script>
+            let currentPage = {{ $announcements->currentPage() }}
+            const maxPage = {{ $announcements->lastPage() }};
+            const total_value = {{ $announcements->total() }};
+            const showing_value = {{ ($announcements->currentPage() - 1) * $announcements->perPage() + 1 }}
+            const to_value = {{ $announcements->currentPage() === $announcements->lastPage() ? $announcements->total() : $announcements->perPage()*$announcements->currentPage() }};
+            console.log(maxPage)
+        </script>
+        @include('dashboard.components.paginate')
+    @endif
+
 
     @else
     <div class="mb-4 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">

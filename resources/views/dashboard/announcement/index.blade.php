@@ -13,7 +13,7 @@
 
 
    
-        @if ($announcements->count() > 0)
+        @if ($announcements->total() > 0)
         <a href="{{ route('announcement.create') }}" class="bg-main mb-4 flex flex-wrap items-center w-fit border-2 px-3 py-1.5">
             <p class="font-semibold mr-1">Tambah</p>
             <svg class="text-black w-5 h-5" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -38,7 +38,7 @@
                     @foreach ($announcements as $announcement)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $no++ }}
+                            {{ ($announcements->currentPage() - 1) * $announcements->perPage() + $loop->iteration }}
                         </th>
                         <td class="px-6 py-4 border-r"> <!-- Add border to the right -->
                             {{ $announcement->title }}
@@ -56,7 +56,15 @@
 
 
 
-        @if ($announcements->count()>5)
+        @if ($announcements->total()>5)
+        <script>
+            let currentPage = {{ $announcements->currentPage() }}
+            const maxPage = {{ $announcements->lastPage() }};
+            const total_value = {{ $announcements->total() }};
+            const showing_value = {{ ($announcements->currentPage() - 1) * $announcements->perPage() + 1 }}
+            const to_value = {{ $announcements->currentPage() === $announcements->lastPage() ? $announcements->total() : $announcements->perPage()*$announcements->currentPage() }};
+            console.log(maxPage)
+        </script>
         @include('dashboard.components.paginate')
         @endif
         

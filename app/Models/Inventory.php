@@ -13,7 +13,8 @@ class Inventory extends Model
         'laboratorium_id',
         'item_name',
         'no_item',
-        'condition',
+        'good',
+        'bad',
         'information',
     ];
 

@@ -148,7 +148,7 @@
             </li>
             @if (session('data')->getTable()=='lab_administrators')
             <li>    
-                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{ route('inventory.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\inventaris.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Inventaris</span>
                 </a>

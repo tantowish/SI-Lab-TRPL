@@ -2,8 +2,6 @@
 
 @section('content')
 @include('dashboard.components.header')
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <div class="p-8 lg:px-16">
         <form action="{{ route('project.store') }}" method="POST">
             @csrf

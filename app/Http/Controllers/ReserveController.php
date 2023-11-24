@@ -82,7 +82,7 @@ class ReserveController extends Controller
 
     // User Laboran
     public function index(){
-        $reserves = Reserve::orderBy('created_at', 'desc')->paginate(5);
+        $reserves = Reserve::orderBy('created_at', 'desc')->paginate(7);
         return view('dashboard.reserve.index',[
             'header'=>'Persetujuan Peminjaman Ruangan',
             'reserves'=> $reserves
@@ -116,6 +116,17 @@ class ReserveController extends Controller
     }
     public function accept($reserveId){
         $reserve = Reserve::findOrFail($reserveId);
+
+           // Check if reservation start time is before current time
+        $now = now();
+        $carbonStartDate = Carbon::parse($reserve->start_time);
+
+        if ($carbonStartDate->isBefore($now)) {
+            // Handle case where reservation start time has already passed
+            return redirect()->route('reserve.show', $reserve->reserve_id)
+                ->with('error', 'Reservasi tidak dapat diterima karena waktu sudah lewat');
+        }
+
         $carbonDate = Carbon::parse($reserve->start_time);
         $formattedDate = $carbonDate->format('Y-m-d');
         

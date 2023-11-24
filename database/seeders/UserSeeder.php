@@ -43,6 +43,13 @@ class UserSeeder extends Seeder
                 "role"=> "mahasiswa",
             ],
             [
+                "name"=> "Naufal Tri Subakti",
+                "username"=>"naufaltrisubakti",
+                "email"=> "naufaltrisubakti@mail.ugm.ac.id",
+                "password"=> bcrypt("123"),
+                "role"=> "mahasiswa",
+            ],
+            [
                 "name"=> "Nikita Willy",
                 "username"=>"nikitawilly",
                 "email"=> "nikitawilly@mail.ugm.ac.id",

@@ -6,6 +6,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -67,6 +68,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/project/{id}/publish',[ProjectController::class,'publish'])->name('project.publish');
         Route::get('/dashboard/project/{id}/reject',[ProjectController::class,'reject'])->name('project.reject');
         Route::get('/dashboard/project/{id}/archive',[ProjectController::class,'archive'])->name('project.archive');
+        
+        // Inventory Laboran
+        Route::get('/dashboard/inventory',[InventoryController::class,'index'])->name('inventory.index');
+        Route::get('/dashboard/inventory/{id}/create',[InventoryController::class,'create'])->name('inventory.create');
+        Route::post('/dashboard/inventory/{id}/create',[InventoryController::class,'store'])->name('inventory.store');
+        Route::get('/dashboard/inventory/{id}',[InventoryController::class,'show'])->name('inventory.show');
+        Route::get('/dashboard/inventory/{id}/edit',[InventoryController::class,'edit'])->name('inventory.edit');
+        Route::put('/dashboard/inventory/{id}/update',[InventoryController::class,'update'])->name('inventory.update');
+        Route::delete('/dashboard/inventory/{id}/delete',[InventoryController::class,'destroy'])->name('inventory.destroy');
+        
     });
 
     // Schedule

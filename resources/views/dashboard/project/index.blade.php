@@ -8,7 +8,7 @@
             <span class="font-medium">Success! </span>{{ session('success') }}
         </div>
         @endif
-        @if($projects->count()>0)
+        @if($projects->total()>0)
         <div class="relative overflow-x-auto rounded-sm mb-5">
             <table class="w-full text-xs md:text-sm text-left text-gray-500 dark:text-gray-400 border">
                 <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
@@ -34,7 +34,7 @@
                     @foreach ($projects as $key => $project)
                     <tr class="{{ $key % 2 === 0 ? 'bg-gray-1900' : 'bg-white' }} dark:bg-gray-800">
                         <td class="px-6 py-4 border-l">
-                            {{ $no++ }}
+                            {{ ($projects->currentPage() - 1) * $projects->perPage() + $loop->iteration }}
                         </td>
                         <td class="px-6 py-4 border-l">
                             {{ $project->project_name }}
@@ -80,7 +80,15 @@
                 </tbody>
             </table>
         </div>
-        @if ($projects->count()>5)
+        @if ($projects->total()>10)
+        <script>
+            let currentPage = {{ $projects->currentPage() }}
+            const maxPage = {{ $projects->lastPage() }};
+            const total_value = {{ $projects->total() }};
+            const showing_value = {{ ($projects->currentPage() - 1) * $projects->perPage() + 1 }}
+            const to_value = {{ $projects->currentPage() === $projects->lastPage() ? $projects->total() : $projects->perPage()*$projects->currentPage() }};
+            console.log(maxPage)
+        </script>
         @include('dashboard.components.paginate')
         @endif
         @else

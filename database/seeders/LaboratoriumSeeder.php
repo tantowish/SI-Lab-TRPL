@@ -20,7 +20,8 @@ class LaboratoriumSeeder extends Seeder
                 "capacity"=>26,
                 "watt_power"=>1200,
                 "length"=>18,
-                "wide"=>5
+                "wide"=>5,
+                "photo"=>"1.jpg"
             ],
             [
                 "laboratorium_id"=>"HU102",
@@ -28,7 +29,8 @@ class LaboratoriumSeeder extends Seeder
                 "capacity"=>24,
                 "watt_power"=>900,
                 "length"=>18,
-                "wide"=>6
+                "wide"=>6,
+                "photo"=>"2.jpg"
             ],
             [
                 "laboratorium_id"=>"HU103",
@@ -36,7 +38,8 @@ class LaboratoriumSeeder extends Seeder
                 "capacity"=>27,
                 "watt_power"=>1200,
                 "length"=>20,
-                "wide"=>5
+                "wide"=>5,
+                "photo"=>"3.jpg"
             ],
             [
                 "laboratorium_id"=>"HU104",
@@ -44,7 +47,8 @@ class LaboratoriumSeeder extends Seeder
                 "capacity"=>16,
                 "watt_power"=>900,
                 "length"=>20,
-                "wide"=>10
+                "wide"=>10,
+                "photo"=>"4.jpg"
             ],
             [
                 "laboratorium_id"=>"HU105",
@@ -52,7 +56,8 @@ class LaboratoriumSeeder extends Seeder
                 "capacity"=>50,
                 "watt_power"=>1600,
                 "length"=>35,
-                "wide"=>10
+                "wide"=>10,
+                "photo"=>"5.jpg"
             ],
         ];
 

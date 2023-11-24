@@ -8,7 +8,7 @@
             <span class="font-medium">Success! </span>{{ session('success') }}
         </div>
         @endif
-        @if ($reserves->count()>0)
+        @if ($reserves->total()>7)
         <div class="relative overflow-x-auto rounded-sm mb-5">
             <table class="w-full text-xs md:text-sm text-left text-gray-500 dark:text-gray-400 border">
                 <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
@@ -73,7 +73,15 @@
                 </tbody>
             </table>
         </div>
-        @if ($reserves->count()>5)
+        @if ($reserves->total()>7)
+        <script>
+            let currentPage = {{ $reserves->currentPage() }}
+            const maxPage = {{ $reserves->lastPage() }};
+            const total_value = {{ $reserves->total() }};
+            const showing_value = {{ ($reserves->currentPage() - 1) * $reserves->perPage() + 1 }}
+            const to_value = {{ $reserves->currentPage() === $reserves->lastPage() ? $reserves->total() : $reserves->perPage()*$reserves->currentPage() }};
+            console.log(maxPage)
+        </script>
         @include('dashboard.components.paginate')
         @endif
         @else

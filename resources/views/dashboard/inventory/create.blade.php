@@ -2,7 +2,7 @@
 
 @section('content')
 @include('dashboard.components.header')
-<div class="p-8 lg:px-16">
+<div class="p-8 lg:px-16 max-w-2xl">
     <form action="{{ route('inventory.store', $laboratorium) }}" method="POST">
         @csrf
         <div class="mb-6">
@@ -20,15 +20,15 @@
                 <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
             @enderror
         </div>
-        <div class="flex flex-wrap lg:gap-5">
-            <div class="w-full lg: max-w-sm mb-6">
+        <div class="flex flex-wrap lg:gap-5 justify-between">
+            <div class="w-full lg:max-w-[250px] mb-6">
                 <label for="good" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumalah kondisi bagus</label>
                 <input type="number" id="good" name="good" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="eg: 20" required min="0">
                 @error('good')
                     <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="w-full lg: max-w-sm mb-6">
+            <div class="w-full lg:max-w-[250px] mb-6">
                 <label for="bad" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jumalah kondisi buruk</label>
                 <input type="number" id="bad" name="bad" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="eg: 20" required min="0">
                 @error('bad')
@@ -47,7 +47,7 @@
         
         <div class="flex flex-wrap gap-4">
             <button type="submit" class="w-full bg-main text-white px-3 py-1.5 sm:w-fit">Submit</button>
-            <a class="w-full bg-redpallete text-white px-3 py-1.5 text-center sm:w-fit" href="{{ route('announcement.index') }}">
+            <a class="w-full bg-redpallete text-white px-3 py-1.5 text-center sm:w-fit" href="{{ route('inventory.show', $laboratorium) }}">
                 Cancel
             </a>
         </div>

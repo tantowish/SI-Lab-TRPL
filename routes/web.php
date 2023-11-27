@@ -32,12 +32,12 @@ Route::middleware(['auth'])->group(function () {
     // Auth
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
+
     // User
     Route::get('/profile', [UserController::class, 'index'])->name('profile.index');
     Route::get('/profile/{id}/edit', [UserController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}/', [UserController::class, 'update'])->name('profile.update');
-    
+
 
     // Announcement
     Route::get('/dashboard/announcement', [AnnouncementController::class, 'index'])->middleware('admin')->name('announcement.index');
@@ -63,25 +63,25 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/reserve/doc/{reserve}', [ReserveController::class, 'doc'])->name('reserve.doc');
 
         // Project Laboran
-        Route::get('/dashboard/project/{id}/edit',[ProjectController::class,'edit'])->name('project.edit');
-        Route::put('/dashboard/project/{id}',[ProjectController::class,'update'])->name('project.update');
-        Route::delete('/dashboard/project/{id}',[ProjectController::class,'destroy'])->name('project.destroy');
-        Route::get('/dashboard/project/{id}/publish',[ProjectController::class,'publish'])->name('project.publish');
-        Route::get('/dashboard/project/{id}/reject',[ProjectController::class,'reject'])->name('project.reject');
-        Route::get('/dashboard/project/{id}/archive',[ProjectController::class,'archive'])->name('project.archive');
-        
+        Route::get('/dashboard/project/{id}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+        Route::put('/dashboard/project/{id}', [ProjectController::class, 'update'])->name('project.update');
+        Route::delete('/dashboard/project/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
+        Route::get('/dashboard/project/{id}/publish', [ProjectController::class, 'publish'])->name('project.publish');
+        Route::get('/dashboard/project/{id}/reject', [ProjectController::class, 'reject'])->name('project.reject');
+        Route::get('/dashboard/project/{id}/archive', [ProjectController::class, 'archive'])->name('project.archive');
+
         // Inventory Laboran
-        Route::get('/dashboard/inventory',[InventoryController::class,'index'])->name('inventory.index');
-        Route::get('/dashboard/inventory/{id}/create',[InventoryController::class,'create'])->name('inventory.create');
-        Route::post('/dashboard/inventory/{id}/create',[InventoryController::class,'store'])->name('inventory.store');
-        Route::get('/dashboard/inventory/{id}',[InventoryController::class,'show'])->name('inventory.show');
-        Route::get('/dashboard/inventory/{id}/edit',[InventoryController::class,'edit'])->name('inventory.edit');
-        Route::put('/dashboard/inventory/{id}/update',[InventoryController::class,'update'])->name('inventory.update');
-        Route::delete('/dashboard/inventory/{id}/delete',[InventoryController::class,'destroy'])->name('inventory.destroy');
-        
+        Route::get('/dashboard/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+        Route::get('/dashboard/inventory/{id}/create', [InventoryController::class, 'create'])->name('inventory.create');
+        Route::post('/dashboard/inventory/{id}/create', [InventoryController::class, 'store'])->name('inventory.store');
+        Route::get('/dashboard/inventory/{id}', [InventoryController::class, 'show'])->name('inventory.show');
+        Route::get('/dashboard/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+        Route::put('/dashboard/inventory/{id}/update', [InventoryController::class, 'update'])->name('inventory.update');
+        Route::delete('/dashboard/inventory/{id}/delete', [InventoryController::class, 'destroy'])->name('inventory.destroy');
+
         // Asistant Laboran
-        Route::get('/dashboard/assistant/create',[AssistantController::class, 'create'])->name('assistant.create');
-        Route::post('/dashboard/assistant/',[AssistantController::class, 'store'])->name('assistant.store');
+        Route::get('/dashboard/assistant/create', [AssistantController::class, 'create'])->name('assistant.create');
+        Route::post('/dashboard/assistant/', [AssistantController::class, 'store'])->name('assistant.store');
     });
 
     // Schedule
@@ -98,22 +98,32 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/dashboard/reserve/history', [ReserveController::class, 'store'])->name('reserve.store');
 
         // Project User
-        Route::get('/dashboard/project/create',[ProjectController::class,'create'])->name('project.create');
+        Route::get('/dashboard/project/create', [ProjectController::class, 'create'])->name('project.create');
     });
 
-  
+
     // Project
-    Route::get('/dashboard/project',[ProjectController::class,'index'])->name('project.index');
-    Route::post('/dashboard/project/',[ProjectController::class,'store'])->name('project.store');
-    Route::get('/dashboard/project/{id}/detail',[ProjectController::class,'show'])->name('project.show');
+    Route::get('/dashboard/project', [ProjectController::class, 'index'])->name('project.index');
+    Route::post('/dashboard/project/', [ProjectController::class, 'store'])->name('project.store');
+    Route::get('/dashboard/project/{id}/detail', [ProjectController::class, 'show'])->name('project.show');
 
     // Assistant
-    Route::get('/dashboard/assistant',[AssistantController::class, 'index'])->name('assistant.index');
+    Route::get('/dashboard/assistant', [AssistantController::class, 'index'])->name('assistant.index');
 });
 
 Route::get('/about', function () {
     return view('about');
 });
 
+
 Route::get('/', [LandingpageController::class, 'index']);
 Route::get('/about', [LandingpageController::class, 'about']);
+Route::get('/datasoftware', [LandingpageController::class, 'datasoftware']);
+Route::get('/publication1', [LandingpageController::class, 'publication1']);
+Route::get('/publication2', [LandingpageController::class, 'publication2']);
+Route::get('/publication3', [LandingpageController::class, 'publication3']);
+Route::get('/publication4', [LandingpageController::class, 'publication4']);
+Route::get('/laboratorium1', [LandingpageController::class, 'laboratorium1']);
+Route::get('/laboratorium2', [LandingpageController::class, 'laboratorium2']);
+Route::get('/membership1', [LandingpageController::class, 'membership1']);
+Route::get('/membership2', [LandingpageController::class, 'membership2']);

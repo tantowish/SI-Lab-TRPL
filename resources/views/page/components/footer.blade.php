@@ -1,5 +1,5 @@
-<div class="px-16 py-4  bg-gray-100 lg:px-32 lg:text-sm ">
-    <div>
+<div class="px-12 py-4  bg-gray-100 lg:px-32 lg:text-sm text-xs md:text-sm ">
+    <div class="mt-8">
         <img src="{{ asset('assets/img/page/index/logo-ugm.png') }}" alt="" class="h-12 w-18" />
         <p class="my-2">
             Gedung Iso Reksohadiprodjo, Sekip Unit 1, Caturtunggal
@@ -8,18 +8,18 @@
         <p class="my-2">Email: trpl.sv@ugm.ac.id</p>
         <p class="my-2">Telp: 0274-541020</p>
         <hr class="border-slate-800" />
-        <div class="block font-semibold md:flex md:flex-wrap md:justify-center md:items-center">
+        <div class="block font-semibold md:flex md:flex-wrap w-full justify-between md:items-center">
             <div class="my-2">
                 <img src="{{ asset('assets/img/page/index/Silaboe-Logo2.png') }}">
             </div>
-            <div class="mx-auto md:flex">
+            {{-- <div class="mx-auto md:flex">
                 <p class="my-2 md:mx-4"><a href="">Home</a></p>
                 <p class="my-2 md:mx-4"><a href="">About Us</a></p>
                 <p class="my-2 md:mx-4"><a href="">FAQs</a></p>
                 <p class="my-2 md:mx-4"><a href="">Research</a></p>
                 <p class="my-2 md:mx-4"><a href="">Appearance</a></p>
                 <p class="my-2 md:mx-4"><a href="">Membership</a></p>
-            </div>
+            </div> --}}
             <div class="flex">
                 <a href="">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"

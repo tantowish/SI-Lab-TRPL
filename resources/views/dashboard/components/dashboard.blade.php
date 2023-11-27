@@ -80,7 +80,7 @@
                 </button>
                 <ul id="dropdown-asisten" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Asisten</a>
+                            <a href="{{ route('assistant.index') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Asisten</a>
                         </li>
                         @if (session('data')->getTable()=='lab_administrators')
                         <li>

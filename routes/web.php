@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\LandingpageController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,9 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/dashboard/inventory/{id}/update',[InventoryController::class,'update'])->name('inventory.update');
         Route::delete('/dashboard/inventory/{id}/delete',[InventoryController::class,'destroy'])->name('inventory.destroy');
         
+        // Asistant Laboran
+        Route::get('/dashboard/assistant/create',[AssistantController::class, 'create'])->name('assistant.create');
+        Route::post('/dashboard/assistant/',[AssistantController::class, 'store'])->name('assistant.store');
     });
 
     // Schedule
@@ -102,6 +106,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/project',[ProjectController::class,'index'])->name('project.index');
     Route::post('/dashboard/project/',[ProjectController::class,'store'])->name('project.store');
     Route::get('/dashboard/project/{id}/detail',[ProjectController::class,'show'])->name('project.show');
+
+    // Assistant
+    Route::get('/dashboard/assistant',[AssistantController::class, 'index'])->name('assistant.index');
 });
 
 Route::get('/about', function () {

@@ -29,4 +29,21 @@
 }
 .g7 {
     grid-area: g7;
-}
+
+
+.image-container {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .image-container > div {
+    opacity: 0;
+    transform: translateY(20px); /* Mulai dari posisi sedikit di atas */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  }
+
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+

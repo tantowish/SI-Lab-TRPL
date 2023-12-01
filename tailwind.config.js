@@ -14,6 +14,7 @@ export default {
       'orangepallete':'#E46F5B',
       'borderpallete':'#DEE4ED',
       'prev':'#FFB13B',
+      'customColor': '#64c5d3',
       'yellowpallete':'#EFD892'
 
     },

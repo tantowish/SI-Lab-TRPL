@@ -1,13 +1,18 @@
 @extends('page.layouts.main')
 
 @section('content')
+
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
     <div class="bg-gray-50">
         {{-- Start Judul --}}
         <div class="w-full bg-gray-400 px-16 py-28 bg-cover bg-blend-multiply bg-center "
             style="background-image: url('{{ asset('assets/img/page/publication3/bgpublication3.png') }}')">
 
             <div class="text-center">
-                <h1 class=" text-white font-bold text-3xl lg:text-5xl">
+
+                <h1 class=" text-white font-bold text-3xl lg:text-5xl tracking-wider">
+
                     Publication
                 </h1>
                 <div class="flex justify-center items-center">
@@ -18,7 +23,14 @@
                             fill="white">
                         </path>
                     </svg>
-                    <h1 class="text-base text-white lg:text-lg">Home / Publication</h1>
+
+                    <div class="flex flex-row text-base text-white lg:text-lg tracking-wider gap-4">
+                        <a
+                            href="\">Home</a>
+                        <p>/</p>
+                        <a href="\publication1">Publication</a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -40,13 +52,16 @@
         </div>
         <!-- Section About End-->
 
-        <section class="h-full flex items-center text-black ">
-            <div class="container px-16 md:px-2 lg:px-2 py-12 md:py-24 mx-auto max-w-4xl">
-                <div class="flex flex-wrap justify-center md:gap-4 gap-12 lg:gap-8 max-w-8xl w-full max-h-5xl h-full">
+
+        <div class=" flex items-center justify-center ">
+            <div class="container px-16 md:px-2 lg:px-0 py-12 lg:py-26 md:py-24  card-item max-w-5xl max-h-3xl "
+                data-aos="fade-up">
+                <div class="flex flex-wrap justify-center md:gap-4 gap-12 lg:gap-12  ">
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl ">
                         <div
-                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-12 py-12   md:py-8">
+                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12   md:py-8">
+
                             <div class="bg-[#EFD892] w-[160px] h-[160px] rounded-[100px] flex justify-center">
                                 <div class="items-center justify-center flex p-4 h-8px w-8px">
                                     <img src="{{ asset('assets/img/page/publication2/Pengabdian-image.png') }}"
@@ -61,9 +76,11 @@
                         </div>
                     </div>
 
-                    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl">
+
+                    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl card-item" data-aos="fade-up">
                         <div
-                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-12 py-12  md:py-8">
+                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16   py-12  md:py-8">
+
                             <div class="bg-[#E46F5B] w-[160px] h-[160px] rounded-[100px] flex justify-center">
                                 <div class="items-center justify-center flex p-4 h-8px w-8px">
                                     <img src="{{ asset('assets/img/page/publication2/Proyek.png') }}" alt="Proyek Image">
@@ -77,9 +94,11 @@
                         </div>
                     </div>
 
-                    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl">
+
+                    <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl card-item" data-aos="fade-up">
                         <div
-                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-12 py-12  md:py-8">
+                            class=" rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12  md:py-8">
+
                             <div class="bg-[#B5D2F1] w-[160px] h-[160px] rounded-[100px] flex justify-center">
                                 <div class="items-center justify-center flex p-4 h-8px w-8px">
                                     <img src="{{ asset('assets/img/page/publication2/Penelitian-image.png') }}"
@@ -96,6 +115,39 @@
 
                 </div>
             </div>
-        </section>
+
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ambil semua elemen dengan class card-item
+            var cards = document.querySelectorAll('.card-item');
+
+            // Setiap card akan muncul dengan penundaan
+            cards.forEach(function(card, index) {
+                // Hitung penundaan berdasarkan indeks
+                var delay = index * 600; // Sesuaikan nilai penundaan (dalam milidetik)
+
+                // Atur penundaan menggunakan atribut style dan setTimeout
+                card.style.transitionDelay = delay + 'ms';
+
+                // Tambahkan class 'aos-init' untuk memastikan AOS memproses elemen tersebut
+                card.classList.add('aos-init');
+            });
+
+            // Inisialisasi AOS setelah menetapkan penundaan pada setiap card
+            AOS.init({
+                once: true, // Efek hanya dijalankan sekali
+                offset: 50, // Offset scroll sebelum efek dimulai
+            });
+
+            // Tambahkan class 'smooth-appear' ke elemen dengan class 'card-item'
+            cards.forEach(function(card) {
+                card.classList.add('smooth-appear');
+            });
+        });
+    </script>
+
 @endsection

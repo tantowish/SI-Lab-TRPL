@@ -7,7 +7,8 @@
         style="background-image: url('{{ asset('assets/img/page/publication3/bgpublication3.png') }}')">
 
         <div class="text-center">
-            <h1 class=" text-white font-bold text-3xl lg:text-5xl">
+            <h1 class=" text-white font-bold text-3xl lg:text-5xl tracking-wider">
+
                 Publication
             </h1>
             <div class="flex justify-center items-center">
@@ -18,7 +19,14 @@
                         fill="white">
                     </path>
                 </svg>
-                <h1 class="text-base text-white lg:text-lg">Home / Publication</h1>
+
+                <div class="flex flex-row text-base text-white lg:text-lg tracking-wider gap-4">
+                    <a
+                        href="\">Home</a>
+                    <p>/</p>
+                    <a href="\publication1">Publication</a>
+                </div>
+
             </div>
         </div>
     </div>
@@ -55,11 +63,13 @@
             <label for="s1" id="slide1"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 21.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <a href="\publication2"
-                    class="text-overlay text-white lg:text-2xl text-sm font-bold  absolute text-center lg:top-[72%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
+
+                    class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
                 </a>
                 <div
-                    class="text-overlay lg:text-lg text-xs text-white absolute text-center lg:top-[80%] top-[70%] md:top-[80%] left-[5%] right-[5%] md:right-[20%] md:left-[20%] transform ">
+                    class="text-overlay lg:text-xl text-xs text-white absolute text-center lg:top-[82%] top-[70%] md:top-[80%] lg:left-[30%] lg:right-[30%] md:right-[20%] md:left-[20%] transform ">
+
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
 
@@ -68,29 +78,61 @@
 
 
 
-            <label for="s2" id="slide2"8
+
+            <label for="s2" id="slide2"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 18.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <a href="\publication2"
+                    class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
+                    Artificial Intelligence
+                </a>
+                <div
+                    class="text-overlay lg:text-xl text-xs text-white absolute text-center lg:top-[82%] top-[70%] md:top-[80%] lg:left-[30%] lg:right-[30%] md:right-[20%] md:left-[20%] transform ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+
             </label>
 
 
             <label for="s3" id="slide3"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 21.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+                <a href="\publication2"
+                    class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
+                    Artificial Intelligence
+                </a>
+                <div
+                    class="text-overlay lg:text-xl text-xs text-white absolute text-center lg:top-[82%] top-[70%] md:top-[80%] lg:left-[30%] lg:right-[30%] md:right-[20%] md:left-[20%] transform ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+
             </label>
 
             <label for="s4" id="slide4"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 17.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                 <a href="\publication2"
-                    class="text-overlay text-white lg:text-2xl text-sm font-bold  absolute text-center lg:top-[72%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
+
+                    class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
                 </a>
                 <div
-                    class="text-overlay lg:text-lg text-xs text-white absolute text-center lg:top-[80%] top-[70%] md:top-[80%] left-[5%] right-[5%] md:right-[20%] md:left-[20%] transform ">
+                    class="text-overlay lg:text-xl text-xs text-white absolute text-center lg:top-[82%] top-[70%] md:top-[80%] lg:left-[30%] lg:right-[30%] md:right-[20%] md:left-[20%] transform ">
+
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
             </label>
 
             <label for="s5" id="slide5"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 20.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+                <a href="\publication2"
+                    class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
+                    Artificial Intelligence
+                </a>
+                <div
+                    class="text-overlay lg:text-xl text-xs text-white absolute text-center lg:top-[82%] top-[70%] md:top-[80%] lg:left-[30%] lg:right-[30%] md:right-[20%] md:left-[20%] transform ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+
             </label>
         </section>
     </section>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\labAdministrator;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
@@ -44,10 +45,17 @@ class LandingpageController extends Controller
     }
     public function membership1()
     {
-        return view('page.membership1');
+        $labAdmin = labAdministrator::all();
+        return view('page.membership1', [
+            'labAdmins' => $labAdmin
+        ]);
     }
-    public function membership2()
+    public function membership2($id)
     {
-        return view('page.membership2');
+        $labAdmin = labAdministrator::findOrFail($id);
+        return view('page.membership2',[
+            'labAdmin'=>$labAdmin
+        ]);
+
     }
 }

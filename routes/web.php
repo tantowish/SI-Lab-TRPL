@@ -126,4 +126,6 @@ Route::get('/publication4', [LandingpageController::class, 'publication4']);
 Route::get('/laboratorium1', [LandingpageController::class, 'laboratorium1']);
 Route::get('/laboratorium2', [LandingpageController::class, 'laboratorium2']);
 Route::get('/membership1', [LandingpageController::class, 'membership1']);
-Route::get('/membership2', [LandingpageController::class, 'membership2']);
+
+Route::get('/membership/{id}/detail', [LandingpageController::class, 'membership2'])->name('membership.detail');
+

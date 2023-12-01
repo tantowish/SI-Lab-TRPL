@@ -5,7 +5,8 @@
         style="background-image: url('{{ asset('assets/img/page/about/bg-aboutus.png') }}')">
 
         <div class="text-center">
-            <h1 class="text-3xl text-white font-bold  lg:text-5xl">
+
+            <h1 class="text-3xl text-white font-bold  lg:text-5xl tracking-wider">
                 About Us
             </h1>
             <div class="flex justify-center items-center ">
@@ -16,7 +17,7 @@
                         fill="white">
                     </path>
                 </svg>
-                <h1 class="text-base text-white lg:text-lg">Home / About us</h1>
+                <h1 class="text-base text-white lg:text-lg tracking-wider">Home / About us</h1>
             </div>
         </div>
     </div>
@@ -25,7 +26,7 @@
     <!-- Section About Start-->
 
     <!-- section apaitu silaboe -->
-    <div class="px-6 md:px-12 lg:mx-4">
+    <div class="px-6 md:px-12 ">
         <div class="max-w-6xl mx-auto animate-section1 ">
             <div class="bg-[#64c5d3] w-full my-8 lg:mt-24 lg:px-8 md:py-6 rounded-[50px]">
                 <div class="text-black items-center">
@@ -148,7 +149,7 @@
         <div class=" max-w-6xl mx-auto animate-section1 ">
             <div class="bg-[#64c5d3] w-full mb-6 lg:mt-12 lg:px-8   lg:mb-16 md:py-6 rounded-[50px]">
                 <div class="text-black flex flex-wrap">
-                    <div class="w-full lg:w-1/2 mb-8 text-center px-4 py-4 md:px-8 lg:mb-0 lg:px-12">
+                    <div class="w-full lg:w-1/2 mb-8 text-center px-4 py-4 lg:py-0 md:px-8 lg:mb-0 lg:px-12">
                         <h1 class="text-xl font-bold lg:text-3xl md:text-2xl mb-4 underline">
                             Visi
                         </h1>
@@ -169,7 +170,7 @@
                         <h1 class="text-xl font-bold md:text-2xl lg:text-3xl mb-4 underline">
                             Misi
                         </h1>
-                        <p class="text-sm text-justify  lg:text-md ">
+                        <p class="text-sm text-justify sm:text-base lg:text-md ">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Laboriosam tenetur sequi at eaque illo dolores in fuga!
                             Praesentium expedita, magni corrupti quidem hic veritatis, eius
@@ -189,7 +190,7 @@
 
     <!-- Section Visi Misi Start-->
     <section
-        class="lg:py-8 md:py-4 mb-4 px-4 bg-[#CEDEE0] flex flex-wrap items-center justify-evenly gap-2 lg:px-16 md:px-8 lg:justify-between">
+        class="lg:py-8 md:py-4 px-4 bg-[#CEDEE0] flex flex-wrap items-center justify-evenly gap-2 lg:px-16 md:px-8 lg:justify-between">
         <div class="px-8 py-4 lg:px-0 text-center">
             <h1 class="text-slate-600 font-bold mb-2 lg:text-5xl md:text-4xl text-2xl">24+</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl">

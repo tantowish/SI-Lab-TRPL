@@ -355,6 +355,7 @@
                 </div>
             </div>
         </div>
+
     </div> --}}
 
 
@@ -581,6 +582,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -590,6 +592,7 @@
     <script>
         feather.replace();
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
@@ -619,6 +622,7 @@
             cards.forEach(function(card) {
                 card.classList.add('smooth-appear');
             });
+
         });
     </script>
 @endsection

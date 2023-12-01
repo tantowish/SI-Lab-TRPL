@@ -4,7 +4,9 @@
     <div class="w-full  bg-gray-400 px-16 py-28 bg-cover bg-blend-multiply bg-center"
         style="background-image: url('{{ asset('assets/img/page/laboratorium1/headerbg.png') }}')">
         <div class="text-center text-white">
+
             <h1 class="text-2xl font-bold sm:text-3xl lg:text-5xl tracking-wider">Membership</h1>
+
             <div class="flex justify-center items-center">
                 <svg class="h-4 w-4 mr-2 sm:h-5 sm:w-6 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="100" height="100" viewBox="0 0 24 24">
@@ -12,11 +14,13 @@
                         d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 10 21 L 10 14 L 14 14 L 14 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z"
                         fill="white">
                     </path>
-                </svg>
+
                 <h1 class="text-base lg:text-sm py-2  tracking-wider">Home / Membership</h1>
+
             </div>
         </div>
     </div>
+
 
 
 
@@ -42,7 +46,9 @@
         <div class="bg-black w-full h-[2px] my-4"></div>
 
         <div class="text-sm lg:text-lg text-justify">
+
             {{$labAdmin->description}}
+
         </div>
 
         <div class="flex flex-col py-12">
@@ -52,7 +58,9 @@
             <div class="bg-black w-full h-[1px] my-2"></div>
 
             <div class="text-md lg:text-lg">
+
                 {{$labAdmin->expertise}}
+
             </div>
         </div>
 

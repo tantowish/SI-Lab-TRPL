@@ -5,7 +5,9 @@
     <div class="w-full bg-gray-400 px-16 py-28 bg-cover bg-blend-multiply bg-center "
         style="background-image: url('{{ asset('assets/img/page/publication3/bgpublication3.png') }}')">
         <div class="text-center text-white">
+
             <h1 class=" font-bold text-3xl lg:text-5xl tracking-wider">Publication</h1>
+
             <div class="flex justify-center items-center pt-2">
                 <svg class="h-4 w-4 mr-2 sm:h-5 sm:w-6 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="100" height="100" viewBox="0 0 24 24">
@@ -14,12 +16,14 @@
                         fill="white">
                     </path>
                 </svg>
+
                 <div class="flex flex-row text-base text-white lg:text-lg tracking-wider gap-4">
                     <a
                         href="\">Home</a>
                         <p>/</p>
                         <a href="\publication3">Publication</a>
                 </div>
+
             </div>
 
         </div>
@@ -114,7 +118,9 @@
                 paper by laying out a vision for future research in this area.
             </div>
         </div>
+
         <div class="pt-8 pb-8">
+
             <div class="bg-gray-100  mx-4 px-8 pt-4 relative">
                 <div class="flex flex-row items-center pt-4 gap-4 ">
                     <div class="bg-[#64c5d3] w-[30px] h-[50px] absolute left-0"></div>

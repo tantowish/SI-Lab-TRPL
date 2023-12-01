@@ -270,4 +270,5 @@
             });
         });
     </script>
+
 @endsection

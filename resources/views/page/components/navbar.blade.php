@@ -62,6 +62,7 @@
                         <ul class="py-2 text-gray-700 dark:text-black" aria-labelledby="dropdownLargeButton">
                             <li>
                                 <a href="\publication1"
+<
                                     class="block font-semibold px-4 py-2 text-sm hover:text-[#64c5d3] dark:hover:bg-[#64c5d3] dark:hover:text-white">Publication
                                 </a>
                             </li>

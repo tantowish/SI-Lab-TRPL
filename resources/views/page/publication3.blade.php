@@ -9,7 +9,9 @@
     <div class="w-full bg-gray-400 px-16 py-28 bg-cover bg-blend-multiply bg-center "
         style="background-image: url('{{ asset('assets/img/page/publication3/bgpublication3.png') }}')">
         <div class="text-center text-white">
+
             <h1 class=" font-bold text-3xl lg:text-5xl tracking-wider">Publication</h1>
+
             <div class="flex justify-center items-center pt-2">
                 <svg class="h-4 w-4 mr-2 sm:h-5 sm:w-6 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="100" height="100" viewBox="0 0 24 24">
@@ -18,12 +20,14 @@
                         fill="white">
                     </path>
                 </svg>
+
                 <div class="flex flex-row text-base text-white lg:text-lg tracking-wider gap-4">
                     <a
                         href="\">Home</a>
                         <p>/</p>
                         <a href="\publication2">Publication</a>
                 </div>
+
             </div>
 
         </div>
@@ -47,7 +51,9 @@
     </div>
     <!-- Section Publication End-->
 
+
     <div class=" p-8  ">
+
         <form class="flex justify-center items-center w-full lg:pt-12">
             <label for="default-search" class=" text-sm font-medium text-black sr-only  dark:text-black ">Search</label>
             <div class="relative w-[90%] lg:w-[60%] mx-auto ">
@@ -70,7 +76,9 @@
     </div>
 
     <!-- Artikel Start -->
+
     <div class="bg-white lg:px-32 lg:mx-12 mx-8 mb-4  lg:mb-16 md:px-4">
+
         <div class="flex flex-col mb-6 text-justify">
             <div class="text-xl  font-semibold ">Lorem ipsum dolor sit amet.</div>
             <a href="\publication4" class="text-xs text-blue-600 font-semibold py-2 ">Lorem ipsum dolor sit

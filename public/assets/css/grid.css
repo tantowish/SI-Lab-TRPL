@@ -29,7 +29,7 @@
 }
 .g7 {
     grid-area: g7;
-}
+
 
 .image-container {
     display: flex;
@@ -46,3 +46,4 @@
     opacity: 1;
     transform: translateY(0);
   }
+

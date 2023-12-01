@@ -56,5 +56,6 @@ class LandingpageController extends Controller
         return view('page.membership2',[
             'labAdmin'=>$labAdmin
         ]);
+
     }
 }

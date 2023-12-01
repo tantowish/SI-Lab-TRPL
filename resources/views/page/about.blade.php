@@ -5,6 +5,7 @@
         style="background-image: url('{{ asset('assets/img/page/about/bg-aboutus.png') }}')">
 
         <div class="text-center">
+
             <h1 class="text-3xl text-white font-bold  lg:text-5xl tracking-wider">
                 About Us
             </h1>

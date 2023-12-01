@@ -1,5 +1,5 @@
 <div class="px-12 py-4  bg-gray-100 lg:px-32 lg:text-sm text-xs md:text-sm ">
-    <div class="mt-8">
+    <div class="mt-6">
         <img src="{{ asset('assets/img/page/index/logo-ugm.png') }}" alt="" class="h-12 w-18" />
         <p class="my-2">
             Gedung Iso Reksohadiprodjo, Sekip Unit 1, Caturtunggal
@@ -21,7 +21,7 @@
                 <p class="my-2 md:mx-4"><a href="">Membership</a></p>
             </div> --}}
             <div class="flex">
-                <a href="">
+                <a href="https://www.instagram.com/nauvaltri_/?r=nametagis  ">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                         height="100" viewBox="0 0 24 24">
                         <path
@@ -29,7 +29,7 @@
                         </path>
                     </svg>
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/nauvaltri_/?r=nametagis">
                     <svg class="ml-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                         height="100" viewBox="0 0 24 24">
                         <path

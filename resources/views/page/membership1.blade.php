@@ -7,15 +7,16 @@
     <div class="w-full  bg-gray-400 px-16 py-28 bg-cover bg-blend-multiply bg-center"
         style="background-image: url('{{ asset('assets/img/page/laboratorium1/headerbg.png') }}')">
         <div class="text-center text-white">
-            <h1 class="text-3xl font-bold  lg:text-5xl">Membership</h1>
-            <div class="flex justify-center items-center py-2 gap-3">
+            <h1 class="text-3xl font-bold  lg:text-5xl tracking-wider ">Membership</h1>
+            <div class="flex justify-center items-center py-2 gap-3 ">
                 <span class="w-4 h-4" data-feather="users"></span>
-                <h1 class="text-base lg:text-sm">Home / Membership</h1>
+                <h1 class="text-base lg:text-sm tracking-wider ">Home / Membership</h1>
             </div>
         </div>
     </div>
 
     <div class=" px-8 lg:pt-12 pt-16">
+
         <form class="flex justify-center items-center ">
             <label for="default-search" class=" text-sm font-medium text-black sr-only  dark:text-black ">Search</label>
             <div class="relative w-[90%] lg:w-[60%] mx-auto ">
@@ -35,6 +36,7 @@
                 </button>
             </div>
         </form>
+
     </div>
     <div class=" justify-center px-8 my-16 lg:px-32 md:px-12 sm:text-center md:text-center lg:text-left">
         <div class="text-xl md:text-2xl lg:text-3xl font-bold text-left">Keanggotaan Laboratorium</div>
@@ -51,36 +53,39 @@
         </div>
         <div class="bg-black flex justify-center w-full h-[2px]"></div>
 
+        @foreach ($labAdmins as $labAdmin)
+            
         <div class="flex py-8 items-center lg:flex-row md:flex-row flex-col justify-center lg:gap-12 md:gap-8 gap-8">
+            
             <img src="{{ asset('assets/img/page/membership1/image 28.png') }}" alt="Proyek Image">
 
             <div class="flex flex-col w-full py-4 ">
                 <div class="flex flex-row gap-[100px] md:gap-[108px] lg:gap-[120px]">
                     <div class="text-sm">Nama</div>
-                    <div class="">:</div>
+                    <div class="">: {{$labAdmin->name}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[108px] md:gap-[115px] lg:gap-[126px]">
                     <div class="text-sm">NIKA</div>
-                    <div class="">:</div>
+                    <div class="">: {{$labAdmin->NIKA}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[24px] md:gap-[30px] lg:gap-[41px]">
                     <div class="text-sm">Bidang Keahlian</div>
-                    <div class="">:</div>
+                    <div class="">: {{$labAdmin->expertise}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[107px] md:gap-[112px] lg:gap-[124px]">
                     <div class="text-sm">Email</div>
-                    <div class="">:</div>
+                    <div class="">: {{$labAdmin->email}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <a class="btn text-left mt-5 text-sm font-bold flex items-center  flex-row" style="color: #64c5d3"
-                    href="\membership2">
+                    href="{{route('membership.detail', $labAdmin->lab_admin_id)}}">
                     Selengkapnya
                     <span class="w-6 h-6" data-feather="chevron-right"></span>
                 </a>
@@ -88,81 +93,7 @@
         </div>
 
         <div class="bg-black flex justify-center w-full h-[2px]"></div>
-
-        <div class="flex py-8 items-center lg:flex-row md:flex-row flex-col justify-center lg:gap-12 md:gap-8 gap-8">
-            <img src="{{ asset('assets/img/page/membership1/image 29.png') }}" alt="Proyek Image">
-
-            <div class="flex flex-col w-full py-4 ">
-                <div class="flex flex-row gap-[100px] md:gap-[108px] lg:gap-[120px]">
-                    <div class="text-sm">Nama</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[108px] md:gap-[115px] lg:gap-[126px]">
-                    <div class="text-sm">NIKA</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[24px] md:gap-[30px] lg:gap-[41px]">
-                    <div class="text-sm">Bidang Keahlian</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[107px] md:gap-[112px] lg:gap-[124px]">
-                    <div class="text-sm">Email</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <a class="btn text-left mt-5 text-sm font-bold flex items-center  flex-row" style="color: #64c5d3"
-                    href="Membership2.html">
-                    Selengkapnya
-                    <span class="w-6 h-6" data-feather="chevron-right"></span>
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-black flex justify-center w-full h-[2px]"></div>
-
-
-        <div class="flex py-8 items-center lg:flex-row md:flex-row flex-col justify-center lg:gap-12 md:gap-8 gap-8">
-            <img src="{{ asset('assets/img/page/membership1/image 30.png') }}" alt="Proyek Image">
-
-            <div class="flex flex-col w-full py-4 ">
-                <div class="flex flex-row gap-[100px] md:gap-[108px] lg:gap-[120px]">
-                    <div class="text-sm">Nama</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[108px] md:gap-[115px] lg:gap-[126px]">
-                    <div class="text-sm">NIKA</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[24px] md:gap-[30px] lg:gap-[41px]">
-                    <div class="text-sm">Bidang Keahlian</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <div class="flex flex-row gap-[107px] md:gap-[112px] lg:gap-[124px]">
-                    <div class="text-sm">Email</div>
-                    <div class="">:</div>
-                </div>
-                <div class="bg-black h-[1px] my-2"></div>
-
-                <a class="btn text-left mt-5 text-sm font-bold flex items-center  flex-row" style="color: #64c5d3"
-                    href="Membership2.html">
-                    Selengkapnya
-                    <span class="w-6 h-6" data-feather="chevron-right"></span>
-                </a>
-            </div>
-        </div>
+        @endforeach
     </div>
 
 

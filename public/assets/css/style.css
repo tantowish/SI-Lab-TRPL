@@ -2,3 +2,31 @@
     transform: rotate(180deg);
     transition: transform 0.3s ease;
 }
+
+/* Tambahkan ini ke dalam file CSS Anda */
+.aos-init .animate-section1 {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.aos-animate .animate-section1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tambahkan gaya transisi untuk efek muncul */
+.card-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+        transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Sesuaikan fungsi cubic-bezier */
+}
+
+/* Tambahkan class 'appear' untuk membuat card muncul */
+.smooth-appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+.tracking-custom {
+    letter-spacing: 0.2em; /* Sesuaikan nilai sesuai keinginan Anda */
+}

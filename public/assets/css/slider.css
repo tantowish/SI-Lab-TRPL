@@ -16,14 +16,14 @@
 
 #slider label {
     margin: auto;
-    width: 60%;
+    width: 65%;
     height: 100%;
     border-radius: 4px;
     position: absolute;
     left: 0;
     right: 0;
     cursor: pointer;
-    transition: transform 0.7s ease;
+    transition: transform 0.9s ease;
 }
 
 #s1:checked ~ #slide4,

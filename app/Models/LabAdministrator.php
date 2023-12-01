@@ -15,7 +15,7 @@ class labAdministrator extends Authenticatable
 
 
     protected $fillable = [
-        "name","email","password","username"
+        "name","email","password","username",'expertise','NIKA','intro'
     ];
 
     public function lectureSchedule()

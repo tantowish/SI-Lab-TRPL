@@ -1,6 +1,7 @@
 @extends('page.layouts.main')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     {{-- Start Judul --}}
 
     <div class="relative w-full bg-white px-16 py-12 lg:py-2 bg-cover bg-center bg-blend-multiply">
@@ -17,7 +18,7 @@
                         Teknologi Rekayasa Perangkat Lunak
                     </h1>
                     <h2
-                        class="leading-relaxed text-sm lg:text-md md:text-sm text-center py-3 lg:max-w-md max-w-xs flex-wrap mx-auto">
+                        class=" leading-relaxed text-sm lg:text-md md:text-sm text-center py-3 lg:max-w-md max-w-xs flex-wrap mx-auto">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quia harum similique earum ut
                         unde facilis excepturi. Natus molestias reprehenderit modi dolorem dignissimos, neque consectetur
                         reiciendis provident cumque accusantium aliquid.
@@ -42,11 +43,11 @@
     <div class=" lg:px-36 md:px-12 px-12 ">
         <div class="lg:py-20 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4 gap-2 md:gap-8 lg:gap-12 ">
 
-            <div class=" flex flex-col justify-center md:px-2 lg:py-4 lg:px-6">
+            <div class=" flex flex-col justify-center md:px-2 lg:py-4 lg:px-6" data-aos="fade-right">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl   sm:pb-5">About
                         Us</h1>
-                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-md ">
+                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
                         excepturi culpa exercitationem omnis ex deserunt iusto officia alias doloremque! Tenetur placeat
                         debitis ex veritatis labore accusantium. lorem lorem iusto officia alias doloremque! Tenetur placeat
@@ -55,14 +56,14 @@
 
                     <a href="\about"
                         class=" mt-4 font-semibold flex flex-row gap-2 items-center text-left max-w-max lg:mt-6 md:mt-1 md:text-sm bg-[#64c5d3] text-white lg:py-2 lg:px-3 py-1  px-2 md:px-2 md:py-1 rounded-xl hover:transform hover:scale-110">
-                        <span class="lg:text-md  text-sm">Selengkapnya</span>
+                        <span class="lg:text-md tracking-wider  text-sm">Selengkapnya</span>
                         <span class="w-6 h-6" data-feather="chevron-right"></span>
                     </a>
 
                 </div>
             </div>
 
-            <div class=" py-2  lg:px-6 md:p-2 flex justify-center items-center ">
+            <div class=" py-2  lg:px-6 md:p-2 flex justify-center items-center" data-aos="fade-left">
                 <img src="{{ asset('assets/img/page/index/image-AboutUs.png') }}"
                     class=" lg:w-[100%] lg:h-[90%] md:w-[100%] w-[100%] h-[90%]  object-cover" />
             </div>
@@ -70,7 +71,7 @@
 
 
         <div class="lg:py-4 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4 gap-2  md:gap-8 lg:gap-12 ">
-            <div class=" py-2 lg:px-6 md:px-2 flex justify-center items-center ">
+            <div class=" py-2 lg:px-6 md:px-2 flex justify-center items-center" data-aos="fade-right">
                 <img src="{{ asset('assets/img/page/index/image-Publication.png') }}"
                     class=" lg:w-[100%] lg:h-[90%] md:w-[100%] w-[100%] h-[80%] md:h-[100%] object-cover" />
             </div>
@@ -78,10 +79,10 @@
 
 
 
-            <div class=" flex flex-col justify-center md:px-2 lg:px-6">
+            <div class=" flex flex-col justify-center md:px-2 lg:px-6" data-aos="fade-left">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">Publication</h1>
-                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-md ">
+                    <p class="  lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
                         excepturi culpa exercitationem omnis ex deserunt iusto officia alias doloremque! Tenetur placeat
                         debitis ex veritatis labore accusantium. lorem lorem iusto officia alias doloremque! Tenetur placeat
@@ -90,7 +91,7 @@
 
                     <a href="\publication1"
                         class=" mt-4 font-semibold flex flex-row gap-2 items-center text-left max-w-max lg:mt-6 md:mt-1 md:text-sm bg-[#64c5d3] text-white lg:py-2 lg:px-3 py-1  px-2 md:px-2 md:py-1 rounded-xl hover:transform hover:scale-110">
-                        <span class="lg:text-md  text-sm">Selengkapnya</span>
+                        <span class="lg:text-md tracking-wider text-sm">Selengkapnya</span>
                         <span class="w-6 h-6" data-feather="chevron-right"></span>
                     </a>
 
@@ -100,10 +101,10 @@
 
         <div class="lg:py-20 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4  gap-2 md:gap-8 lg:gap-12  ">
 
-            <div class=" flex flex-col justify-center md:px-2 lg:px-6">
+            <div class=" flex flex-col justify-center md:px-2 lg:px-6" data-aos="fade-right">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">Data Software</h1>
-                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-md ">
+                    <p class=" font-semibold lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
                         excepturi culpa exercitationem omnis ex deserunt iusto officia alias doloremque! Tenetur placeat
                         debitis ex veritatis labore accusantium. lorem lorem iusto officia alias doloremque! Tenetur placeat
@@ -112,14 +113,14 @@
 
                     <a href="\datasoftware"
                         class=" mt-4 font-semibold flex flex-row gap-2 items-center text-left max-w-max lg:mt-6 md:mt-1 md:text-sm bg-[#64c5d3] text-white lg:py-2 lg:px-3 py-1  px-2 md:px-2 md:py-1 rounded-xl hover:transform hover:scale-110">
-                        <span class="lg:text-md  text-sm">Selengkapnya</span>
+                        <span class="lg:text-md tracking-wider text-sm">Selengkapnya</span>
                         <span class="w-6 h-6" data-feather="chevron-right"></span>
                     </a>
 
                 </div>
             </div>
 
-            <div class=" py-2 lg:px-6  md:px-2 flex justify-center items-center ">
+            <div class=" py-2 lg:px-6  md:px-2 flex justify-center items-center" data-aos="fade-left">
                 <img src="{{ asset('assets/img/page/index/image-DataSoftware.png') }}"
                     class=" lg:w-[100%] md:w-[100%] w-[100%] h-[80%] md:h-[100%] object-cover" />
             </div>
@@ -131,7 +132,7 @@
 
     {{-- Swiper Lab --}}
     <section class="">
-        <div class=" lg:py-6  md:py-4 items-center justify-center bg-[#E1F2F4]">
+        <div class=" lg:py-6  md:py-4 items-center justify-center bg-[#E1F2F4]" data-aos="fade-up">
             <div class="py-4">
                 <div class="flex flex-col text-center justify-center md:flex-row">
                     <div class="text-center">
@@ -213,7 +214,7 @@
                             style="
                         text-align: center;
                         font-size: 18px;
-                        background: #fff;
+                        
                     ">
                             <img src="{{ asset('assets/img/page/index/image-Lab.png') }}" alt="Slide 2"
                                 style="
@@ -258,14 +259,14 @@
                     Kolom Pertanyaan
                 </h1>
                 <h2 class="leading-relaxed lg:text-md md:text-md text-xs max-w-xs mx-auto">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eum obcaecati debitis adipisci est enim! Animi
+                    Lorem ipsum dol or sit amet, consectetur adipiscing elit. Eum obcaecati debitis adipisci est enim! Animi
                 </h2>
             </div>
 
-            <div class="px-4 lg:py-8 lg:px-48 md:px-24">
+            <div class="px-4 lg:py-8 lg:px-48 md:px-20" style="background-color: transparent;">
                 <!-- Repeat the following block for each FAQ item -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 transition-all ease-in-out fact__container"
-                    onclick="toggleFactDetail(this)">
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"
+                    data-aos="fade-right" onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
                     </div>
@@ -279,7 +280,7 @@
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 transition-all ease-in-out fact__container"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-left"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -294,7 +295,7 @@
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 transition-all ease-in-out fact__container"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-right"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md  lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -309,7 +310,7 @@
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 transition-all ease-in-out fact__container"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-left"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -324,7 +325,7 @@
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 transition-all ease-in-out fact__container"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-right"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -389,6 +390,7 @@
 
 
 
+
     <section
         class="lg:py-8 md:py-4 px-4 bg-[#CEDEE0] flex flex-wrap items-center justify-evenly gap-2 lg:px-16 md:px-8 lg:justify-between">
         <div class="px-8 py-4 lg:px-0 text-center">
@@ -421,5 +423,22 @@
                 Research
             </p>
         </div>
+
+        <!-- Tambahkan ini sebelum tag penutup </body> -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                AOS.init({
+                    duration: 1000, // Durasi animasi dalam milidetik
+                    easing: 'ease-in-out', // Gaya perubahan nilai animasi
+                    once: true, // Animasi hanya dimainkan sekali
+                });
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
     </section>
 @endsection

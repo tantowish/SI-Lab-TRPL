@@ -17,6 +17,7 @@
                     <h1 class="title font-bold lg:text-6xl text-center mx-auto py-4 md:text-4xl text-2xl">
                         Teknologi Rekayasa Perangkat Lunak
                     </h1>
+                    <h2
                         class=" leading-relaxed text-sm lg:text-md md:text-sm text-center py-3 lg:max-w-md max-w-xs flex-wrap mx-auto">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quia harum similique earum ut
                         unde facilis excepturi. Natus molestias reprehenderit modi dolorem dignissimos, neque consectetur

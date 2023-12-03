@@ -37,7 +37,7 @@ class lectureSchedule extends Model
         return $this->belongsTo(Subject::class, 'subject_id', 'subject_id');
     }
 
-    public function attendence()
+    public function attendance()
     {
         return $this->hasMany(Attendance::class, 'schedule_id');
     }

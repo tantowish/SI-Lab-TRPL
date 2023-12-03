@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id("attendance_id");
 
             $table->unsignedBigInteger('assistant_id');
-            $table->foreign('assistant_id')->references('assistant_id')->on('assistant_lecturers');
+            $table->foreign('assistant_id')->references('assistant_id')->on('assistant_lecturers')->onDelete('cascade'); // Add this line to set the delete behavior
 
             $table->unsignedBigInteger('schedule_id');
             $table->foreign('schedule_id')->references('schedule_id')->on('lecture_schedules');
 
-            $table->enum('status', ['hadir', 'tidak hadir']);
+            $table->enum('status', ['hadir', 'tidak hadir'])->default('tidak hadir');
+            $table->boolean('isQR')->default(false);
             $table->timestamps();
         });
     }

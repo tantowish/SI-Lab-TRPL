@@ -19,8 +19,8 @@ class SubjectSeeder extends Seeder
                 "lecturer"=> 2,
             ],
             [
-                "subject_name"=> "Praktikum Pemrograman Komputer",
-                "lecturer"=> 2,
+                "subject_name"=> "Praktikum Pemrograman Komputer B1",
+                "lecturer"=> 2, 
             ],
             [
                 "subject_name"=> "Praktikum Pemrograman Perangkat Bergerak",
@@ -29,6 +29,10 @@ class SubjectSeeder extends Seeder
             [
                 "subject_name"=> "Praktikum Desain Perangkat Lunak",
                 "lecturer"=> 5,
+            ],
+            [
+                "subject_name"=> "Praktikum Pemrograman Komputer A1",
+                "lecturer"=> 2,
             ],
         ];
 

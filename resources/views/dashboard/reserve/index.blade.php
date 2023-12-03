@@ -8,7 +8,7 @@
             <span class="font-medium">Success! </span>{{ session('success') }}
         </div>
         @endif
-        @if ($reserves->total()>7)
+        @if ($reserves->total()>0)
         <div class="relative overflow-x-auto rounded-sm mb-5">
             <table class="w-full text-xs md:text-sm text-left text-gray-500 dark:text-gray-400 border">
                 <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
@@ -60,6 +60,7 @@
                         </td>        
                         @endif
                         <td class="px-6 py-4 border-l border-r">
+                            {{-- {{ dd($reserve->labReserve) }} --}}
                             @if($reserve->labReserve[0]->status == 'waiting')
                             <p class="p-2 bg-yellowpallete text-white rounded w-fit">Waiting</p>
                             @elseif($reserve->labReserve[0]->status == 'accepted')

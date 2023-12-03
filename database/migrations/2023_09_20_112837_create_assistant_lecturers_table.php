@@ -17,7 +17,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
 
-            $table->string('interest');
+            $table->unsignedBigInteger('subject_id');
+            $table->foreign('subject_id')->references('subject_id')->on('subjects');
+
+            $table->string('interest')->nullable();
+            $table->timestamps();
         });
     }
 

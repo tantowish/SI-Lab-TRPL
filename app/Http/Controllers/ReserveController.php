@@ -17,6 +17,7 @@ class ReserveController extends Controller
         $reserves = Reserve::where('user_id', session('data')['user_id'])
         ->orderBy('created_at', 'desc') // Order by created_at in ascending order
         ->paginate(5);
+        // dd($reserves);
         return view("dashboard.reserve.index",[
             'header'=>'Riwayat Peminjaman',
             'reserves'=> $reserves
@@ -53,7 +54,6 @@ class ReserveController extends Controller
     
 
     public function store(Request $request){
-
         $validated = $request->validate([
             'lab'=>'required',
             'start_time'=>'required|date_format:H:i',
@@ -114,6 +114,7 @@ class ReserveController extends Controller
         $labReserve->save();
         return redirect()->route('reserve.index')->with('success','Reservasi berhasil di Reject');
     }
+    
     public function accept($reserveId){
         $reserve = Reserve::findOrFail($reserveId);
 

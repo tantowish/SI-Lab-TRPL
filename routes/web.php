@@ -82,6 +82,9 @@ Route::middleware(['auth'])->group(function () {
         // Asistant Laboran
         Route::get('/dashboard/assistant/create', [AssistantController::class, 'create'])->name('assistant.create');
         Route::post('/dashboard/assistant/', [AssistantController::class, 'store'])->name('assistant.store');
+        Route::get('/dashboard/assistant/{id}/edit', [AssistantController::class, 'edit'])->name('assistant.edit');
+        Route::put('/dashboard/assistant/{id}', [AssistantController::class, 'update'])->name('assistant.update');
+        Route::delete('/dashboard/assistant/{id}/delete', [AssistantController::class, 'destroy'])->name('assistant.destroy');
     });
 
     // Schedule
@@ -109,6 +112,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Assistant
     Route::get('/dashboard/assistant', [AssistantController::class, 'index'])->name('assistant.index');
+    Route::get('/dashboard/assistant/history', [AssistantController::class, 'history'])->name('assistant.history');
+    
 });
 
 Route::get('/about', function () {

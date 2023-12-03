@@ -2,7 +2,12 @@
 
 @section('content')
 @include('dashboard.components.header')
-    <div class="p-8 lg:px-16">
+    <div class="p-8 lg:px-16 max-w-6xl mx-auto">
+        @if (session('success'))
+        <div id="success-message" class="p-4 mb-6 text-sm text-green-900 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-400" role="alert">
+            <span class="font-medium">Success! </span>{{ session('success') }}
+        </div>
+        @endif
         <div class="flex flex-wrap max-w-sm mx-auto my-6">
             <form class="w-full">   
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -22,7 +27,7 @@
             <div class="flex flex-wrap justify-between my-2">
                 <div class="text-sm flex flex-wrap items-center">
                     <svg class="mr-1" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <p class="mr-4">Tidak ada</p>
+                    <p class="mr-4">{{ $latest->diffForHumans() }}</p>
                     <p>Oleh : Admin</p>
                 </div>
                 <div>
@@ -35,25 +40,60 @@
                 </div>
             </div>
             <hr class="border-2 border-[#AAA7A7]">
-            @foreach (range(1, 3) as $index)  
+            @foreach ($assistants as $assistant)  
             <div class="flex flex-wrap my-6">
                 <div class="w-full md:w-1/4 flex flex-wrap justify-center md:justify-none">
-                    <img class="object-cover w-44 h-52" src="{{ asset('storage/img/laboratorium/1.jpg') }}" alt="">
+                    @if ($assistant->user->photo)
+                    <img class="object-cover w-44 h-52" src="{{ asset('storage/'.$assistant->user->photo) }}" alt="">
+                    @else
+                    <div class="flex flex-wrap justify-center items-center h-52 w-44">
+                        <svg class=" text-gray-500" viewBox="0 0 24 24" width="100" height="100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    @endif
                 </div>
+                @if (session('data')->getTable()=='lab_administrators')
+                <div class="w-full md:w-3/4 flex flex-col justify-between">
+                @else
                 <div class="w-full md:w-3/4 my-4 flex flex-col justify-between">
+                @endif
+                    {{-- <hr class="w-full border-2 border-[#AAA7A7]"> --}}
+                    <p>Nama : {{ $assistant->user->name }}</p>
                     <hr class="w-full border-2 border-[#AAA7A7]">
-                    <p>Nama : Tantowi Shah Hanif</p>
+                    <p>username : {{ $assistant->user->username }}</p>
                     <hr class="w-full border-2 border-[#AAA7A7]">
-                    <p>username : tantowishahhanif</p>
+                    <p>Email : {{ $assistant->user->email }}</p>
                     <hr class="w-full border-2 border-[#AAA7A7]">
-                    <p>Email : tantowishahhanif@mail.ugm.ac.id</p>
-                    <hr class="w-full border-2 border-[#AAA7A7]">
-                    <p>Interest : Ilmu Komputer</p>
-                    <hr class="w-full border-2 border-[#AAA7A7]">
+                    <p>Minat : {{ $assistant->interest }}</p>
+                    {{-- <hr class="w-full border-2 border-[#AAA7A7]"> --}}
+                    @if (session('data')->getTable()=='lab_administrators')
+                    <div class="w-full flex flex-wrap gap-2 justify-end">
+                        <a href="{{ route('assistant.edit',$assistant->assistant_id) }}" class="flex flex-wrap items-center text-white px-2 py-1 rounded bg-yellowpallete gap-2">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            <span>Edit</span></a>
+                        <form action="{{ route('assistant.destroy', $assistant->assistant_id) }}" method="POST" id="deleteForm">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="flex flex-wrap items-center text-white px-2 py-1 rounded bg-redpallete gap-2" onclick="confirmDelete(event)">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                <span>Delete</span></button>
+                        </form>
+                    </div>                                   
+                    @endif
                 </div>
             </div>
             <hr class="border-2 border-[#AAA7A7]">
             @endforeach
         </div>
     </div>
+    <script src="{{ asset('assets/js/notif.js') }}"></script>
+    <script>
+        function confirmDelete() {
+            if (confirm('Apakah anda ingin menghapus data asisten?')) {
+                document.getElementById('deleteForm').submit();
+            }
+            else{
+                event.preventDefault(event);
+            }
+        }
+    </script>   
 @endsection

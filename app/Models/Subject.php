@@ -22,5 +22,9 @@ class Subject extends Model
     {
         return $this->hasMany(lectureSchedule::class, 'subject_id');
     }
+    public function assistant()
+    {
+        return $this->hasMany(AssistantLecturer::class, 'subject_id');
+    }
     
 }

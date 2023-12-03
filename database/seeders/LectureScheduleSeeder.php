@@ -13,9 +13,9 @@ class LectureScheduleSeeder extends Seeder
      */
     public function run(): void
     {
-        $tgl = "11-21";
-        $tgl1 = "11-22";
-        $tgl2 = "11-23";
+        $tgl = "11-30";
+        $tgl1 = "12-01";
+        $tgl2 = "12-02";
         $schedules = [
             [
                 "laboratorium_id"=> "HU105",
@@ -66,12 +66,17 @@ class LectureScheduleSeeder extends Seeder
                 "lab_admin_id"=> 1,
                 "subject_id"=>4,
             ],
+            [
+                "laboratorium_id"=> "HU105",
+                "start_time"=>"2023-".$tgl2." 07:15:00",
+                "end_time"=>"2023-".$tgl2." 10:55:00",
+                "lab_admin_id"=> 2,
+                "subject_id"=>5,
+            ],
         ];
 
         foreach( $schedules as $key => $value ) {
             lectureSchedule::create($value);
         }
-
-
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use Carbon\Carbon;
 use App\Models\Subject;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use App\Models\lectureSchedule;
-use Illuminate\Console\Scheduling\Schedule;
 
 class ScheduleController extends Controller
 {
@@ -68,9 +68,14 @@ class ScheduleController extends Controller
             'information'=>'nullable'
         ]);
 
-        if($validated['subject']=="null"){
+        if($validated['lab']=='pick'){
+            return back()->with('error','Laboratorium harus dipilih');
+        }
+
+        if($validated['subject']=="null" or $validated['subject'] === "pick"){
             $validated['subject']=null;
-        }   
+        }  
+    
         
         $store = [
             'laboratorium_id'=>$validated['lab'],
@@ -82,10 +87,20 @@ class ScheduleController extends Controller
 
 
         $store['lab_admin_id']=session('data')['lab_admin_id'];
-
         // dd($date);
-        lectureSchedule::create($store);
+        $schedule = lectureSchedule::create($store);
 
+        if ($validated['subject']) {
+            $subject = Subject::findOrFail($validated['subject']);
+            // dd($subject->assistant);
+        
+            foreach ($subject->assistant as $assistant) {
+                Attendance::create([
+                    'assistant_id' => $assistant->assistant_id,
+                    'schedule_id' => $schedule->schedule_id
+                ]);
+            }
+        }
 
         return redirect()->route('schedule.date.show', $request['date'])->with('success','Berhasil menambahkan jadwal');
         
@@ -135,7 +150,7 @@ class ScheduleController extends Controller
             'information' => 'nullable'
         ]);
         
-        if ($validated['subject'] === "null") {
+        if ($validated['subject'] === "null" or $validated['subject'] === "pick") {
             $validated['subject'] = null;
         }
     
@@ -147,11 +162,34 @@ class ScheduleController extends Controller
             'information' => $validated['information']
         ];
     
+
+
         $date = Carbon::parse(Carbon::createFromFormat('d-m-Y', $validated['date'])->format('Y-m-d'));
         $startDate = $date->toDateString();
         $schedules = LectureSchedule::whereDate('start_time', $startDate)->get();
     
         $existingSchedule = LectureSchedule::findOrFail($id);
+
+        if ($existingSchedule->subject_id != $store['subject_id']) {
+            $attendances = Attendance::where('schedule_id', $existingSchedule->schedule_id)->get();
+        
+            foreach ($attendances as $attendance) {
+                $attendance->delete();
+            }
+        
+            if ($validated['subject']) {
+                $subject = Subject::findOrFail($validated['subject']);
+        
+                foreach ($subject->assistant as $assistant) {
+                    // Create new attendances
+                    Attendance::create([
+                        'assistant_id' => $assistant->assistant_id,
+                        'schedule_id' => $existingSchedule->schedule_id
+                    ]);
+                }
+            }
+        }
+        
     
         // dd($schedules);
         foreach ($schedules as $schedule) {

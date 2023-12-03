@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Attendance extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'assistan_id';
+
+    protected $fillable=[
+        'assistant_id',
+        'schedule_id'
+    ];
+    protected $primaryKey = 'attendance_id';
+
 
     public function schedule()
     {

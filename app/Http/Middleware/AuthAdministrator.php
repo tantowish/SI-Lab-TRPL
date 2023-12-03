@@ -19,7 +19,8 @@ class AuthAdministrator
             return $next($request);
         }
         else{
-            return redirect()->route('dashboard');
+            abort(404);
+
         }
     }
 }

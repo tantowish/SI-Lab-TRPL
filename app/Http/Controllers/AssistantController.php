@@ -12,11 +12,25 @@ use App\Models\AssistantLecturer;
 class AssistantController extends Controller
 {
     public function index(){
-        $assistants = AssistantLecturer::whereIn('assistant_id', function($query) {
+        $assistants = AssistantLecturer::select('assistant_lecturers.*')
+        ->join('users', 'assistant_lecturers.user_id', '=', 'users.user_id')
+        ->whereIn('assistant_lecturers.assistant_id', function($query) {
             $query->selectRaw('MAX(assistant_id) as assistant_id')
                   ->from('assistant_lecturers')
                   ->groupBy('user_id');
-        })->latest('updated_at')->get();
+        })
+        ->where(function ($query) {
+            // Add your custom filtering logic here based on the request parameters
+            if (request()->has('search')) {
+                $query->where('users.name', 'like', '%' . request('search') . '%');
+            }
+        })
+        ->latest('assistant_lecturers.updated_at')
+        ->paginate(7)
+        ->withQueryString();
+    
+    
+    
     
         $latestAssistant = AssistantLecturer::latest()->first();
     

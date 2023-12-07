@@ -29,21 +29,13 @@
     <div class="px-6 md:px-12 ">
         <div class="max-w-6xl mx-auto animate-section1 ">
             <div class="bg-[#64c5d3] w-full my-8 lg:mt-24 lg:px-8 md:py-6 rounded-[50px]">
-                <div class="text-black items-center">
-                    <h1 class="text-center text-2xl lg:text-3xl font-bold py-4 md:py-2 animate-from-left">
+                <div class="text-black items-center p-8">
+                    <h1 class="text-center text-2xl lg:text-3xl font-bold pb-4 md:py-2 animate-from-left">
                         Apa Itu Silaboe?
                     </h1>
 
-                    <p class="text-sm text-center  lg:text-lg md:py-2 md:px-8 p-4 lg:py-4 lg:px-32">
-
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, voluptate? Tenetur maiores laborum
-                        recusandae corporis mollitia dicta dolor similique unde aperiam nobis officiis, rem voluptatum
-                        incidunt perferendis! Accusantium, animi? Quo debitis est illo omnis vitae, minus minima pariatur id
-                        nisi harum, delectus nostrum tempore voluptatum ut eaque. Nisi ipsam totam inventore nemo aliquid
-                        numquam, sint dolor, quidem, magni cupiditate ducimus dolores? Nam neque rerum soluta. Blanditiis
-                        iusto ea consequuntur quasi, corporis odio nesciunt? Ex officiis quod, explicabo dolorum asperiores
-                        illum assumenda at harum provident corrupti totam aspernatur magnam quibusdam tempora tenetur et
-                        dolorem cumque dolores ipsa accusantium? Sapiente, eveniet ullam.
+                    <p class="text-sm text-center lg:text-lg md:py-2 md:px-8 lg:py-4 lg:px-32">
+                        SiLaboe (Sistem Informasi Laboratorium) adalah platform website yang menyediakan informasi terkait laboratorium di Program Studi Teknologi Rekayasa Perangkat Lunak UGM. Dengan fokus pada efisiensi operasional dan kolaborasi yang lebih baik, SiLaboe memungkinkan pengguna untuk mengakses, mengelola, dan berinteraksi dengan informasi laboratorium secara praktis dan efektif, memfasilitasi pengembangan riset, pembelajaran, dan manajemen sumber daya yang lebih baik.
                     </p>
                 </div>
             </div>

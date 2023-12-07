@@ -14,14 +14,11 @@
             <div class="flex flex-col text-center justify-center md:flex-row">
                 <div class="text-center">
                     <h2 class="label text-center mx-auto lg:text-xl font-semibold text-md sm:pb-1">Label goes here</h2>
-                    <h1 class="title font-bold lg:text-6xl text-center mx-auto py-4 md:text-4xl text-2xl">
+                    <h1 class="title font-bold lg:text-5xl text-center mx-auto py-4 md:text-4xl text-2xl">
                         Teknologi Rekayasa Perangkat Lunak
                     </h1>
-                    <h2
-                        class=" leading-relaxed text-sm lg:text-md md:text-sm text-center py-3 lg:max-w-md max-w-xs flex-wrap mx-auto">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quia harum similique earum ut
-                        unde facilis excepturi. Natus molestias reprehenderit modi dolorem dignissimos, neque consectetur
-                        reiciendis provident cumque accusantium aliquid.
+                    <h2 class="leading-relaxed text-sm md:text-md text-center py-3 lg:max-w-md max-w-xs flex-wrap mx-auto">
+                        Program Studi Sarjana Terapan Teknologi Rekayasa Perangkat Lunak hadir sebagai penyempurna Program DIII Komputer dan Sistem Informasi yang mampu melihat arah pengembangan perangkat lunak secara lebih komprehensif.
                     </h2>
                     <ul class="flex space-x-5 items-center justify-center mt-7">
                         <li>
@@ -47,7 +44,7 @@
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl   sm:pb-5">About
                         Us</h1>
-                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
+                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg text-justify">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
                         excepturi culpa exercitationem omnis ex deserunt iusto officia alias doloremque! Tenetur placeat
                         debitis ex veritatis labore accusantium. lorem lorem iusto officia alias doloremque! Tenetur placeat
@@ -114,8 +111,7 @@
             <div class=" flex flex-col justify-center md:px-2 lg:px-6" data-aos="fade-right">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">Data Software</h1>
-                    <p class=" font-semibold lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
-
+                    <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
                         excepturi culpa exercitationem omnis ex deserunt iusto officia alias doloremque! Tenetur placeat
                         debitis ex veritatis labore accusantium. lorem lorem iusto officia alias doloremque! Tenetur placeat
@@ -283,7 +279,7 @@ e
             <div class="px-4 lg:py-8 lg:px-48 md:px-20" style="background-color: transparent;">
                 <!-- Repeat the following block for each FAQ item -->
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"
-                    data-aos="fade-right" onclick="toggleFactDetail(this)">
+                    data-aos="fade-up" onclick="toggleFactDetail(this)">
 
                     <div class="font-bold text-md lg:text-lg mb-2">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -299,7 +295,7 @@ e
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-left"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container" data-aos="fade-up"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -316,7 +312,7 @@ e
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
 
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-right"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-up"
 
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md  lg:text-lg mb-2 ">
@@ -332,7 +328,7 @@ e
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-left"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-up"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?
@@ -347,7 +343,7 @@ e
                     </div>
                     <div class="col-span-2 bg-black w-full h-[2px] mt-2"></div>
                 </div>
-                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-right"
+                <div class=" mt-4 grid grid-cols-1 md:grid-cols-1 gap-2 transition-all ease-in-out fact__container"data-aos="fade-up"
                     onclick="toggleFactDetail(this)">
                     <div class="font-bold text-md lg:text-lg mb-2 ">
                         Bagaimana cara melakukan peminjaman ruang laboratorium?

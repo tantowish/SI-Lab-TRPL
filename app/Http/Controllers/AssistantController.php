@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Subject;
 use App\Models\Attendance;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
+use App\Models\LectureSchedule;
 use App\Models\AssistantLecturer;
+use Illuminate\Console\Scheduling\Schedule;
 
 class AssistantController extends Controller
 {
@@ -161,6 +164,70 @@ class AssistantController extends Controller
             'pertemuanCounts' => $pertemuanCounts,
             'hadirCounts'=>$hadirCounts,
         ]);
+    }
+
+    public function attendance(){
+        $now = Carbon::now();
+        $startDate = $now->toDateString();
+        $schedules = LectureSchedule::whereDate('start_time', $startDate)->paginate(10);
+        return view('dashboard.assistant.attendance',[
+            'header'=>'Presensi tanggal '. $now->isoFormat('D MMMM Y'),
+            'date'=>$now,
+            'schedules'=>$schedules
+        ]);
+    }
+    public function dateShow($date){
+        $now = Carbon::parse($date);
+        $startDate = $now->toDateString();
+    
+        $schedules = LectureSchedule::whereDate('start_time', $startDate)->paginate(10);
+        return view('dashboard.assistant.attendance',[
+            'header'=>'Presensi tanggal '.$now->isoFormat('D MMMM Y'),
+            'date'=>$now,
+            'schedules'=>$schedules
+        ]);
+    }
+
+    public function show($id){
+        $schedule = LectureSchedule::findOrFail($id);
+
+        // Format the start_time using Carbon
+        $formattedStartTime = Carbon::parse($schedule->start_time);
+    
+        $attendances = $schedule->attendance;
+    
+        return view('dashboard.assistant.show', [
+            'header' => 'Presensi ' . $schedule->laboratorium->laboratorium_name . ', ' . $formattedStartTime->isoFormat('D MMMM Y'),
+            'attendances'=>$attendances,
+            'date'=>$formattedStartTime->format('d-m-Y'),
+            'schedule'=>$schedule,
+        ]);
+    }
+
+    public function submit(Request $request, $id){
+        $schedule = LectureSchedule::findOrFail($id);
+        $attendances = $schedule->attendance;
+        $schedule = LectureSchedule::findOrFail($id);
+        $attendances = $schedule->attendance;
+        if ($request->has('checkbox0')) {
+            $attendances[0]->status = 'hadir';
+        } else {
+            $attendances[0]->status = 'tidak hadir';
+        }
+        
+        if ($request->has('checkbox1') && $attendances->count() > 1) {
+            $attendances[1]->status = 'hadir';
+        } elseif ($attendances->count() > 1) {
+            $attendances[1]->status = 'tidak hadir';
+        }
+        
+        // Save changes to the database
+        $attendances[0]->save();
+        if ($attendances->count() > 1) {
+            $attendances[1]->save();
+        }
+
+        return redirect()->route('assistant.show', $schedule->schedule_id)->with('success', 'Berhasil melakukan perubahan');
     }
 
 

@@ -85,6 +85,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/assistant/{id}/edit', [AssistantController::class, 'edit'])->name('assistant.edit');
         Route::put('/dashboard/assistant/{id}', [AssistantController::class, 'update'])->name('assistant.update');
         Route::delete('/dashboard/assistant/{id}/delete', [AssistantController::class, 'destroy'])->name('assistant.destroy');
+
+        // Assistant Attendance
+        Route::get('/dashboard/attendance/', [AssistantController::class, 'attendance'])->name('assistant.attendance');
+        Route::get('/dashboard/attendance/{date}', [AssistantController::class, 'dateShow'])->name('assistant.date.show');
+        Route::get('/dashboard/attendance/{id}/detail', [AssistantController::class, 'show'])->name('assistant.show');
+        Route::post('/dashboard/attendance/{id}/submit', [AssistantController::class, 'submit'])->name('assistant.attendance.submit');
     });
 
     // Schedule

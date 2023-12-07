@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\LectureSchedule;
 use App\Models\AssistantLecturer;
 use Illuminate\Console\Scheduling\Schedule;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AssistantController extends Controller
 {
@@ -228,6 +229,25 @@ class AssistantController extends Controller
         }
 
         return redirect()->route('assistant.show', $schedule->schedule_id)->with('success', 'Berhasil melakukan perubahan');
+    }
+
+    public function QR($id){
+        $schedule = LectureSchedule::findOrFail($id);
+        $formattedStartTime = Carbon::parse($schedule->start_time);
+        $attendances = $schedule->attendance;
+        $qr = QrCode::size(400) 
+            ->generate(
+                route('assistant.presence',$schedule->schedule_id),
+            );
+        return view('dashboard.assistant.scan',[
+            'header' => 'Presensi ' . $schedule->laboratorium->laboratorium_name . ', ' . $formattedStartTime->isoFormat('D MMMM Y'),
+            'qr'=>$qr,
+            'schedule'=>$schedule
+        ]);
+    }
+
+    public function presence(){
+        return "Hellow";
     }
 
 

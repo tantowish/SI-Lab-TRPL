@@ -91,25 +91,27 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/attendance/{date}', [AssistantController::class, 'dateShow'])->name('assistant.date.show');
         Route::get('/dashboard/attendance/{id}/detail', [AssistantController::class, 'show'])->name('assistant.show');
         Route::post('/dashboard/attendance/{id}/submit', [AssistantController::class, 'submit'])->name('assistant.attendance.submit');
+        Route::get('/dashboard/assistant/{id}/QR', [AssistantController::class, 'QR'])->name('assistant.QR');
     });
-
+    
     // Schedule
     Route::get('/dashboard/schedule', [ScheduleController::class, 'index'])->name('schedule.index');
     Route::get('/dashboard/schedule/{date}', [ScheduleController::class, 'dateShow'])->name('schedule.date.show');
     Route::get('/dashboard/schedule/{id}/detail', [ScheduleController::class, 'show'])->name('schedule.show');
     Route::get('/dashboard/schedule', [ScheduleController::class, 'index'])->name('schedule.index');
-
+    
     Route::middleware(['user'])->group(function () {
         // Reservasi User
         Route::get('/dashboard/reserve/history', [ReserveController::class, 'history'])->name('reserve.history');
         Route::get('/dashboard/reserve/create', [ReserveController::class, 'create'])->name('reserve.create');
         Route::get('/dashboard/reserve/create/{reserve}', [ReserveController::class, 'createDate'])->name('reserve.create.date');
         Route::post('/dashboard/reserve/history', [ReserveController::class, 'store'])->name('reserve.store');
-
+        
         // Project User
         Route::get('/dashboard/project/create', [ProjectController::class, 'create'])->name('project.create');
+        Route::get('/dashboard/assistant/{id}/presence', [AssistantController::class, 'presence'])->name('assistant.presence');
     });
-
+    
 
     // Project
     Route::get('/dashboard/project', [ProjectController::class, 'index'])->name('project.index');

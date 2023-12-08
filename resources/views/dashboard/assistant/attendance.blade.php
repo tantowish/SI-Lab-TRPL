@@ -88,7 +88,7 @@
     submitButton.addEventListener("click", function () {
         if(datepicker.value!=""){
             const selectedDate = datepicker.value;
-            const newURL = `http://127.0.0.1:8000/dashboard/attendance/${selectedDate}`;
+            const newURL = `{{ url('/dashboard/attendance') }}/${selectedDate}`;
             window.location.href = newURL;
         }
     });

@@ -145,7 +145,9 @@
     submitButton.addEventListener("click", function () {
         if(datepicker.value!=""){
             const selectedDate = datepicker.value;
-            const newURL = `http://127.0.0.1:8000/dashboard/reserve/create/${selectedDate}`;
+            const newURL = `{{ url('/dashboard/reserve/create') }}/${selectedDate}`;
+
+            // const newURL = `http://127.0.0.1:8000/dashboard/reserve/create/${selectedDate}`;
             window.location.href = newURL;
         }
     });

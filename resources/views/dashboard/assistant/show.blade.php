@@ -8,6 +8,11 @@
             <span class="font-medium">Success! </span>{{ session('success') }}
         </div>
         @endif
+        @if (session('error'))
+        <div class="p-4 mb-6 text-sm text-redpallete rounded-lg bg-red-200" role="alert">
+            <span class="font-medium">Error! </span>{{ session('error') }}
+        </div>
+        @endif
         @if ($attendances->count()>0)
         <form action="{{ route('assistant.attendance.submit',$schedule->schedule_id) }}" method="POST">
             @csrf

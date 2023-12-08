@@ -184,7 +184,8 @@ $tgl7 = \Carbon\Carbon::parse($date)->addDays(3)->format('d-m-Y');
     submitButton.addEventListener("click", function () {
         if(datepicker.value!=""){
             const selectedDate = datepicker.value;
-            const newURL = `http://127.0.0.1:8000/dashboard/schedule/${selectedDate}`;
+            const newURL = `{{ url('/dashboard/schedule') }}/${selectedDate}`;
+            // const newURL = `http://127.0.0.1:8000/dashboard/schedule/${selectedDate}`;
             window.location.href = newURL;
         }
     });

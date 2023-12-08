@@ -132,13 +132,13 @@ Route::get('/about', function () {
 Route::get('/', [LandingpageController::class, 'index']);
 Route::get('/about', [LandingpageController::class, 'about']);
 Route::get('/datasoftware', [LandingpageController::class, 'datasoftware']);
-Route::get('/publication1', [LandingpageController::class, 'publication1']);
-Route::get('/publication2', [LandingpageController::class, 'publication2']);
-Route::get('/publication3', [LandingpageController::class, 'publication3']);
-Route::get('/publication4', [LandingpageController::class, 'publication4']);
+Route::get('/publication/category', [LandingpageController::class, 'category']);
+Route::get('/publication', [LandingpageController::class, 'publication']);
+Route::get('/publications', [LandingpageController::class, 'index']);
+Route::get('/publication/{id}/detail', [LandingpageController::class, 'show']);
 Route::get('/laboratorium1', [LandingpageController::class, 'laboratorium1']);
 Route::get('/laboratorium2', [LandingpageController::class, 'laboratorium2']);
-Route::get('/membership1', [LandingpageController::class, 'membership1']);
+Route::get('/membership', [LandingpageController::class, 'membership']);
 
-Route::get('/membership/{id}/detail', [LandingpageController::class, 'membership2'])->name('membership.detail');
+Route::get('/membership/{id}/detail', [LandingpageController::class, 'show'])->name('membership.detail');
 

@@ -233,21 +233,68 @@ class AssistantController extends Controller
 
     public function QR($id){
         $schedule = LectureSchedule::findOrFail($id);
-        $formattedStartTime = Carbon::parse($schedule->start_time);
-        $attendances = $schedule->attendance;
-        $qr = QrCode::size(400) 
-            ->generate(
-                route('assistant.presence',$schedule->schedule_id),
-            );
-        return view('dashboard.assistant.scan',[
-            'header' => 'Presensi ' . $schedule->laboratorium->laboratorium_name . ', ' . $formattedStartTime->isoFormat('D MMMM Y'),
-            'qr'=>$qr,
-            'schedule'=>$schedule
-        ]);
+        $startDateTime = Carbon::parse($schedule->start_time);
+        $endDateTime = Carbon::parse($schedule->end_time);
+        $nowDateTime = Carbon::now();
+        
+        if ($nowDateTime->between($startDateTime, $endDateTime)) {
+            $formattedStartTime = Carbon::parse($schedule->start_time);
+            $qr = QrCode::size(400) 
+                ->generate(
+                    route('assistant.presence',$schedule->schedule_id),
+                );
+            return view('dashboard.assistant.scan',[
+                'header' => 'Presensi ' . $schedule->laboratorium->laboratorium_name . ', ' . $formattedStartTime->isoFormat('D MMMM Y'),
+                'qr'=>$qr,
+                'schedule'=>$schedule
+            ]);
+        } else {
+            return back()->with('error', 'Presensi QR harus sesuai jadwal');
+        }
     }
 
-    public function presence(){
-        return "Hellow";
+    public function presence($id){
+        $schedule = LectureSchedule::findOrFail($id);
+        $startDateTime = Carbon::parse($schedule->start_time);
+        $endDateTime = Carbon::parse($schedule->end_time);
+        $nowDateTime = Carbon::now();
+        $attendances = $schedule->attendance;
+        $message = "";
+        $formattedStartTime = Carbon::parse($schedule->start_time);
+        
+        
+        if (session('data')->getTable()=='lab_administrators'){
+            abort(404);
+        }
+        else{
+            if ($nowDateTime->between($startDateTime, $endDateTime)) {
+                $user_id = session('data')['user_id'];
+                $assistants = AssistantLecturer::where('user_id', $user_id)->get();
+                
+                foreach ($assistants as $assistant) {
+                    $matchingAttendance = $attendances->where('assistant_id', $assistant->assistant_id)->first();
+                
+                    if ($matchingAttendance) {
+                        $matchingAttendance->status = 'hadir';
+                        $matchingAttendance->isQR = true;
+                        $message = "berhasil";
+                        $matchingAttendance->save();
+                    }
+                }
+            }
+            else{
+                $message = "tidak berhasil";
+            }
+            return view('dashboard.assistant.presence',[
+                'header' => 'Presensi ' . $schedule->laboratorium->laboratorium_name . ', ' . $formattedStartTime->isoFormat('D MMMM Y'),
+                'message'=>$message
+            ]);
+        }  
+    }
+
+    public function historyLaboran(){
+        $laboratorium = Laboratorium::all();
+        return view('dashboard.assistant.historyLaboran');
     }
 
 

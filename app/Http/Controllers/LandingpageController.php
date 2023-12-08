@@ -19,41 +19,41 @@ class LandingpageController extends Controller
     {
         return view('page.datasoftware');
     }
-    public function publication1()
+    public function category()
     {
-        return view('page.publication1');
+        return view('page.publication.category');
     }
-    public function publication2()
+    public function publication()
     {
-        return view('page.publication2');
+        return view('page.publication.publication');
     }
-    public function publication3()
+    public function indexPublication()
     {
-        return view('page.publication3');
+        return view('page.publication.index');
     }
-    public function publication4()
+    public function showPublication()
     {
-        return view('page.publication4');
+        return view('page.publication.show');
     }
-    public function laboratorium1()
+    public function indexLaboratorium()
     {
-        return view('page.laboratorium1');
+        return view('page.laaboratorium.index');
     }
-    public function laboratorium2()
+    public function showLaboratorium()
     {
-        return view('page.laboratorium2');
+        return view('page.laboratorium.show');
     }
-    public function membership1()
+    public function indexMembership()
     {
         $labAdmin = labAdministrator::all();
-        return view('page.membership1', [
+        return view('page.membership.index', [
             'labAdmins' => $labAdmin
         ]);
     }
-    public function membership2($id)
+    public function showMembership($id)
     {
         $labAdmin = labAdministrator::findOrFail($id);
-        return view('page.membership2',[
+        return view('page.membership.show',[
             'labAdmin'=>$labAdmin
         ]);
 

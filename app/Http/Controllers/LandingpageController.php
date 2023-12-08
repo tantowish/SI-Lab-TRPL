@@ -30,14 +30,24 @@ class LandingpageController extends Controller
     {
         return view('page.publication.publication');
     }
-    public function indexProject()
+    public function indexProject(Request $request)
     {
-        $posts = Project::where('status','published')->paginate(10);
+        $query = Project::where('status', 'published');
+
+        // Check if there is a search query
+        $searchQuery = $request['search'];
+        if ($searchQuery) {
+            // Perform search using project_name and project_description
+            $query->where('project_name', 'like', "%$searchQuery%")
+                ->orWhere('description', 'like', "%$searchQuery%");
+        }
+    
+        $posts = $query->paginate(10);
         return view('page.publication.index',[
             'posts'=>$posts
         ]);
     }
-    public function showPrpject($id)
+    public function showProject($id)
     {
         $project = Project::findOrFail($id);
         return view('page.publication.show',[

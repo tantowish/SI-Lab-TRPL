@@ -64,9 +64,7 @@
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
                 </div>
-                <input type="search" id="default-search"
-                    class="block w-full p-3 pl-10 text-sm text-black border border-gray-300 rounded-[500px] bg-gray-50 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-200 dark:border-gray-100 dark:placeholder-gray-400 dark:text-black dark:focus:ring-gray-200 dark:focus:border-gray-500"
-                    placeholder="Search " required />
+                <input type="search" name="search" id="default-search" class="block w-full p-3 pl-10 text-sm text-black border border-gray-300 rounded-[500px] bg-gray-50 focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-200 dark:border-gray-100 dark:placeholder-gray-400 dark:text-black dark:focus:ring-gray-200 dark:focus:border-gray-500" placeholder="Search" required />
                 <button type="submit"
                     class="text-white  right-2.5 bottom-1.5 absolute bg-[#64c5d3] hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-[500px] text-xs px-4 py-2 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Search

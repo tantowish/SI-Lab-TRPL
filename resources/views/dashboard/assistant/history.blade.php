@@ -3,7 +3,7 @@
 @section('content')
 @include('dashboard.components.header')
     <div class="p-8 lg:px-16">
-        @if ($subjects->count>0)
+        @if ($subjects->count()>0)
         <table class="w-full text-xs md:text-sm text-left text-gray-500 dark:text-gray-400 border">
             <thead class="text-xs text-gray-700 bg-main dark:bg-gray-700 dark:text-gray-400">
                 <tr>

@@ -21,6 +21,6 @@ class LabReserve extends Model
         return $this->belongsTo(Reserve::class, "reserve_id", "reserve_id");
     }
     public function labAdministrator(){
-        return $this->belongsTo(labAdministrator::class, "lab_admin_id", "lab_admin_id");
+        return $this->belongsTo(LabAdministrator::class, "lab_admin_id", "lab_admin_id");
     }
 }   

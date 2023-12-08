@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
-use App\Models\lectureSchedule;
-use Illuminate\Http\Request;
+use App\Models\LectureSchedule;
 
 class DashboardController extends Controller
 {

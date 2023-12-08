@@ -20,11 +20,10 @@ class Subject extends Model
 
     public function lectureSchedule()
     {
-        return $this->hasMany(lectureSchedule::class, 'subject_id');
+        return $this->hasMany(LectureSchedule::class, 'subject_id');
     }
     public function assistant()
     {
         return $this->hasMany(AssistantLecturer::class, 'subject_id');
     }
-    
 }

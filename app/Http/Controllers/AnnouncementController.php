@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
-use App\Models\labAdministrator;
+use App\Models\LabAdministrator;
 
 class AnnouncementController extends Controller
 {
@@ -21,7 +21,7 @@ class AnnouncementController extends Controller
 
     public function index(){
         $labAdminId = session('data')['lab_admin_id'];
-        $labAdministrator = labAdministrator::with('announcement')->find($labAdminId);
+        $labAdministrator = LabAdministrator::with('announcement')->find($labAdminId);
         
         $announcements = $labAdministrator->announcement()->latest()->paginate(5); 
         

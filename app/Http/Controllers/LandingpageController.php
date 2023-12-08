@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
-use App\Models\labAdministrator;
-use Database\Seeders\ProjectSeeder;
+use App\Models\LabAdministrator;
 
 class LandingpageController extends Controller
 {
@@ -66,14 +65,14 @@ class LandingpageController extends Controller
     }
     public function indexMembership()
     {
-        $labAdmin = labAdministrator::all();
+        $labAdmin = LabAdministrator::all();
         return view('page.membership.index', [
             'labAdmins' => $labAdmin
         ]);
     }
     public function showMembership($id)
     {
-        $labAdmin = labAdministrator::findOrFail($id);
+        $labAdmin = LabAdministrator::findOrFail($id);
         return view('page.membership.show',[
             'labAdmin'=>$labAdmin
         ]);

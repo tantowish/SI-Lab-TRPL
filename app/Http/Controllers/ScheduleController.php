@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Subject;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
-use App\Models\lectureSchedule;
+use App\Models\LectureSchedule;
 
 class ScheduleController extends Controller
 {
@@ -88,7 +88,7 @@ class ScheduleController extends Controller
 
         $store['lab_admin_id']=session('data')['lab_admin_id'];
         // dd($date);
-        $schedule = lectureSchedule::create($store);
+        $schedule = LectureSchedule::create($store);
 
         if ($validated['subject']) {
             $subject = Subject::findOrFail($validated['subject']);

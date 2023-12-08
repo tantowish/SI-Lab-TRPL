@@ -165,7 +165,7 @@ class ReserveController extends Controller
         $labReserve->lab_admin_id = session('data')['lab_admin_id'];
         $labReserve->save();
 
-        lectureSchedule::create([
+        LectureSchedule::create([
             'laboratorium_id'=>$reserve->laboratorium_id,
             'start_time'=>$reserve->start_time,
             'end_time'=>$reserve->end_time,

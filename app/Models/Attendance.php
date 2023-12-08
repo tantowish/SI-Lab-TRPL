@@ -18,7 +18,7 @@ class Attendance extends Model
 
     public function schedule()
     {
-        return $this->belongsTo(lectureSchedule::class, 'schedule_id', 'schedule_id');
+        return $this->belongsTo(LectureSchedule::class, 'schedule_id', 'schedule_id');
     }
     public function assistantLecturer()
     {

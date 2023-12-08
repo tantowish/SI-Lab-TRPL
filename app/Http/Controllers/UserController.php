@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\labAdministrator;
+use App\Models\LabAdministrator;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
     public function index(){
         if (session('data')->getTable()=='lab_administrators'){
-            $user = labAdministrator::findOrFail(session('data')['lab_admin_id']);
+            $user = LabAdministrator::findOrFail(session('data')['lab_admin_id']);
         }
         else{
             $user = User::findOrFail(session('data')['user_id']);
@@ -23,7 +23,7 @@ class UserController extends Controller
     }
     public function edit($id){
         if (session('data')->getTable()=='lab_administrators'){
-            $user = labAdministrator::findOrFail($id);
+            $user = LabAdministrator::findOrFail($id);
         }  
         else{
             $user = User::findOrFail($id);
@@ -48,8 +48,8 @@ class UserController extends Controller
         }
 
         if (session('data')->getTable() == 'lab_administrators') {
-            labAdministrator::where('lab_admin_id', $id)->update($validatedData);
-            $user = labAdministrator::findOrFail($id); // Retrieve the updated record
+            LabAdministrator::where('lab_admin_id', $id)->update($validatedData);
+            $user = LabAdministrator::findOrFail($id); // Retrieve the updated record
         } else {
             User::where('user_id', $id)->update($validatedData);
             $user = User::findOrFail($id); // Retrieve the updated record

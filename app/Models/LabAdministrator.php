@@ -20,7 +20,7 @@ class labAdministrator extends Authenticatable
 
     public function lectureSchedule()
     {
-        return $this->hasMany(lectureSchedule::class,'lab_admin_id');
+        return $this->hasMany(LectureSchedule::class,'lab_admin_id');
     }
     public function announcement()
     {

@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Subject;
-use App\Models\Attendance;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use App\Models\LectureSchedule;
 use App\Models\AssistantLecturer;
-use Illuminate\Console\Scheduling\Schedule;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AssistantController extends Controller

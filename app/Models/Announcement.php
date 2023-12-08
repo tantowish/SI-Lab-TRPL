@@ -17,6 +17,6 @@ class Announcement extends Model
     ];
     public function LabAdministrator()
     {
-        return $this->belongsTo(labAdministrator::class, 'lab_admin_id', 'lab_admin_id');
+        return $this->belongsTo(LabAdministrator::class, 'lab_admin_id', 'lab_admin_id');
     }
 }

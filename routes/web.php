@@ -23,6 +23,10 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
+Route::get('generate', function (){
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    echo 'ok';
+});
 
 // Auth
 Route::get('/login', [AuthenticationController::class, 'login'])->middleware('guest')->name('login');

@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-adfc563a.css ') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Tambahkan ini ke dalam bagian head HTML Anda -->
@@ -118,6 +119,7 @@
     <img src="{{ asset('assets/img/page/about/penguin.svg') }}" alt=""> --}}
 
     @include('page.components.footer')
+    <script src="{{ asset('build/assets/app-1bdc5748.js') }}"></script>
 </body>
 
 

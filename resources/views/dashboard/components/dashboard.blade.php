@@ -164,7 +164,7 @@
         <hr class="my-3">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="{{ route('profile.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{ route('profile.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->routeIs('profile*') ? 'active' : '' }}">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\profile.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Profile</span>
                 </a>

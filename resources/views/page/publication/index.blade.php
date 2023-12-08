@@ -53,7 +53,6 @@
 
 
     <div class=" p-8  ">
-
         <form class="flex justify-center items-center w-full lg:pt-12">
             <label for="default-search" class=" text-sm font-medium text-black sr-only  dark:text-black ">Search</label>
             <div class="relative w-[90%] lg:w-[60%] mx-auto ">
@@ -74,14 +73,13 @@
     </div>
 
     <!-- Artikel Start -->
-
     <div class="bg-white max-w-6xl  mx-auto p-8 mb-4  lg:mb-16">
         @if ($posts->total()>0)    
         @foreach ($posts as $post)     
         <div class="flex flex-col mb-6 text-justify">
-            <a href="\publication\{{ $post->project_id }}\detail" class="text-xl lg:text-2xl  font-semibold ">{{ $post->project_name }}</a>
+            <a href="\project\{{ $post->project_id }}\detail" class="text-xl lg:text-2xl  font-semibold ">{{ $post->project_name }}</a>
             <p class="text-sm mb-2 mt-1">{{ \Carbon\Carbon::parse($post->start_date)->isoFormat('DD MMMM YYYY') }}</p>
-            <div class="text-sm lg:text-base">{{ Str::limit($post->description, 255, '...') }}<a href="\publication\{{ $post->project_id }}\detail" class="text-blue-500"> selengkapnya</a></div>
+            <div class="text-sm lg:text-base">{{ Str::limit($post->description, 255, '...') }}<a href="\project\{{ $post->project_id }}\detail" class="text-blue-500"> selengkapnya</a></div>
         </div>
         @endforeach
         @if ($posts->total()>10)

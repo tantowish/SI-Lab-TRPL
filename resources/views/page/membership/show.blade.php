@@ -24,8 +24,8 @@
 
 
 
-    <div class=" py-12 md:px-12 lg:px-52 px-8 lg:py-32   w-full">
-        <div class="flex lg:flex-row md:flex-row flex-col  justify-between gap-4">
+    <div class=" py-12 md:px-12 lg:px-52 px-8 lg:py-32  w-full">
+        <div class="flex lg:flex-row md:flex-row flex-col gap-12">
             <img src="{{ asset('assets/img/page/membership1/image 28.png') }}"
                 class="px-6 lg:px-0 lg:w-[340px] lg:h-[370px] bg-cover" alt="Proyek Image">
             <div class="flex flex-col  py-2 lg:pr-12  md:pr-4  justify-center">

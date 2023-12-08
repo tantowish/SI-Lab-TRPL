@@ -68,31 +68,24 @@
 
             <div class="flex flex-col w-full py-4 ">
                 <div class="flex flex-row gap-[100px] md:gap-[108px] lg:gap-[120px]">
-                    <div class="text-sm">Nama</div>
-
-                    <div class="">: {{$labAdmin->name}}</div>
+                    <div class="text-sm">Nama : {{$labAdmin->name}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[108px] md:gap-[115px] lg:gap-[126px]">
-
-                    <div class="">: {{$labAdmin->NIKA}}</div>
+                    <div class="text-sm">Bidang Keahlian : {{$labAdmin->NIKA}}</div>
 
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[24px] md:gap-[30px] lg:gap-[41px]">
-                    <div class="text-sm">Bidang Keahlian</div>
-e
-                    <div class="">: {{$labAdmin->expertise}}</div>
+                    <div class="text-sm">Bidang Keahlian : {{$labAdmin->expertise}}</div>
 
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 
                 <div class="flex flex-row gap-[107px] md:gap-[112px] lg:gap-[124px]">
-                    <div class="text-sm">Email</div>
-
-                    <div class="">: {{$labAdmin->email}}</div>
+                    <div class="text-sm">Email : {{$labAdmin->email}}</div>
                 </div>
                 <div class="bg-black h-[1px] my-2"></div>
 

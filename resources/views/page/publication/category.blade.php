@@ -24,7 +24,7 @@
                     <a
                         href="\">Home</a>
                     <p>/</p>
-                    <a href="\publication1">Publication</a>
+                    <a href="\publication">Publication</a>
                 </div>
 
             </div>
@@ -62,7 +62,7 @@
 
             <label for="s1" id="slide1"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 21.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <a href="\publication2"
+                <a href="\publication"
 
                     class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
@@ -81,7 +81,7 @@
 
             <label for="s2" id="slide2"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 18.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <a href="\publication2"
+                <a href="\publication"
                     class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
                 </a>
@@ -96,7 +96,7 @@
             <label for="s3" id="slide3"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 21.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-                <a href="\publication2"
+                <a href="\publication"
                     class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
                 </a>
@@ -109,7 +109,7 @@
 
             <label for="s4" id="slide4"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 17.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <a href="\publication2"
+                <a href="\publication"
 
                     class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
@@ -124,7 +124,7 @@
             <label for="s5" id="slide5"
                 style="background-image: url('{{ asset('assets/img/page/publication1/image 20.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
-                <a href="\publication2"
+                <a href="\publication"
                     class="text-overlay text-white lg:text-3xl text-sm font-bold  absolute text-center lg:top-[75%] top-[55%] md:top-[73%] transform left-[5%] right-[5%]">
                     Artificial Intelligence
                 </a>

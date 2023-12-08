@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\labAdministrator;
+use App\Models\Project;
+use App\Models\Laboratorium;
 use Illuminate\Http\Request;
+use App\Models\labAdministrator;
+use Database\Seeders\ProjectSeeder;
 
 class LandingpageController extends Controller
 {
@@ -27,17 +30,25 @@ class LandingpageController extends Controller
     {
         return view('page.publication.publication');
     }
-    public function indexPublication()
+    public function indexProject()
     {
-        return view('page.publication.index');
+        $posts = Project::where('status','published')->paginate(10);
+        return view('page.publication.index',[
+            'posts'=>$posts
+        ]);
     }
-    public function showPublication()
+    public function showPrpject($id)
     {
-        return view('page.publication.show');
+        $project = Project::findOrFail($id);
+        return view('page.publication.show',[
+           'project'=>$project
+        ]);
     }
     public function indexLaboratorium()
     {
-        return view('page.laaboratorium.index');
+        return view('page.laboratorium.index',[
+            'laboratorium'=>Laboratorium::all()
+        ]);
     }
     public function showLaboratorium()
     {

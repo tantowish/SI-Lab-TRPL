@@ -59,19 +59,19 @@
     <div class="h-full pb-4 overflow-y-auto bg-white dark:bg-gray-800">
         <ul class="space-y-2  font-medium">
             <li>    
-                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group active">
+                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->routeIs('dashboard*') ? 'active' : '' }} ">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\beranda.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Beranda</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('schedule.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{ route('schedule.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->routeIs('schedule*') ? 'active' : '' }}">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\jadwal.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Jadwal</span>
                 </a>
             </li>
             <li>
-                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-asisten" data-collapse-toggle="dropdown-asisten">
+                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('assistant*') ? 'active' : '' }}" aria-controls="dropdown-asisten" data-collapse-toggle="dropdown-asisten">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\asisten.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 text-left whitespace-nowrap">Asisten</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -86,15 +86,21 @@
                         <li>
                             <a href="{{ route('assistant.attendance') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Presensi</a>
                         </li>
+                        <li>
+                            <a href="#" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Riwayat Presensi</a>
+                        </li>
                         @endif
+                        @if (session('data')->getTable()=='users')
                         <li>
                             <a href="{{ route('assistant.history') }}" class="flex items-center w-full py-2 px-5 text-gray-900 transition duration-75 rounded-l-3xl pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Riwayat Presensi</a>
                         </li>
+                        @endif
+
                 </ul>
             </li>
             @if (session('data')->getTable()=='lab_administrators')
             <li>
-                <a href="{{ route('reserve.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{ route('reserve.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->routeIs('reserve*') ? 'active' : '' }}">
                     <object class="flex-shrink-0 w-5 h-5"data="{{ asset('assets\img\dashboard\layout\peminjaman.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Peminjaman Ruangan</span>
                 </a>
@@ -102,7 +108,7 @@
             @else
             
             <li>
-                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-reservasi" data-collapse-toggle="dropdown-reservasi">
+                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('reserve*') ? 'active' : '' }}" aria-controls="dropdown-reservasi" data-collapse-toggle="dropdown-reservasi">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\peminjaman.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 text-left whitespace-nowrap">Peminjaman Ruangan</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -120,7 +126,7 @@
             </li>
             @endif
             <li>
-                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-proyek" data-collapse-toggle="dropdown-proyek">
+                <button type="button" class="flex items-center w-full py-2 px-5 text-base text-gray-900 transition duration-75 rounded-l-3xl group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('project*') ? 'active' : '' }} {{ request()->routeIs('announcement*') ? 'active' : '' }}" aria-controls="dropdown-proyek" data-collapse-toggle="dropdown-proyek">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\proyek.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 text-left whitespace-nowrap">Proyek</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -148,7 +154,7 @@
             </li>
             @if (session('data')->getTable()=='lab_administrators')
             <li>    
-                <a href="{{ route('inventory.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <a href="{{ route('inventory.index') }}" class="flex items-center py-2 px-5 text-gray-900 rounded-l-3xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ request()->routeIs('inventory*') ? 'active' : '' }}">
                     <object class="flex-shrink-0 w-5 h-5" data="{{ asset('assets\img\dashboard\layout\inventaris.svg') }}" type="image/svg+xml"></object>
                     <span class="flex-1 ml-3 whitespace-nowrap">Inventaris</span>
                 </a>

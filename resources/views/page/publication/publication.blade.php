@@ -59,8 +59,8 @@
                 <div class="flex flex-wrap justify-center md:gap-4 gap-12 lg:gap-12  ">
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl ">
-                        <div
-                            class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12   md:py-8">
+                        <a
+                            class="cursor-pointer w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12   md:py-8">
 
                             <div class="bg-[#EFD892] w-[160px] h-[160px] rounded-[100px] flex justify-center">
                                 <div class="items-center justify-center flex p-4 h-8px w-8px">
@@ -69,16 +69,16 @@
                                 </div>
                             </div>
                             <div class="p-4 ease-in flex flex-col items-center">
-                                <a href="\publication3" class="font-bold text-2xl text-center">
+                                <div class="font-bold text-2xl text-center">
                                     Pengabdian
-                                </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl card-item" data-aos="fade-up">
-                        <div
+                        <a href="\projects"
                             class="w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16   py-12  md:py-8">
 
                             <div class="bg-[#E46F5B] w-[160px] h-[160px] rounded-[100px] flex justify-center">
@@ -87,17 +87,17 @@
                                 </div>
                             </div>
                             <div class="p-4 ease-in flex flex-col items-center">
-                                <a href="\publication3" class="font-bold text-2xl text-center">
+                                <div class="font-bold text-2xl text-center">
                                     Proyek
-                                </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl card-item" data-aos="fade-up">
-                        <div
-                            class=" rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12  md:py-8">
+                        <a
+                            class="cursor-pointer rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12  md:py-8">
 
                             <div class="bg-[#B5D2F1] w-[160px] h-[160px] rounded-[100px] flex justify-center">
                                 <div class="items-center justify-center flex p-4 h-8px w-8px">
@@ -106,11 +106,11 @@
                                 </div>
                             </div>
                             <div class="p-4 ease-in flex flex-col items-center">
-                                <a href="\publication3" class="font-bold text-2xl text-center">
+                                <div class="font-bold text-2xl text-center">
                                     Penelitian
-                                </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>

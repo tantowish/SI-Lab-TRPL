@@ -10,7 +10,7 @@
         style="background-image: url('{{ asset('assets/img/page/publication3/bgpublication3.png') }}')">
         <div class="text-center text-white">
 
-            <h1 class=" font-bold text-3xl lg:text-5xl tracking-wider">Publication</h1>
+            <h1 class=" font-bold text-3xl lg:text-5xl tracking-wider">Projects</h1>
 
             <div class="flex justify-center items-center pt-2">
                 <svg class="h-4 w-4 mr-2 sm:h-5 sm:w-6 lg:h-6 lg:w-6" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -25,7 +25,7 @@
                     <a
                         href="\">Home</a>
                         <p>/</p>
-                        <a href="\publication2">Publication</a>
+                        <a href="\publication2">Projects</a>
                 </div>
 
             </div>
@@ -77,38 +77,26 @@
 
     <!-- Artikel Start -->
 
-    <div class="bg-white lg:px-32 lg:mx-12 mx-8 mb-4  lg:mb-16 md:px-4">
-
+    <div class="bg-white max-w-6xl  mx-auto p-8 mb-4  lg:mb-16">
+        @if ($posts->total()>0)    
+        @foreach ($posts as $post)     
         <div class="flex flex-col mb-6 text-justify">
-            <div class="text-xl  font-semibold ">Lorem ipsum dolor sit amet.</div>
-            <a href="\publication4" class="text-xs text-blue-600 font-semibold py-2 ">Lorem ipsum dolor sit
-                amet.</a>
-            <div class="text-sm">...itaque dignissimos veniam facere ad error numquam minima illo iure perferendis
-                doloremque, commodi architecto soluta vel placeat expedita autem exercitationem recusandae sunt mollitia sit
-                incidunt eligendi? Voluptate necessitatibus inventore impedit iure. Veniam, praesentium ipsum. Aut,
-                explicabo? Accusamus sunt minus modi error perspiciatis cum velit vitae eius sint voluptatibus! Obcaecati
-                incidunt nobis doloremque soluta architecto...</div>
+            <a href="\publication\{{ $post->project_id }}\detail" class="text-xl lg:text-2xl  font-semibold ">{{ $post->project_name }}</a>
+            <p class="text-sm mb-2 mt-1">{{ \Carbon\Carbon::parse($post->start_date)->isoFormat('DD MMMM YYYY') }}</p>
+            <div class="text-sm lg:text-base">{{ Str::limit($post->description, 255, '...') }}<a href="\publication\{{ $post->project_id }}\detail" class="text-blue-500"> selengkapnya</a></div>
         </div>
-
-        <div class="flex flex-col mb-6 text-justify">
-            <div class="text-xl  font-semibold ">Lorem ipsum dolor sit amet.</div>
-            <a href="\publication4" class="text-xs text-blue-600 font-semibold py-2 ">Lorem ipsum dolor sit
-                amet.</a>
-            <div class="text-sm">...itaque dignissimos veniam facere ad error numquam minima illo iure perferendis
-                doloremque, commodi architecto soluta vel placeat expedita autem exercitationem recusandae sunt mollitia sit
-                incidunt eligendi? Voluptate necessitatibus inventore impedit iure. Veniam, praesentium ipsum. Aut,
-                explicabo? Accusamus sunt minus modi error perspiciatis cum velit vitae eius sint voluptatibus! Obcaecati
-                incidunt nobis doloremque soluta architecto...</div>
-        </div>
-        <div class="flex flex-col mb-6 text-justify">
-            <div class="text-xl  font-semibold ">Lorem ipsum dolor sit amet.</div>
-            <a href="\publication4" class="text-xs text-blue-600 font-semibold py-2 ">Lorem ipsum dolor sit
-                amet.</a>
-            <div class="text-sm">...itaque dignissimos veniam facere ad error numquam minima illo iure perferendis
-                doloremque, commodi architecto soluta vel placeat expedita autem exercitationem recusandae sunt mollitia sit
-                incidunt eligendi? Voluptate necessitatibus inventore impedit iure. Veniam, praesentium ipsum. Aut,
-                explicabo? Accusamus sunt minus modi error perspiciatis cum velit vitae eius sint voluptatibus! Obcaecati
-                incidunt nobis doloremque soluta architecto...</div>
-        </div>
+        @endforeach
+        @if ($posts->total()>10)
+        <script>
+            let currentPage = {{ $posts->currentPage() }}
+            const maxPage = {{ $posts->lastPage() }};
+            const total_value = {{ $posts->total() }};
+            const showing_value = {{ ($posts->currentPage() - 1) * $posts->perPage() + 1 }}
+            const to_value = {{ $posts->currentPage() === $posts->lastPage() ? $posts->total() : $posts->perPage()*$posts->currentPage() }};
+            // console.log(maxPage)
+        </script>
+        @include('dashboard.components.paginate')
+        @endif    
+        @endif
     </div>
 @endsection

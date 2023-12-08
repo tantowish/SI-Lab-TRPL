@@ -134,10 +134,10 @@ Route::get('/about', [LandingpageController::class, 'about']);
 Route::get('/datasoftware', [LandingpageController::class, 'datasoftware']);
 Route::get('/publication/category', [LandingpageController::class, 'category']);
 Route::get('/publication', [LandingpageController::class, 'publication']);
-Route::get('/publications', [LandingpageController::class, 'index']);
-Route::get('/publication/{id}/detail', [LandingpageController::class, 'show']);
-Route::get('/laboratorium1', [LandingpageController::class, 'laboratorium1']);
-Route::get('/laboratorium2', [LandingpageController::class, 'laboratorium2']);
+Route::get('/projects', [LandingpageController::class, 'indexProject']);
+Route::get('/project/{id}/detail', [LandingpageController::class, 'showProject']);
+Route::get('/laboratorium', [LandingpageController::class, 'indexLaboratorium']);
+Route::get('/laboratorium/detail', [LandingpageController::class, 'showLaboratorium']);
 Route::get('/membership', [LandingpageController::class, 'membership']);
 
 Route::get('/membership/{id}/detail', [LandingpageController::class, 'show'])->name('membership.detail');

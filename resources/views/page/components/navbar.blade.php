@@ -96,8 +96,7 @@
                         class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-200 dark:divide-black">
                         <ul class="py-2 text-gray-700 dark:text-black" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="\publication1"
-<
+                                <a href="\publication"
                                     class="block font-semibold px-4 py-2 text-sm hover:text-[#64c5d3] dark:hover:bg-[#64c5d3] dark:hover:text-white">Publication
                                 </a>
                             </li>
@@ -107,12 +106,12 @@
                                     Software</a>
                             </li>
                             <li>
-                                <a href="\laboratorium1"
+                                <a href="\laboratorium"
                                     class="block font-semibold px-4 py-2 text-sm hover:text-[#64c5d3] dark:hover:bg-[#64c5d3] dark:hover:text-white">Laboratorium
                                 </a>
                             </li>
                             <li>
-                                <a href="\membership1"
+                                <a href="\membership"
                                     class="block font-semibold px-4 py-2 text-sm hover:text-[#64c5d3] dark:hover:bg-[#64c5d3] dark:hover:text-white">Membership
                                 </a>
                             </li>

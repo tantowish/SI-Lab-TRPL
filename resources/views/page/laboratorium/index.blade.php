@@ -362,224 +362,24 @@
         <div class="bg-gray-50 lg:mx-24  py-12 md:px-16 px-12">
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-auto py-2 mb-8">
                 <!-- Item 1 -->
+                @foreach ($laboratorium as $laboratorium)
                 <div
                     class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
                     <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
+                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('storage/img/laboratorium/'. $laboratorium->photo) }}" />
                     <div class="p-2 lg:px-10    flex flex-col items-center">
                         <p
                             class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
+                            {{ $laboratorium->laboratorium_name }}
                         </p>
-                        <a href="/laboratorium2"
+                        <a href="/laboratorium/detail"
                             class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
                             <span>Selengkapnya</span>
                             <span class="w-6 h-6" data-feather="chevron-right"></span>
                         </a>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-auto py-2 mb-8">
-                <!-- Item 1 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-auto py-2 mb-8">
-                <!-- Item 1 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center ">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div
-                    class="hover:bg-[#64C5D3] hover:bg-opacity-40 flex flex-col animate-section1 bg-white rounded-xl shadow-2xl items-center card-item "data-aos="fade-up">
-                    <img
-                        class="h-[45%] w-full mt-0 mb-4 rounded-t-xl "src="{{ asset('assets/img/page/laboratorium1/gambarcontent.png') }}" />
-                    <div class="p-2 lg:px-10    flex flex-col items-center">
-                        <p
-                            class="mb-6 mx-6 tracking-wider lg:mx-2 md:mx-8 mt-2 font-semibold text-xl lg:text-xl text-center">
-                            Laboratorium Pengembangan Perangkat Lunak
-                        </p>
-                        <a href="/laboratorium2"
-                            class="hover:bg-[#509ea9] tracking-wider hover:scale-105 mb-4 text-white rounded-lg bg-[#64CDC7] text-md lg:text-md md:text-md  px-6 md:px-6 lg:px-4 mx-auto w-[80%] lg:w-[90%] md:w-[80%]  font-semibold py-[3%]  flex items-center justify-between">
-                            <span>Selengkapnya</span>
-                            <span class="w-6 h-6" data-feather="chevron-right"></span>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

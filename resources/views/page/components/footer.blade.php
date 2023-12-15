@@ -21,7 +21,7 @@
                 <p class="my-2 md:mx-4"><a href="">Membership</a></p>
             </div> --}}
             <div class="flex">
-                <a href="https://www.instagram.com/nauvaltri_/?r=nametagis  ">
+                <a href="https://www.instagram.com/set.svugm/" target="_blank">
                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                         height="100" viewBox="0 0 24 24">
                         <path
@@ -29,7 +29,7 @@
                         </path>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/nauvaltri_/?r=nametagis">
+                <a href="https://www.youtube.com/channel/UCke6E3IPSQAb4pao9v-u8qQ" target="_blank">
                     <svg class="ml-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
                         height="100" viewBox="0 0 24 24">
                         <path

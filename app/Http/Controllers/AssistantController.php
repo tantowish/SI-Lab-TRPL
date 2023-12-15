@@ -14,6 +14,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class AssistantController extends Controller
 {
     public function index(){
+        $search = null;
         $assistants = AssistantLecturer::select('assistant_lecturers.*')
         ->join('users', 'assistant_lecturers.user_id', '=', 'users.user_id')
         ->whereIn('assistant_lecturers.assistant_id', function($query) {
@@ -30,8 +31,9 @@ class AssistantController extends Controller
         ->latest('assistant_lecturers.updated_at')
         ->paginate(7)
         ->withQueryString();
-    
-    
+        if(request()->has('search')){
+            $search = request('search');
+        }
     
     
         $latestAssistant = AssistantLecturer::latest()->first();
@@ -39,7 +41,8 @@ class AssistantController extends Controller
         return view('dashboard.assistant.index',[
             'header' => 'Data Asisten',
             'assistants' => $assistants,
-            'latest' => $latestAssistant->updated_at
+            'latest' => $latestAssistant->updated_at,
+            'search'=>$search
         ]);
     }
 

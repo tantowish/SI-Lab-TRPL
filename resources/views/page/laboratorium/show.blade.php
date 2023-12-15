@@ -7,7 +7,7 @@
         style="background-image: url('{{ asset('assets/img/page/laboratorium1/headerbg.png') }}')">
         <div class="text-center text-white">
 
-            <h1 class="text-3xl font-bold lg:text-4xl tracking-wider">Laboratorium</h1>
+            <h1 class="text-3xl font-bold lg:text-4xl tracking-wider">{{ $laboratorium->laboratorium_name }}</h1>
 
 
             <div class="flex justify-center items-center">
@@ -19,7 +19,7 @@
                     </path>
                 </svg>
 
-                <h1 class="text-base lg:text-md tracking-wider">Home / Laboratorium</h1>
+                <h1 class="text-base lg:text-md tracking-wider"><a href="/">Home</a> / <a href="#">Laboratorium</a></h1>
 
             </div>
         </div>

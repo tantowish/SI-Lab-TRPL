@@ -1,13 +1,14 @@
 <nav class="bg-white dark:bg-gray-100 sticky w-full z-50 top-0 left-0 border-b ">
     <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2 lg:p-4">
-        <a href="#" class="flex items-center">
+        <a href="\" class="flex items-center">
             <img src="{{ asset('assets/img/page/index/Silaboe-Logo.png') }}"class="h-11 mr-3" alt="Silaboe Logo" />
         </a>
         <div class="flex md:order-2">
             @if (session('data'))
             <div class="flex items-center">
                 <div class="flex items-center ml-3">
-                    <div>
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <p>Hello, <span class="text-main font-semibold">{{ session('data')['username'] }}</span> </p>
                         <button type="button" class="flex text-sm bg-white border rounded-full mr-5 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
                             @if (session('data')['photo'])
@@ -66,9 +67,9 @@
                 class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-100 md:dark:bg-gray-100">
                 <li>
                     <a href="/" id="home-link"
-                        class="font-semibold text-md block py-2 pl-3 pr-4 text-black rounded hover:bg-[#64c5d3] dark:hover:text-black
+                        class="font-semibold text-md block py-2 pl-3 pr-4 rounded hover:bg-[#64c5d3] dark:hover:text-black
                     md:hover:bg-transparent md:border-0 md:p-0 dark:text-[#64c5d3] md:dark:hover:text-[#64c5d3] dark:hover:bg-[#64c5d3] 
-                     md:hover:text-[#64c5d3] md:dark:hover:bg-transparent">
+                     md:hover:text-[#64c5d3] md:dark:hover:bg-transparent {{ request()->routeIs('/*') ? 'text-main' : '' }}">
                         Home
                     </a>
                 </li>
@@ -77,19 +78,20 @@
                         class="font-semibold text-md block py-2 pl-3 pr-4 text-black
                 rounded hover:bg-[#64c5d3]  md:hover:bg-transparent md:border-0 md:p-0 dark:hover:text-black hover:text-black
                 md:dark:hover:text-[#64c5d3]  dark:hover:bg-[#64c5d3] 
-                md:hover:text-[#64c5d3]   md:dark:hover:bg-transparent">
+                md:hover:text-[#64c5d3] md:dark:hover:bg-transparent">
                         About Us
                     </a>
                 </li>
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="text-md flex items-center justify-between w-full py-2 pl-3 pr-4 text-black rounded hover:bg-[#64c5d3] md:hover:bg-transparent md:border-0 md:hover:text-[#64c5d3] md:p-0 md:w-auto dark:text-black md:dark:hover:text-[#64c5d3] dark:focus:text-black dark:border-gray-700 dark:hover:bg-[#64c5d3] md:dark:hover:bg-transparent">
+                        class="text-md flex items-center justify-between w-full py-2 pl-3 pr-4 rounded hover:bg-[#64c5d3] md:hover:bg-transparent md:border-0 md:hover:text-[#64c5d3] md:p-0 md:w-auto md:dark:hover:text-[#64c5d3]  dark:border-gray-700 dark:hover:bg-[#64c5d3] md:dark:hover:bg-transparent">
                         Information
                         <svg class="w-2.5 h-2.5 ml-2.5 mt-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m1 1 4 4 4-4" />
                         </svg>
+                        {{-- {{ dd(request()->path()) }} --}}
                     </button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbar"

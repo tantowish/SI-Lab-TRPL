@@ -141,7 +141,7 @@ Route::get('/publication', [LandingpageController::class, 'publication']);
 Route::get('/projects', [LandingpageController::class, 'indexProject']);
 Route::get('/project/{id}/detail', [LandingpageController::class, 'showProject']);
 Route::get('/laboratorium', [LandingpageController::class, 'indexLaboratorium']);
-Route::get('/laboratorium/detail', [LandingpageController::class, 'showLaboratorium']);
+Route::get('/laboratorium/{id}/detail', [LandingpageController::class, 'showLaboratorium']);
 Route::get('/membership', [LandingpageController::class, 'indexMembership']);
 
 Route::get('/membership/{id}/detail', [LandingpageController::class, 'showMembership'])->name('membership.detail');

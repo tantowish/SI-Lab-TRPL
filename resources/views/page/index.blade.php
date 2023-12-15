@@ -38,11 +38,11 @@
 
     {{-- Start About Us --}}
     <div class=" lg:px-36 md:px-12 px-12 ">
-        <div class="lg:py-20 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4 gap-2 md:gap-8 lg:gap-12 ">
+        <div class="lg:py-20 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 pt-4 gap-2 md:gap-8 lg:gap-12 ">
 
-            <div class=" flex flex-col justify-center md:px-2 lg:py-4 lg:px-6" data-aos="fade-right">
+            <div class=" flex flex-col justify-center md:px-2 lg:py-4 lg:px-6 order-2 md:order-1" data-aos="fade-right">
                 <div>
-                    <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl   sm:pb-5">About
+                    <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">About
                         Us</h1>
                     <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg text-justify">
                         lorem Lorem ipsum dolor sit amet consectetur Adipisicing elit. Aut saepe tempore ipsum, provident,
@@ -62,7 +62,7 @@
             </div>
 
 
-            <div class=" py-2  lg:px-6 md:p-2 flex justify-center items-center" data-aos="fade-left">
+            <div class=" py-2 lg:px-6 md:p-2 flex justify-center items-center order-1 md:order-2" data-aos="fade-left">
 
                 <img src="{{ asset('assets/img/page/index/image-AboutUs.png') }}"
                     class=" lg:w-[100%] lg:h-[90%] md:w-[100%] w-[100%] h-[90%]  object-cover" />
@@ -70,7 +70,7 @@
         </div>
 
 
-        <div class="lg:py-4 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4 gap-2  md:gap-8 lg:gap-12 ">
+        <div class="lg:py-4 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4 gap-2  md:gap-8 lg:gap-12 order-1 md:order-2">
 
             <div class=" py-2 lg:px-6 md:px-2 flex justify-center items-center" data-aos="fade-right">
 
@@ -82,7 +82,7 @@
 
 
 
-            <div class=" flex flex-col justify-center md:px-2 lg:px-6" data-aos="fade-left">
+            <div class=" flex flex-col justify-center md:px-2 lg:px-6 order-2 md:order-1" data-aos="fade-left">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">Publication</h1>
                     <p class="  lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
@@ -108,7 +108,7 @@
         <div class="lg:py-20 md:py-12 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1  py-4  gap-2 md:gap-8 lg:gap-12  ">
 
 
-            <div class=" flex flex-col justify-center md:px-2 lg:px-6" data-aos="fade-right">
+            <div class=" flex flex-col justify-center md:px-2 lg:px-6 order-2 md:order-1" data-aos="fade-right">
                 <div>
                     <h1 class="lg:text-5xl text-2xl font-bold lg:py-3 md:py-2 md:text-3xl  sm:pb-5">Data Software</h1>
                     <p class=" lg:py-2  text-sm mt-2 md:pb-4 md:text-sm lg:text-lg ">
@@ -130,7 +130,7 @@
             </div>
 
 
-            <div class=" py-2 lg:px-6  md:px-2 flex justify-center items-center" data-aos="fade-left">
+            <div class=" py-2 lg:px-6  md:px-2 flex justify-center items-center order-1 md:order-2" data-aos="fade-left">
 
                 <img src="{{ asset('assets/img/page/index/image-DataSoftware.png') }}"
                     class=" lg:w-[100%] md:w-[100%] w-[100%] h-[80%] md:h-[100%] object-cover" />
@@ -166,23 +166,24 @@
                 ">
                     <div class="swiper-wrapper">
                         {{-- <a href="\laboratorium1"> --}}
-                        <div class="swiper-slide relative h-[150%] aspect-ratio[4/1]"
+                        @foreach ($laboratorium as $laboratorium)
+                        <div class="swiper-slide relative"
                             style="
                                 text-align: center;
                                 font-size: 18px;
                                 background: #fff;
                             ">
-                            <img src="{{ asset('assets/img/page/index/image-Lab.png') }}" alt="Slide 1"
+                            <img src="{{ asset('storage/img/laboratorium/'. $laboratorium->photo) }}" alt="{{ $laboratorium->laboratorium_id }}"
                                 style="
                                     object-fit: cover;
                                     width: 100%;
                                     height: 100%;
                                 " />
 
-                            <a href="\laboratorium1">
+                            <a href="/laboratorium/{{ $laboratorium->laboratorium_id }}/detail">
                                 <div
                                     class="absolute bottom-4 left-[20px] right-[20px] lg:left-[30%] lg:right-[30%] lg:bottom-20 md:left-[20%] md:right-[20%] md:bottom-10">
-                                    <p class="bottom-30 text-white lg:text-2xl md:text-lg font-bold text-sm">Laboratorium 1
+                                    <p class="bottom-30 text-white lg:text-2xl md:text-lg font-bold text-sm">{{ $laboratorium->laboratorium_name }}
                                     </p>
                                     <p class="text-white text-xs md:text-xs lg:text-sm">Lorem ipsum dolor sit amet
                                         consectetur
@@ -191,10 +192,11 @@
                                 </div>
                             </a>
                         </div>
+                        @endforeach
                         {{-- </a> --}}
 
 
-                        <div class="swiper-slide relative"
+                        {{-- <div class="swiper-slide relative"
                             style="
                             text-align: center;
                             font-size: 18px;
@@ -246,7 +248,7 @@
                                     </p>
                                 </div>
                             </a>
-                        </div>
+                        </div> --}}
 
                         <!-- Anda dapat menambahkan lebih banyak elemen swiper-slide dengan gambar yang sesuai -->
                     </div>
@@ -403,42 +405,35 @@ e
         });
     </script>
 
-
-
-
-
-
-
-
     <section
-        class="lg:py-8 md:py-4 px-4 bg-[#CEDEE0] flex flex-wrap items-center justify-evenly gap-2 lg:px-16 md:px-8 lg:justify-between">
+        class="lg:py-8 md:py-4 px-4 bg-[#CEDEE0] flex flex-wrap items-center justify-evenly gap-2 lg:px-32 md:px-16 lg:justify-between">
         <div class="px-8 py-4 lg:px-0 text-center">
-            <h1 class="text-slate-600 font-bold mb-2 lg:text-5xl md:text-4xl text-2xl">24+</h1>
+            <h1 class="text-slate-600 font-bold mb-2 lg:text-5xl md:text-4xl text-2xl">{{ $labCount }}</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl">
                 Laboratorium
             </p>
         </div>
         <div class="px-8 py-4 lg:px-0 text-center">
-            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl sm:text-xl">24+</h1>
+            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl sm:text-xl">{{ $mahasiswaCount }}</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl md:text-sm">
                 Mahasiswa
             </p>
         </div>
         <div class="px-8 py-4 lg:px-0 text-center">
-            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">24+</h1>
+            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">{{ $laboranCount }}</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl md:text-sm">
                 Laboran
             </p>
         </div>
         <div class="px-8 py-4 lg:px-0 text-center">
-            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">24+</h1>
+            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">{{ $dosenCount }}</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl md:text-sm">
                 Dosen
             </p>
 
         </div>
         <div class="px-8 py-4 lg:px-0 text-center">
-            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">24+</h1>
+            <h1 class="text-slate-600 font-bold text-2xl mb-2 lg:text-5xl md:text-4xl">{{ $projectCount }}</h1>
             <p class="text-slate-600 font-semibold text-sm lg:text-xl md:text-sm">
                 Research
             </p>

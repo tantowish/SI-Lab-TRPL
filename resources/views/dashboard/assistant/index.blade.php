@@ -17,7 +17,8 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="search" name="search" id="default-search" class="block w-full px-4 py-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-main focus:border-main dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main dark:focus:border-main" placeholder="Cari disini..." required>
+                    <input type="search" name="search" id="default-search" class="block w-full px-4 py-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-main focus:border-main dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-main dark:focus:border-main" placeholder="Cari disini..." required
+                    value="@if($search){{$search}}@endif">
                     <button type="submit" class="text-white absolute end-2.5 bottom-1.5 bg-main hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-sm px-4 py-1.5">Search</button>
                 </div>
             </form>
@@ -40,6 +41,7 @@
                 </div>
             </div>
             <hr class="border-2 border-[#AAA7A7]">
+            @if ($assistants->total()>0)    
             @foreach ($assistants as $assistant)  
             <div class="flex flex-wrap my-6">
                 <div class="w-full md:w-1/4 flex flex-wrap justify-center md:justify-none">
@@ -83,6 +85,11 @@
             </div>
             <hr class="border-2 border-[#AAA7A7]">
             @endforeach
+            @else
+            <div class="mt-6 mb-6 p-4 text-sm bg-[#E5F1F3] border-l-8 border-main">
+                <p>Asistent Tidak Ada</p>
+            </div>
+            @endif
         </div>
     </div>
     <script src="{{ asset('assets/js/notif.js') }}"></script>

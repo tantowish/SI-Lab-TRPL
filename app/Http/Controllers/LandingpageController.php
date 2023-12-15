@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Project;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
@@ -11,7 +12,15 @@ class LandingpageController extends Controller
 {
     public function index()
     {
-        return view('page.index');
+        $laboratorium = Laboratorium::all();
+        return view('page.index',[
+            'laboratorium'=>$laboratorium,
+            'labCount'=>$laboratorium->count(),
+            'projectCount' => Project::where('status', 'published')->count(),
+            'laboranCount' => LabAdministrator::count(),
+            'mahasiswaCount' => User::where('role', 'mahasiswa')->count(),
+            'dosenCount' => User::where('role', 'dosen')->count(),
+        ]);
     }
     public function about()
     {
@@ -32,7 +41,7 @@ class LandingpageController extends Controller
     public function indexProject(Request $request)
     {
         $query = Project::where('status', 'published');
-    
+        $search = null;
         // Check if there is a search query
         $searchQuery = $request['search'];
         if ($searchQuery) {
@@ -41,11 +50,13 @@ class LandingpageController extends Controller
                 $innerQuery->where('project_name', 'like', "%$searchQuery%")
                     ->orWhere('description', 'like', "%$searchQuery%");
             });
+            $search = $searchQuery;
         }
     
         $posts = $query->paginate(10);
         return view('page.publication.index', [
-            'posts' => $posts
+            'posts' => $posts,
+            'search'=>$search
         ]);
     }
     
@@ -63,9 +74,12 @@ class LandingpageController extends Controller
             'laboratorium'=>Laboratorium::all()
         ]);
     }
-    public function showLaboratorium()
+    public function showLaboratorium($id)
     {
-        return view('page.laboratorium.show');
+        $laboratorium = Laboratorium::findOrFail($id);
+        return view('page.laboratorium.show',[
+            'laboratorium'=>$laboratorium
+        ]);
     }
     public function indexMembership()
     {

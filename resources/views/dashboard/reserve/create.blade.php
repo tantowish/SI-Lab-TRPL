@@ -127,10 +127,10 @@
                 <input name="file" id="dropzone-file" type="file" class="hidden" onchange="handleFileChange()" required/>
             </label>
         </div>
-        @endif
         <button type="submit" class="w-fit border bg-main text-white px-3 py-1.5 text-center flex flex-wrap items-center gap-2" >
             Submit
         </button>
+        @endif
     </form>
 
     

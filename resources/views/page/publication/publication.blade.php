@@ -59,7 +59,7 @@
                 <div class="flex flex-wrap justify-center md:gap-4 gap-12 lg:gap-12  ">
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl ">
-                        <a
+                        <a href="\pengabdian"
                             class="cursor-pointer w-full rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12   md:py-8">
 
                             <div class="bg-[#EFD892] w-[160px] h-[160px] rounded-[100px] flex justify-center">
@@ -96,7 +96,7 @@
 
 
                     <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 max-w-3xl card-item" data-aos="fade-up">
-                        <a
+                        <a href="\penelitian"
                             class="cursor-pointer rounded-lg overflow-hidden justify-center flex flex-col items-center shadow-2xl card lg:py-16 py-12  md:py-8">
 
                             <div class="bg-[#B5D2F1] w-[160px] h-[160px] rounded-[100px] flex justify-center">

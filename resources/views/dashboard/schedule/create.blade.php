@@ -112,6 +112,4 @@
         }
     }
 </script>
-
-
 @endsection

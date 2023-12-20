@@ -173,12 +173,20 @@
                                 font-size: 18px;
                                 background: #fff;
                             ">
-                            <img src="{{ asset('storage/img/laboratorium/'. $laboratorium->photo) }}" alt="{{ $laboratorium->laboratorium_id }}"
+                            <div class="w-full h-screen relative bg-slate-900">
+
+                                <div class="absolute inset-0 opacity-80" style="background: url('{{ asset('storage/img/laboratorium/'. $laboratorium->photo) }}'); background-size: cover; background-blend-mode: multiply;"></div>
+
+                                <!-- Your content goes here -->
+                            </div>
+
+
+                            {{-- <img src="{{ asset('storage/img/laboratorium/'. $laboratorium->photo) }}" alt="{{ $laboratorium->laboratorium_id }}"
                                 style="
                                     object-fit: cover;
                                     width: 100%;
                                     height: 100%;
-                                " />
+                                " /> --}}
 
                             <a href="/laboratorium/{{ $laboratorium->laboratorium_id }}/detail">
                                 <div

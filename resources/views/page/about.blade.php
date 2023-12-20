@@ -17,7 +17,7 @@
                         fill="white">
                     </path>
                 </svg>
-                <h1 class="text-base text-white lg:text-lg tracking-wider">Home / About us</h1>
+                <h1 class="text-base text-white lg:text-lg tracking-wider"><a href="/">Home</a> / About us</h1>
             </div>
         </div>
     </div>

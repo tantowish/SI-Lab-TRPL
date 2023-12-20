@@ -55,7 +55,7 @@
                     <h1 class="text-sm">Tamara Sadis</h1>
                 </div>   --}}
             </div>
-            <div class="bg-black w-full h-[1px] mt-4"></div>
+            <div class="bg-black w-full h-[1px]"></div>
             <div class="flex flex-row gap-4 py-3">
                 <h1 class="font-semibold text-sm">Tanggal Mulai :</h1>
                 <h1 class="font-semibold text-sm">{{ \Carbon\Carbon::parse($project->start_date)->isoFormat('DD MMMM YYYY') }}</h1>
